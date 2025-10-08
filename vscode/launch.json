@@ -1,0 +1,47 @@
+// Directly run the exe
+{
+    "version":"0.2.0",
+    "configurations": [
+        {
+            "name":"C Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program":"${workspaceRoot}/bin/raycast.exe",
+            "args":[],
+            "cwd":"${workspaceFolder}",
+            "console":"integratedTerminal"
+        }
+    ]
+}
+
+//Rust 
+{
+      "name": "rust launch",
+      "type": "lldb",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cargo": {
+        "args": ["build", "--manifest-path", "${fileDirname}/../Cargo.toml"]
+      }
+}
+
+//Zig
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "zig run",
+      "request": "launch",
+      "type": "lldb"
+      "args": [],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "internalConsoleOptions": "neverOpen",
+      "preLaunchTask": "Build (Debug)",
+      "program": "zig-out/bin/YOUR EXE NAME",
+      
+     }
+  }

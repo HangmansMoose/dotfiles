@@ -1,0 +1,47 @@
+// Using a build.bat (usually C/CPP)
+{
+    "version":"2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type":"process",
+            "command": ".\\handmade\\code\\build.bat",
+            "group": {
+                "kind":"build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+
+// Rust Cargo
+{
+    "version":"2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type":"process",
+            "command": "cargo build",
+            "group": {
+                "kind":"build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+
+// Zig
+
+{
+    "version":"2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type":"process",
+            "command": "zig build",
+            "group": {
+                "kind":"build",
+                "isDefault": true
+            }
+        }
+    ]
