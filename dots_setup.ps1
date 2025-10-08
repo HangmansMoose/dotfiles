@@ -9,6 +9,8 @@ $symlinks = @{
     "$HOME\AppData\Local\nvim"                                                                      = ".\nvim"
     "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" = ".\windowsterminal\settings.json"
     "$HOME\.gitconfig"                                                                              = ".\.gitconfig"
+    "$HOME\AppData\Roaming\Code\User\settings.json"                                                 = ".\vscode\settings.json"
+    "$HOME\.config\wezterm"                                                                         = ".\wezterm"
     "$ENV:PROGRAMFILES\WezTerm\wezterm_modules"                                                     = ".\wezterm\"
 }
 
@@ -92,6 +94,8 @@ if (Test-Path "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Pro
 
 $currentGitEmail = (git config --global user.email)
 $currentGitName = (git config --global user.name)
+
+mkdir "$HOME\.config"
 
 # Create Symbolic Links
 Write-Host "Creating Symbolic Links..."
