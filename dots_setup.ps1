@@ -25,6 +25,7 @@ $wingetDeps = @(
     "mbuilov.sed"
     "microsoft.powershell"
     "Microsoft.VisualStudioCode"
+    "Notepad++.Notepad++"
     "neovim.neovim"
     "starship.starship"
     "task.task"
