@@ -1,0 +1,15 @@
+[core]
+    editor = nvim
+[alias]
+    co = checkout
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[fetch]
+    prune = true
+[user]
+	email = trivial86@protonmail.com
+	name = HangmansMoose
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
