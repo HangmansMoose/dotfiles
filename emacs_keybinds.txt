@@ -4,6 +4,7 @@ EMACS KEYBINDINGS
 C-x C-e		Evaluate Expression
 C-h f		Describe Function
 C-k 		Delete line from cursor to end
+C-j			(In scratch buffer) Evaluate and insert output from eval in the next line
 
 ------------- Caseys Custom Bindings ----------------------
 META key is ESC
