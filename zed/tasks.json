@@ -1,0 +1,21 @@
+[
+  {
+     "label": "Build",
+     "shell": "system",
+     "command": "./proj build",
+     "use_new_terminal": false,
+     "allow_concurrent_runs": false
+  },
+  {
+    "label": "External_Debug",
+    "command": "./proj debug",
+    "shell": "system",
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Run",
+    "shell": "system",
+    "command": "./proj run",
+    "allow_concurrent_runs": false
+  }
+]
