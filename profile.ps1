@@ -311,10 +311,4 @@ Set-PSReadLineOption -PredictionViewStyle InlineView
 Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key Alt+l
 Import-Module -Name CompletionPredictor
 
-# Skip fastfetch for non-interactive shells
-if ([Environment]::GetCommandLineArgs().Contains("-NonInteractive")) {
-    return
-}
-fastfetch
-
 . C:\tools\vcvars.ps1

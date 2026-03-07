@@ -195,6 +195,10 @@
       "alt-p": [
         "task::Spawn",
         { "task_name": "file_finder", "reveal_target": "center" }
+      ],
+      "ctrl-shift-b": [
+        "task::Spawn",
+        { "task_name": "Build" }
       ]
     }
   },
@@ -258,15 +262,15 @@
 //        "alt-b": "workspace::ToggleLeftDock"
 //      }
 //  },
-//  // Build with build.bat
-//  {
-//    "context": "Workspace",
-//    "bindings": {
-//      "alt-m": ["task::Spawn",
-//        { "task_name": "Build" }
-//      ]
-//    }
-//  },
+  // Build with build.bat
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-m": ["task::Spawn",
+        { "task_name": "Build" }
+      ]
+    }
+  },
 //
 //  // Launch External Debugger
 //  {

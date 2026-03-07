@@ -4,15 +4,15 @@
         {
 	        "label": "MSBuild: x64 Debug",
 	        "type": "shell",
-	        "command": "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/current/Bin/MSBuild.exe",
+	        "command": "MSBuild.exe",
 	        "args": [
 	        	"${workspaceFolder}/<solution_name>.sln",
 	        	"/p:Configuration=Debug",
-	        	"/p:platform=x64",
+	        	"/p:platform=x64"
 	        ],
 	        "group": {
 	        	"kind": "build",
-	        	"isDefault": true // instaead of the release version
+	        	"isDefault": true 
 	        },
 	        "presentation": {
 	        	"reveal": "always",
@@ -20,9 +20,12 @@
                 "focus": false,
                 "panel": "shared" 
 	        },
-	        "problemMatcher": "$msCompile", // matches output to MSBuild so that errors/warnings are mapped to correct files in the problems tab
+            // matches output to MSBuild so that errors/warnings are mapped to correct files in the problems tab
+	        "problemMatcher": [
+                "$msCompile"
+             ] 
 	        
-        }
+        },
         {
 	        "label": "MSBuild: x64 Release",
 	        "type": "shell",
@@ -42,7 +45,7 @@
                 "focus": false,
                 "panel": "shared" 
 	        },
-	        "problemMatcher": "$msCompile", // matches output to MSBuild so that errors/warnings are mapped to correct files in the problems tab
+	        "problemMatcher": "$msCompile" 
 	        
         }
     ]

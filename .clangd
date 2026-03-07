@@ -1,0 +1,10 @@
+CompileFlags:
+  Add:
+    - -std=c++23
+    - -IG:/dev/Gfx_layer/Includes
+    - -IG:/dev/Gfx_layer/Resources
+    - -IG:/dev/Gfx_layer/src
+Diagnostics:
+  UnusedIncludes: None
+  Suppress:
+    - linker
