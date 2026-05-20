@@ -1,0 +1,194 @@
+[editor.colors]
+default_font_color = 0xf1faeeFF  -- Oshen text (main fg)
+whitespace = 0x3d557029          -- overlay0 ~16% alpha
+carriage_return = 0xe05c6eff     -- Oshen red
+search_result = 0x2a3f58cc       -- surface2 ~80% alpha
+selection_color = 0x1d3567ff     -- Oshen navy
+token_match = 0x1e2d42ff         -- surface1
+line_numbers = 0x526d82ff        -- Oshen overlay1
+cursor = 0xffb703ff              -- Oshen amber (primary cursor)
+tray = 0x457b9dff                -- Oshen steel
+need_save = 0xe05c6eff           -- Oshen red
+background = 0x0e1117ff          -- Oshen base
+warning = 0xe8944aff             -- Oshen peach
+error = 0xe05c6eff               -- Oshen red
+auto_line_ending = 0x457b9dff    -- Oshen steel
+vim_cursor_color = 0xe8944aff    -- Oshen peach (secondary cursor)
+async_highlight = 0x457b9d47     -- steel ~28% alpha
+selected_editor = 0x1d356799     -- navy ~60% alpha
+line_guides = 0x3d557030         -- overlay0 ~19% alpha
+active_line_guide = 0x457b9dff   -- Oshen steel
+highlight_line_copy = 0x131c2bff -- Oshen surface0
+highlight_line_edit = 0x131c2bff -- Oshen surface0
+
+[editor.state]
+show_line_numbers = true
+auto_syntax_highlighting = true
+auto_line_endings = true
+render_whitespace = false
+tabs_as_spaces = true
+spellcheck_by_default = false
+disable_line_highlight = false
+html_copy_background = true
+noisy_parse = false
+vim_mode = true
+suppress_async_search = false
+suppress_threaded_search = false
+noisy_search = false
+suppress_suggestions = false
+modulate_color_glyphs = false
+noisy_events = false
+noisy_flattened_events = false
+embold_vim_cursor = true
+embold_cursor = false
+line_guides = true
+noisy_find_all = false
+font_size_px = 32
+tray_font_size = 32
+tabstop = 4
+
+[[editor.highlights]]
+color = 0xabdadcff      -- Oshen teal (functions → macros/directives also teal-ish)
+tags = ['keyword.directive',
+'keyword.directive.define',
+'keyword.directive.include',
+'macro.function',
+'macro.define',
+'macro.definition']
+
+[[editor.highlights]]
+color = 0xffb703ff      -- Oshen amber (keywords)
+tags = ['keyword.alloc',
+'keyword.return',
+'keyword.repeat',
+'keyword.conditional',
+'keyword.conditional.ternary',
+'keyword.exception',
+'keyword.coroutine',
+'keyword.coroutine.return']
+
+[[editor.highlights]]
+color = 0xffb703ff      -- Oshen amber (keywords)
+tags = ['keyword',
+'keyword.operator',
+'keyword.storage',
+'boolean',
+'function.builtin',
+'type.builtin',
+'type.qualifier',
+'tag']
+
+[[editor.highlights]]
+color = 0xffb703ff      -- Oshen amber (builtin variables)
+tags = ['variable.builtin']
+
+[[editor.highlights]]
+color = 0xabdadcff      -- Oshen teal (functions)
+tags = ['function']
+
+[[editor.highlights]]
+color = 0xabdadcff      -- Oshen teal (function calls)
+tags = ['function.call']
+
+[[editor.highlights]]
+color = 0xabdadcff      -- Oshen teal (methods)
+tags = ['function.method',
+'function.method.call']
+
+[[editor.highlights]]
+color = 0xc3a0d8ff      -- Oshen lavender (types, properties)
+tags = ['type',
+'property']
+
+[[editor.highlights]]
+color = 0x7ab8d4ff      -- Oshen sky (attributes)
+tags = ['attribute']
+
+[[editor.highlights]]
+color = 0xa8c97fff      -- Oshen green (constants, numbers)
+tags = ['constant',
+'constant.builtin',
+'number']
+
+[[editor.highlights]]
+color = 0xa8c97fff      -- Oshen green (strings)
+tags = ['string',
+'string.escape',
+'character']
+
+[[editor.highlights]]
+color = 0x526d82ff      -- Oshen overlay1 (comments)
+tags = ['comment']
+
+[[editor.highlights]]
+color = 0x6a8599ff      -- Oshen overlay2 (operators)
+tags = ['operator']
+
+[[editor.highlights]]
+color = 0xc3a0d8ff      -- Oshen lavender (scope names)
+tags = ['scope.name']
+
+[[editor.highlights]]
+color = 0xe05c6eff      -- Oshen red (embedded)
+tags = ['embedded']
+
+[diff.colors]
+del = 0xe05c6eff        -- Oshen red
+ins = 0xa8c97fff        -- Oshen green
+eq = 0xf1faeeFF         -- Oshen text
+trimmed_text = 0xffb703ff -- Oshen amber
+graph_link = 0x457b9dff   -- Oshen steel
+selected_node_color = 0x1d3567cc -- navy ~80%
+last_save_node_color = 0xa8c97fff -- Oshen green
+external_change_node_color = 0xc3a0d8ff -- Oshen lavender
+
+[diff.state]
+diff_font_size = 32
+
+[file_explorer.colors]
+default_font_color = 0xf1faeeFF  -- Oshen text
+relative_dir_font_color = 0x526d82ff -- overlay1
+actively_rooted = 0xa8c97fff    -- Oshen green
+background = 0x090c12ff         -- Oshen mantle
+selection_color = 0x1d356799    -- navy ~60%
+match_color = 0x2a3f58cc        -- surface2 ~80%
+directory_color = 0x457b9dff    -- Oshen steel
+unknown_color = 0xe05c6eff      -- Oshen red
+B_color = 0xf1faeeFF            -- text
+KB_color = 0xa8c97fff           -- green
+MB_color = 0xc3a0d8ff           -- lavender
+GB_color = 0xabdadcff           -- teal
+TB_color = 0xffb703ff           -- amber
+PB_color = 0xe05c6eff           -- red
+EB_color = 0xf1faeeFF           -- text
+
+[file_explorer.state]
+font_size = 32
+noisy_dir_root = false
+rooted_filters = ""
+
+[feed.colors]
+info = 0xf1faeeFF       -- text
+warning = 0xe8944aff    -- peach
+error = 0xe05c6eff      -- red
+
+[feed.state]
+feed_font_size = 32
+
+[widget.colors]
+window_border = 0x457b9d99        -- steel ~60%
+window_title_background = 0x1e2d4299 -- surface1 ~60%
+window_title_font_color = 0xf1faeeFF -- text
+window_close_button_hover = 0xe05c6eff  -- red
+window_close_button_pressed = 0x8c2030ff -- dark red
+scrollbar_inactive = 0x1d356799   -- navy ~60%
+scrollbar_active = 0x457b9dff     -- steel
+scrollbar_track_outline = 0x457b9d66 -- steel ~40%
+custom_hotkey_fill = 0xabdadcff   -- teal
+drag_drop_zone = 0x457b9dff       -- steel
+outline_selection = 0xc3a0d8ff    -- lavender
+warning = 0xe8944aff              -- peach
+error = 0xe05c6eff                -- red
+active_button = 0xa8c97fff        -- green
+loading_bar_progress = 0xabdadcff -- teal
+loading_bar_complete = 0xa8c97fff -- green

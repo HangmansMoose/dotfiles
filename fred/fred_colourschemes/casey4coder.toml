@@ -1,0 +1,194 @@
+[editor.colors]
+default_font_color = 0xa08563ff
+whitespace = 0xe3e4e229
+carriage_return = 0xff0000ff
+search_result = 0x315268cc
+selection_color = 0x315268ff
+token_match = 0x2f2f37ff
+line_numbers = 0x404040ff
+cursor = 0x00ee00ff
+tray = 0xcb9401ff
+need_save = 0xff0000ff
+background = 0x0c0c0cff
+warning = 0xe3811cff
+error = 0xff0000ff
+auto_line_ending = 0xcb9401ff
+vim_cursor_color = 0xee7700ff
+async_highlight = 0x9ba29047
+selected_editor = 0x2d3640aa
+line_guides = 0x9ba29030
+active_line_guide = 0xb09573ff
+highlight_line_copy = 0x1f1f27ff
+highlight_line_edit = 0x1f1f27ff
+
+[editor.state]
+show_line_numbers = true
+auto_syntax_highlighting = true
+auto_line_endings = true
+render_whitespace = false
+tabs_as_spaces = true
+spellcheck_by_default = false
+disable_line_highlight = false
+html_copy_background = true
+noisy_parse = false
+vim_mode = true
+suppress_async_search = false
+suppress_threaded_search = false
+noisy_search = false
+suppress_suggestions = false
+modulate_color_glyphs = false
+noisy_events = false
+noisy_flattened_events = false
+embold_vim_cursor = true
+embold_cursor = false
+line_guides = true
+noisy_find_all = false
+font_size_px = 32
+tray_font_size = 32
+tabstop = 4
+
+[[editor.highlights]]
+color = 0x478980ff
+tags = ['keyword.directive',
+'keyword.directive.define',
+'keyword.directive.include',
+'macro.function',
+'macro.define',
+'macro.definition']
+
+[[editor.highlights]]
+color = 0xac7b0bff
+tags = ['keyword.alloc',
+'keyword.return',
+'keyword.repeat',
+'keyword.conditional',
+'keyword.conditional.ternary',
+'keyword.exception',
+'keyword.coroutine',
+'keyword.coroutine.return']
+
+[[editor.highlights]]
+color = 0xac7b0bff
+tags = ['keyword',
+'keyword.operator',
+'keyword.storage',
+'boolean',
+'function.builtin',
+'type.builtin',
+'type.qualifier',
+'tag']
+
+[[editor.highlights]]
+color = 0xac7b0bff
+tags = ['variable.builtin']
+
+[[editor.highlights]]
+color = 0xcc5735ff
+tags = ['function']
+
+[[editor.highlights]]
+color = 0xcc5735ff
+tags = ['function.call']
+
+[[editor.highlights]]
+color = 0xcc5735ff
+tags = ['function.method',
+'function.method.call']
+
+[[editor.highlights]]
+color = 0xd8a51dff
+tags = ['type',
+'property']
+
+[[editor.highlights]]
+color = 0xb09573ff
+tags = ['attribute']
+
+[[editor.highlights]]
+color = 0x6b8e23ff
+tags = ['constant',
+'constant.builtin',
+'number']
+
+[[editor.highlights]]
+color = 0x6b8e23ff
+tags = ['string',
+'string.escape',
+'character']
+
+[[editor.highlights]]
+color = 0x686868ff
+tags = ['comment']
+
+[[editor.highlights]]
+color = 0x907553ff
+tags = ['operator']
+
+[[editor.highlights]]
+color = 0xd8a51dff
+tags = ['scope.name']
+
+[[editor.highlights]]
+color = 0xff0000ff
+tags = ['embedded']
+
+[diff.colors]
+del = 0x3a0000ff
+ins = 0xffbb00ff
+eq = 0xa08563ff
+trimmed_text = 0xac7b0bff
+graph_link = 0x478980ff
+selected_node_color = 0x315268cc
+last_save_node_color = 0xffbb00ff
+external_change_node_color = 0xd8a51dff
+
+[diff.state]
+diff_font_size = 32
+
+[file_explorer.colors]
+default_font_color = 0xa08563ff
+relative_dir_font_color = 0x686868ff
+actively_rooted = 0x6b8e23ff
+background = 0x0c0c0cff
+selection_color = 0x2d3640aa
+match_color = 0x315268cc
+directory_color = 0x478980ff
+unknown_color = 0xff0000ff
+B_color = 0xa08563ff
+KB_color = 0x6b8e23ff
+MB_color = 0xd8a51dff
+GB_color = 0xcc5735ff
+TB_color = 0xac7b0bff
+PB_color = 0xff0000ff
+EB_color = 0xa08563ff
+
+[file_explorer.state]
+font_size = 32
+noisy_dir_root = false
+rooted_filters = ""
+
+[feed.colors]
+info = 0xa08563ff
+warning = 0xe3811cff
+error = 0xff0000ff
+
+[feed.state]
+feed_font_size = 32
+
+[widget.colors]
+window_border = 0x2d3640aa
+window_title_background = 0x2d3640aa
+window_title_font_color = 0xa08563ff
+window_close_button_hover = 0xff0000ff
+window_close_button_pressed = 0x3a0000ff
+scrollbar_inactive = 0x2d3640aa
+scrollbar_active = 0xb09573ff
+scrollbar_track_outline = 0x2d3640aa
+custom_hotkey_fill = 0x00ee00ff
+drag_drop_zone = 0xb09573ff
+outline_selection = 0xd8a51dff
+warning = 0xe3811cff
+error = 0xff0000ff
+active_button = 0x6b8e23ff
+loading_bar_progress = 0x00ee00ff
+loading_bar_complete = 0xcc5735ff

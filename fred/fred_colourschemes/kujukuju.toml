@@ -1,0 +1,194 @@
+[editor.colors]
+default_font_color = 0xCBCEBCff  -- kujukuju fg
+whitespace = 0x21333f29          -- border ~16% alpha
+carriage_return = 0xFF0000ff     -- err
+search_result = 0x8E772Ecc       -- search ~80% alpha
+selection_color = 0x1A3C49ff     -- sel_act
+token_match = 0x1C2748ff         -- cursorline
+line_numbers = 0xE0AD82ff        -- gutter
+cursor = 0x26B2B2ff              -- cursor_col
+tray = 0x599999ff                -- accent
+need_save = 0xFF0000ff           -- err
+background = 0x141824ff          -- bg
+warning = 0xE4D97Dff             -- warn
+error = 0xFF0000ff               -- err
+auto_line_ending = 0x599999ff    -- accent
+vim_cursor_color = 0xFF6A27ff    -- value (orange, secondary cursor)
+async_highlight = 0x59999947     -- accent ~28% alpha
+selected_editor = 0x21333f99     -- border ~60% alpha
+line_guides = 0x21333f30         -- border ~19% alpha
+active_line_guide = 0x599999ff   -- accent
+highlight_line_copy = 0x1C2748ff -- cursorline
+highlight_line_edit = 0x1C2748ff -- cursorline
+
+[editor.state]
+show_line_numbers = true
+auto_syntax_highlighting = true
+auto_line_endings = true
+render_whitespace = false
+tabs_as_spaces = true
+spellcheck_by_default = false
+disable_line_highlight = false
+html_copy_background = true
+noisy_parse = false
+vim_mode = true
+suppress_async_search = false
+suppress_threaded_search = false
+noisy_search = false
+suppress_suggestions = false
+modulate_color_glyphs = false
+noisy_events = false
+noisy_flattened_events = false
+embold_vim_cursor = true
+embold_cursor = false
+line_guides = true
+noisy_find_all = false
+font_size_px = 32
+tray_font_size = 32
+tabstop = 4
+
+[[editor.highlights]]
+color = 0xFFA759ff      -- kujukuju directive (macros/directives)
+tags = ['keyword.directive',
+'keyword.directive.define',
+'keyword.directive.include',
+'macro.function',
+'macro.define',
+'macro.definition']
+
+[[editor.highlights]]
+color = 0xF07178ff      -- kujukuju keyword
+tags = ['keyword.alloc',
+'keyword.return',
+'keyword.repeat',
+'keyword.conditional',
+'keyword.conditional.ternary',
+'keyword.exception',
+'keyword.coroutine',
+'keyword.coroutine.return']
+
+[[editor.highlights]]
+color = 0xF07178ff      -- kujukuju keyword
+tags = ['keyword',
+'keyword.operator',
+'keyword.storage',
+'boolean',
+'function.builtin',
+'type.builtin',
+'type.qualifier',
+'tag']
+
+[[editor.highlights]]
+color = 0x9DD2BBff      -- kujukuju builtin_v
+tags = ['variable.builtin']
+
+[[editor.highlights]]
+color = 0xFFCC66ff      -- kujukuju func
+tags = ['function']
+
+[[editor.highlights]]
+color = 0xFFCC66ff      -- kujukuju func
+tags = ['function.call']
+
+[[editor.highlights]]
+color = 0xFFCC66ff      -- kujukuju func
+tags = ['function.method',
+'function.method.call']
+
+[[editor.highlights]]
+color = 0xFFA759ff      -- kujukuju typ (types, properties)
+tags = ['type',
+'property']
+
+[[editor.highlights]]
+color = 0xFFA759ff      -- kujukuju attrib
+tags = ['attribute']
+
+[[editor.highlights]]
+color = 0x9DD2BBff      -- kujukuju number
+tags = ['constant',
+'constant.builtin',
+'number']
+
+[[editor.highlights]]
+color = 0xBAE67Eff      -- kujukuju string
+tags = ['string',
+'string.escape',
+'character']
+
+[[editor.highlights]]
+color = 0x87919Dff      -- kujukuju comment
+tags = ['comment']
+
+[[editor.highlights]]
+color = 0xF07178ff      -- kujukuju op
+tags = ['operator']
+
+[[editor.highlights]]
+color = 0xFFA759ff      -- kujukuju typ (scope names)
+tags = ['scope.name']
+
+[[editor.highlights]]
+color = 0xFF0000ff      -- err (embedded)
+tags = ['embedded']
+
+[diff.colors]
+del = 0xFF0000ff        -- err
+ins = 0x33B333ff        -- ok
+eq = 0xCBCEBCff         -- fg
+trimmed_text = 0xFFA759ff -- typ
+graph_link = 0x599999ff   -- accent
+selected_node_color = 0x1A3C49cc -- sel_act ~80%
+last_save_node_color = 0x33B333ff -- ok
+external_change_node_color = 0xFFA759ff -- typ
+
+[diff.state]
+diff_font_size = 32
+
+[file_explorer.colors]
+default_font_color = 0xCBCEBCff  -- fg
+relative_dir_font_color = 0x87919Dff -- comment
+actively_rooted = 0x33B333ff    -- ok
+background = 0x080B14ff         -- bg_panel
+selection_color = 0x21333f99    -- border ~60%
+match_color = 0x8E772Ecc        -- search ~80%
+directory_color = 0x599999ff    -- accent
+unknown_color = 0xFF0000ff      -- err
+B_color = 0xCBCEBCff            -- fg
+KB_color = 0x33B333ff           -- ok
+MB_color = 0xFFA759ff           -- typ
+GB_color = 0xFFCC66ff           -- func
+TB_color = 0xF07178ff           -- keyword
+PB_color = 0xFF0000ff           -- err
+EB_color = 0xCBCEBCff           -- fg
+
+[file_explorer.state]
+font_size = 32
+noisy_dir_root = false
+rooted_filters = ""
+
+[feed.colors]
+info = 0xCBCEBCff       -- fg
+warning = 0xE4D97Dff    -- warn
+error = 0xFF0000ff      -- err
+
+[feed.state]
+feed_font_size = 32
+
+[widget.colors]
+window_border = 0x21333f99        -- border ~60%
+window_title_background = 0x21333f99 -- border ~60%
+window_title_font_color = 0xCBCEBCff -- fg
+window_close_button_hover = 0xFF0000ff  -- err
+window_close_button_pressed = 0x8c0000ff -- dark red
+scrollbar_inactive = 0x21333f99   -- border ~60%
+scrollbar_active = 0x599999ff     -- accent
+scrollbar_track_outline = 0x21333f66 -- border ~40%
+custom_hotkey_fill = 0x26B2B2ff   -- cursor_col
+drag_drop_zone = 0x599999ff       -- accent
+outline_selection = 0xFFA759ff    -- typ
+warning = 0xE4D97Dff              -- warn
+error = 0xFF0000ff                -- err
+active_button = 0x33B333ff        -- ok
+loading_bar_progress = 0x26B2B2ff -- cursor_col
+loading_bar_complete = 0xFFCC66ff -- func
