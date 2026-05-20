@@ -1,0 +1,23 @@
+[general]
+import = [
+  "C:/Users/glens/AppData/Roaming/alacritty/themes/themes/blood_moon.toml"
+]
+working_directory = "G:/"
+live_config_reload = true
+
+[terminal]
+shell = {
+  program = "wsl.exe",
+  args = ["-d", "archlinux"]
+}
+
+[font]
+normal =  { family = "CaskaydiaMono NF"}
+size =  14
+
+[colors]
+[colors.primary]
+background =  "#050505"
+
+[window]
+startup_mode= "Maximized"

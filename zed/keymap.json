@@ -35,6 +35,7 @@
 
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts",
+      "Alt-h": "editor::SwitchSourceHeader"
     },
   },
   {

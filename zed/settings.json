@@ -1,4 +1,4 @@
-// Zed settings
+/ Zed settings
 //
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
@@ -76,7 +76,7 @@
   },
 
   // Current Set theme
-  "theme": "haku-dark",
+  "theme": "Jellybeans",
 
   // Theme Customizations
   // This section applies globally to all themes.
