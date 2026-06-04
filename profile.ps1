@@ -1,5 +1,3 @@
-#. $env:USERPROFILE\.config\powershell\user_profile.ps1
-
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
 # Be aware that if you are missing these lines from your profile, tab completion
@@ -28,61 +26,55 @@ Set-Alias -Name ll -Value Get-ChildItemPretty
 Set-Alias -Name ls -Value Get-ChildItemPretty
 Set-Alias -Name rm -Value Remove-ItemExtended
 Set-Alias -Name su -Value Update-ShellElevation
-Set-Alias -Name tif Show-ThisIsFine
 Set-Alias -Name touch -Value New-File
-Set-Alias -Name up -Value Update-Profile
-Set-Alias -Name us -Value Update-Software
-Set-Alias -Name vi -Value nvim
-Set-Alias -Name vim -Value nvim
 Set-Alias -Name which -Value Show-Command
 
-
-# Putting the FUN in Functions 🎉
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-function Find-WindotsRepository {
+function Show-Command {
     <#
     .SYNOPSIS
-        Finds the local Windots repository.
+        Displays the definition of a command. Alias: which
     #>
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, Position = 0)]
-        [string]$ProfilePath
+        [string]$Name
     )
-
-    Write-Verbose "Resolving the symbolic link for the profile"
-    $profileSymbolicLink = Get-ChildItem $ProfilePath | Where-Object FullName -EQ $PROFILE.CurrentUserAllHosts
-    return Split-Path $profileSymbolicLink.Target
+    Write-Verbose "Showing definition of '$Name'"
+    Get-Command $Name | Select-Object -ExpandProperty Definition
 }
 
-function Update-Profile {
+function Remove-ItemExtended {
     <#
     .SYNOPSIS
-        Gets the latest changes from git, reruns the setup script and reloads the profile.
-        Note that functions won't be updated, this requires a full PS session restart. Alias: up
+        Removes an item and (optionally) all its children. Alias: rm
     #>
-    Write-Verbose "Storing current working directory in memory"
-    $currentWorkingDirectory = $PWD
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $false)]
+        [switch]$rf,
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Path
+    )
 
-    Write-Verbose "Updating local profile from Github repository"
-    Set-Location $ENV:WindotsLocalRepo
-    git stash | Out-Null
-    git pull | Out-Null
-    git stash pop | Out-Null
+    Write-Verbose "Removing item '$Path' $($rf ? 'and all its children' : '')"
+    Remove-Item $Path -Recurse:$rf -Force:$rf
+}
 
-    Write-Verbose "Rerunning setup script to capture any new dependencies."
-    if (Get-Command -Name sudo -ErrorAction SilentlyContinue) {
-        sudo pwsh ./Setup.ps1
-    }
-    else {
-        Start-Process wezterm -Verb runAs -WindowStyle Hidden -ArgumentList "start --cwd $PWD pwsh -NonInteractive -Command ./Setup.ps1"
-    }
+function Get-ChildItemPretty {
+    <#
+    .SYNOPSIS
+        Runs eza with a specific set of arguments. Plus some line breaks before and after the output.
+        Alias: ls, ll, la, l
+    #>
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $false, Position = 0)]
+        [string]$Path = $PWD
+    )
 
-    Write-Verbose "Reverting to previous working directory"
-    Set-Location $currentWorkingDirectory
-
-    Write-Verbose "Re-running profile script from $($PROFILE.CurrentUserAllHosts)"
-    .$PROFILE.CurrentUserAllHosts
+    Write-Host ""
+    eza -a -l --header --icons --hyperlink --time-style relative $Path
+    Write-Host ""
 }
 
 function Update-Software {
@@ -123,187 +115,10 @@ function Update-ShellElevation {
     sudo -E pwsh -NoLogo -Interactive -NoExit -c "Clear-Host"
 }
 
-function Find-String {
-    <#
-    .SYNOPSIS
-        Searches for a string in a file or directory. Alias: grep
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [string]$SearchTerm,
-        [Parameter(ValueFromPipeline, Mandatory = $false, Position = 1)]
-        [string]$Directory,
-        [Parameter(Mandatory = $false)]
-        [switch]$Recurse
-    )
-
-    Write-Verbose "Searching for '$SearchTerm' in '$Directory'"
-    if ($Directory) {
-        if ($Recurse) {
-            Write-Verbose "Searching for '$SearchTerm' in '$Directory' and subdirectories"
-            Get-ChildItem -Recurse $Directory | Select-String $SearchTerm
-            return
-        }
-
-        Write-Verbose "Searching for '$SearchTerm' in '$Directory'"
-        Get-ChildItem $Directory | Select-String $SearchTerm
-        return
-    }
-
-    if ($Recurse) {
-        Write-Verbose "Searching for '$SearchTerm' in current directory and subdirectories"
-        Get-ChildItem -Recurse | Select-String $SearchTerm
-        return
-    }
-
-    Write-Verbose "Searching for '$SearchTerm' in current directory"
-    Get-ChildItem | Select-String $SearchTerm
-}
-
-function New-File {
-    <#
-    .SYNOPSIS
-        Creates a new file with the specified name and extension. Alias: touch
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [string]$Name
-    )
-
-    Write-Verbose "Creating new file '$Name'"
-    New-Item -ItemType File -Name $Name -Path $PWD | Out-Null
-}
-
-function Show-Command {
-    <#
-    .SYNOPSIS
-        Displays the definition of a command. Alias: which
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [string]$Name
-    )
-    Write-Verbose "Showing definition of '$Name'"
-    Get-Command $Name | Select-Object -ExpandProperty Definition
-}
-
-function Get-OrCreateSecret {
-    <#
-    .SYNOPSIS
-        Gets secret from local vault or creates it if it does not exist. Requires SecretManagement and SecretStore modules and a local vault to be created.
-        Install Modules with:
-            Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore
-        Create local vault with:
-            Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore
-            Set-SecretStoreConfiguration -Authentication None -Confirm:$False
-
-        https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/
-
-    .PARAMETER secretName
-        Name of the secret to get or create. It is recommended to use the username or public key / client id as secret name to make it easier to identify the secret later.
-
-    .EXAMPLE
-        $password = Get-OrCreateSecret -secretName $username
-
-    .EXAMPLE
-        $clientSecret = Get-OrCreateSecret -secretName $clientId
-
-    .OUTPUTS
-        System.String
-    #>
-
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory = $true)]
-        [string]$secretName
-    )
-
-    Write-Verbose "Getting secret $secretName"
-    $secretValue = Get-Secret $secretName -AsPlainText -ErrorAction SilentlyContinue
-
-    if (!$secretValue) {
-        $createSecret = Read-Host "No secret found matching $secretName, create one? Y/N"
-
-        if ($createSecret.ToUpper() -eq "Y") {
-            $secretValue = Read-Host -Prompt "Enter secret value for ($secretName)" -AsSecureString
-            Set-Secret -Name $secretName -SecureStringSecret $secretValue
-            $secretValue = Get-Secret $secretName -AsPlainText
-        }
-        else {
-            throw "Secret not found and not created, exiting"
-        }
-    }
-    return $secretValue
-}
-
-function Get-ChildItemPretty {
-    <#
-    .SYNOPSIS
-        Runs eza with a specific set of arguments. Plus some line breaks before and after the output.
-        Alias: ls, ll, la, l
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        [string]$Path = $PWD
-    )
-
-    Write-Host ""
-    eza -a -l --header --icons --hyperlink --time-style relative $Path
-    Write-Host ""
-}
-
-function Show-ThisIsFine {
-    <#
-    .SYNOPSIS
-        Displays the "This is fine" meme in the console. Alias: tif
-    #>
-    Write-Verbose "Running thisisfine.ps1"
-    Show-ColorScript -Name thisisfine
-}
-
-function Remove-ItemExtended {
-    <#
-    .SYNOPSIS
-        Removes an item and (optionally) all its children. Alias: rm
-    #>
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false)]
-        [switch]$rf,
-        [Parameter(Mandatory = $true, Position = 0)]
-        [string]$Path
-    )
-
-    Write-Verbose "Removing item '$Path' $($rf ? 'and all its children' : '')"
-    Remove-Item $Path -Recurse:$rf -Force:$rf
-}
-
-
 # Environment Variables 🌐
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 $ENV:BAT_CONFIG_DIR = "$ENV:WindotsLocalRepo\bat"
 $ENV:FZF_DEFAULT_OPTS = '--color=fg:-1,fg+:#ffffff,bg:-1,bg+:#3c4048 --color=hl:#5ea1ff,hl+:#5ef1ff,info:#ffbd5e,marker:#5eff6c --color=prompt:#ff5ef1,spinner:#bd5eff,pointer:#ff5ea0,header:#5eff6c --color=gutter:-1,border:#3c4048,scrollbar:#7b8496,label:#7b8496 --color=query:#ffffff --border="rounded" --border-label="" --preview-window="border-rounded" --height 40% --preview="bat -n --color=always {}"'
-
-
-
-
-#Invoke-Expression (&starship init powershell)
-#Enable-TransientPrompt
-Invoke-Expression (& { ( zoxide init powershell --cmd cd | Out-String ) })
-
-$colors = @{
-    "Operator"         = "`e[35m" # Purple
-    "Parameter"        = "`e[36m" # Cyan
-    "String"           = "`e[32m" # Green
-    "Command"          = "`e[34m" # Blue
-    "Variable"         = "`e[37m" # White
-    "Comment"          = "`e[38;5;244m" # Gray
-    "InlinePrediction" = "`e[38;5;244m" # Gray
-}
 
 Set-PSReadLineOption -Colors $colors
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
@@ -311,4 +126,7 @@ Set-PSReadLineOption -PredictionViewStyle InlineView
 Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key Alt+l
 Import-Module -Name CompletionPredictor
 
-. C:\tools\vcvars.ps1
+# Find all Launch-VsDevShell.ps1 on the system
+$vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+$vsPath = & $vswhere -latest -property installationPath
+& "$vsPath\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64 -SkipAutomaticLocation

@@ -7,40 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  // Extensions to install automatically on a new install
-  "auto_install_extensions": {
-      "chaos-theory-theme": true,
-      "codesandbox-theme": true,
-      "colored-zed-icons-theme": true,
-      "gdscript": true,
-      "gruber-darker": true,
-      "haku-dark-theme": true,
-      "html": true,
-      "jellybeans-vim": true,
-      "kanagawa-themes": true,
-      "kanso": true,
-      "lua": true,
-      "make": true,
-      "material-icon-theme": true,
-      "melange": true,
-      "naysayer-theme": true,
-      "neocmake": true,
-      "oceanic-next": true,
-      "odin": true,
-      "pylsp": true,
-      "sitruuna": true,
-      "sublime-mariana-theme": true,
-      "toml": true,
-      "tomorrow-theme": true,
-      "vscode-icons": true,
-      "zig": true,
-  },
-
   // This stops the "Unrecognised project" every time you clone something from git
-  "cli_default_open_behavior": "new_window",
   "project_panel": {
-    "dock": "left",
-    "git_status": false,
+    "dock": "left"
   },
   "outline_panel": {
     "dock": "left"
@@ -73,7 +42,7 @@
     "dark": "Material Icon Theme",
   },
   "disable_ai": true,
-  "auto_indent": "none",
+  "auto_indent": false,
   "base_keymap": "VSCode",
   "buffer_line_height": { "custom": 1.3 },
   "current_line_highlight": "all",
@@ -82,7 +51,7 @@
     "enabled": false,
   },
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "shell": {
         "program": "pwsh.exe",
       },
@@ -124,7 +93,7 @@
   },
 
   // Current Set theme
-  "theme": "Tomorrow at Midnight",
+  "theme": "Casey (4coder)",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -213,11 +182,6 @@
         "comment": { "color": "#6f7b68" },
         "string": { "color": "#5FC385" },
       },
-    },
-    "Kujukuju": {
-      "editor.background": "#080B14",
-      "editor.gutter.background": "#080B14",
-      "title_bar.background": "#080B14"
     },
     "Kanagawa Wave - No Italics": {
       "panel.background": "#121212",
@@ -323,7 +287,7 @@
   "lsp": {
     "clangd": {
       "binary": {
-        "path": "G:/dev_tools/LLVM/bin/clangd.exe",
+        "path": "G:/dev_tools/clangd/clangd.exe",
         "arguments": [
           "--background-index",
           "--pch-storage=memory",
