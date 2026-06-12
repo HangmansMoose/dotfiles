@@ -36,6 +36,21 @@
       "zig": true,
   },
 
+  "profiles": {
+    "macos": {
+      "settings": {
+        "ui_font_size": 22.0,
+        "buffer_font_size": 22.0,
+        "terminal": {
+          "shell": {
+            "program": "/usr/bin/fish"
+          }
+        }
+      }
+    }
+  },
+
+  "diagnostics_max_severity": "off",
   // This stops the "Unrecognised project" every time you clone something from git
   "cli_default_open_behavior": "new_window",
   "project_panel": {
@@ -82,7 +97,7 @@
     "enabled": false,
   },
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "shell": {
         "program": "pwsh.exe",
       },
@@ -103,9 +118,9 @@
 
   "format_on_save": "off",
   "buffer_font_family": "CaskaydiaMono Nerd Font",
-  "ui_font_family": "Segoe UI",
+  //"ui_font_family": "Segoe UI",
   "ui_font_size": 16.0,
-  "buffer_font_size": 16.0,
+  "buffer_font_size": 17.0,
   "vim_mode": true,
 
   "telemetry": {
@@ -124,7 +139,7 @@
   },
 
   // Current Set theme
-  "theme": "Tomorrow at Midnight",
+  "theme": "Kujukuju Darker",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -229,6 +244,17 @@
       },
     },
     "Gruber Darker": {
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      "tab.inactive_background": "#202020",
+      "tab.active_background": "#333333",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      //"editor.active_line.background": "#111144",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
       "syntax": {
         "comment": { "color": "#6f7b68" },
         "meta.preprocessor": { "font_weight": 400 },
@@ -277,7 +303,7 @@
       "editor.active_line.background": "#0000FF33",
     },
     "Melange Dark": {
-      "title_bar.background": "#151515",
+      "title_bar.background": "#050505",
       "elevated_surface.background": "#252525",
       "text": "#ece1d7ff",
       "text.muted": "#ece1d7ff",
@@ -285,19 +311,19 @@
       "text.disabled": "#ece1d7ff",
       "text.accent": "#ece1d7ff",
       "border": "#333333",
-      "tab_bar.background": "#151515",
+      "tab_bar.background": "#050505",
       "tab.inactive_background": "#202020",
       "tab.active_background": "#333333",
-      "toolbar.background": "#151515",
-      "status_bar.background": "#151515",
-      "panel.background": "#151515",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
       "panel.focused_border": "#666666",
       "pane.focused_border": "#666666",
-      "editor.background": "#151515",
+      "editor.background": "#050505",
       "editor.foreground": "#666666",
       "editor.active_line.background": "#111144",
-      "editor.gutter.background": "#151515",
-      "terminal.background": "#151515",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
       "players": [{ "cursor": "#00ff33" }],
       "syntax": {
         "comment": { "color": "#6f7b68" },
