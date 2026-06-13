@@ -1,0 +1,497 @@
+{
+    "name": "Gruber Darker",
+    "author": "focus-editor (https://github.com/focus-editor/focus), Sublime Text port",
+    "globals": {
+        "background": "#181818",
+        "foreground": "#E4E4EF",
+        "caret": "#FFDD33",
+        "block_caret": "#FFDD33",
+        "block_caret_border": "#FFDD33",
+        "block_caret_corner_style": "square",
+        "line_highlight": "#141416",
+        "selection": "#484848",
+        "selection_border": "#484848",
+        "selection_corner_style": "square",
+        "inactive_selection": "#48484899",
+        "highlight": "#FCEDFC26",
+        "find_highlight": "#565F73",
+        "find_highlight_foreground": "#181818",
+        "misspelling": "#FF0000",
+        "gutter": "#181818",
+        "gutter_foreground": "#E0AD82",
+        "gutter_foreground_highlight": "#E4E4EF",
+        "rulers": "#FFDD3311",
+        "guide": "#FCEDFC26",
+        "active_guide": "#FCEDFC26",
+        "stack_guide": "#FCEDFC26",
+        "brackets_options": "underline",
+        "brackets_foreground": "#FCEDFC26",
+        "bracket_contents_options": "stippled_underline",
+        "bracket_contents_foreground": "#FCEDFC26",
+        "tags_options": "stippled_underline",
+        "tags_foreground": "#E4E4EF",
+        "line_diff_added": "#33B333",
+        "line_diff_modified": "#E4D97D",
+        "line_diff_deleted": "#E64D4D",
+        "line_diff_width": "2",
+        "shadow": "##1818150",
+        "accent": "#FFDD33"
+    },
+    "rules": [
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "#6f7b68"
+        },
+        {
+            "name": "Comment punctuation",
+            "scope": "punctuation.definition.comment",
+            "foreground": "#6f7b58"
+        },
+        {
+            "name": "Comment highlight 1",
+            "scope": "comment meta.annotation, storage.type.annotation comment",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Comment highlight 2",
+            "scope": "comment markup.deleted.git-commit",
+            "foreground": "#FF0000"
+        },
+        {
+            "name": "Comment highlight 3",
+            "scope": "comment markup.inserted.git-commit",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Comment highlight 4",
+            "scope": "comment markup.changed.git-commit",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "String escape",
+            "scope": "constant.character.escape, string constant.character.escape",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Regex",
+            "scope": "string.regexp",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Multiline string",
+            "scope": "string.unquoted, string.heredoc",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Raw string",
+            "scope": "string.quoted.raw, string.quoted.other",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Char literal",
+            "scope": "string.quoted.single, constant.character",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "#D699B5"
+        },
+        {
+            "name": "Boolean / language constant",
+            "scope": "constant.language",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Constant",
+            "scope": "constant",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Placeholder",
+            "scope": "constant.other.placeholder",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Variable",
+            "scope": "variable",
+            "foreground": "#BFC9DB"
+        },
+        {
+            "name": "Variable member",
+            "scope": "variable.other.member, variable.other.property",
+            "foreground": "#BFC9DB"
+        },
+        {
+            "name": "Variable parameter",
+            "scope": "variable.parameter",
+            "foreground": "#BFC9DB"
+        },
+        {
+            "name": "Variable language",
+            "scope": "variable.language",
+            "foreground": "#D699B5"
+        },
+        {
+            "name": "Builtin variable",
+            "scope": "support.variable",
+            "foreground": "#D699B5"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Keyword control",
+            "scope": "keyword.control",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Keyword operator",
+            "scope": "keyword.operator",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Keyword import",
+            "scope": "keyword.control.import, keyword.control.include, keyword.control.from",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Keyword return",
+            "scope": "keyword.control.return, keyword.control.flow.return",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Storage",
+            "scope": "storage, storage.type, storage.modifier",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Type",
+            "scope": "entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.interface, support.type",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Type builtin",
+            "scope": "support.type.primitive, support.type.builtin",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Inherited class",
+            "scope": "entity.other.inherited-class",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Enum variant",
+            "scope": "variable.other.enummember, constant.other.enum",
+            "foreground": "#BFC9DB"
+        },
+        {
+            "name": "Function definition",
+            "scope": "entity.name.function",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Function call",
+            "scope": "variable.function, meta.function-call entity.name.function",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Function builtin",
+            "scope": "support.function.builtin, support.function",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Function macro",
+            "scope": "entity.name.function.preprocessor",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Macro",
+            "scope": "support.function.macro",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Operator",
+            "scope": "keyword.operator",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Punctuation",
+            "scope": "punctuation.separator, punctuation.terminator",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Brackets",
+            "scope": "punctuation.section, meta.brace",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Accessor",
+            "scope": "punctuation.accessor",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Preprocessor",
+            "scope": "meta.preprocessor",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Directive",
+            "scope": "keyword.control.directive",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Directive modifier",
+            "scope": "keyword.control.directive.define, keyword.control.directive.ifdef, keyword.control.directive.ifndef",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Include / define",
+            "scope": "entity.name.constant, entity.name.function.preprocessor.c",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Annotation",
+            "scope": "variable.annotation, meta.annotation.identifier, entity.name.function.decorator",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Attribute name",
+            "scope": "entity.other.attribute-name",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "Label",
+            "scope": "entity.name.label",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "Namespace",
+            "scope": "entity.name.namespace, entity.name.module",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Tag name",
+            "scope": "entity.name.tag",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Tag punctuation",
+            "scope": "punctuation.definition.tag",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Attribute value",
+            "scope": "string.quoted.double.html, string.quoted.double.xml, string.quoted.single.html",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "CSS property",
+            "scope": "support.type.property-name.css, support.type.property-name",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "CSS value",
+            "scope": "meta.property-value.css, support.constant.property-value.css",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "CSS selector tag",
+            "scope": "entity.name.tag.css, entity.name.tag.scss",
+            "foreground": "#FFDD33"
+        },
+        {
+            "name": "CSS selector class",
+            "scope": "entity.other.attribute-name.class.css, entity.other.attribute-name.class.scss",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "CSS selector id",
+            "scope": "entity.other.attribute-name.id.css, entity.other.attribute-name.id.scss",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "CSS pseudo",
+            "scope": "entity.other.pseudo-class.css, entity.other.pseudo-element.css",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "CSS at-rule",
+            "scope": "keyword.control.at-rule.css, keyword.control.at-rule.scss",
+            "foreground": "#E67D74"
+        },
+        {
+            "name": "JSON key",
+            "scope": "meta.mapping.key.json string, meta.mapping.key.yaml string.unquoted",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "TOML key",
+            "scope": "keyword.other.definition.toml, entity.name.table.toml",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "YAML anchor",
+            "scope": "entity.name.type.anchor.yaml, constant.language.merge.yaml",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Markup H1",
+            "scope": "markup.heading.1, entity.name.section.markdown heading.1.markdown",
+            "foreground": "#E67D74",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup H2",
+            "scope": "markup.heading.2, entity.name.section.markdown heading.2.markdown",
+            "foreground": "#E0AD82",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup H3",
+            "scope": "markup.heading.3",
+            "foreground": "#E0AD82",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup H4",
+            "scope": "markup.heading.4",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Markup H5",
+            "scope": "markup.heading.5",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Markup H6",
+            "scope": "markup.heading.6",
+            "foreground": "#E0AD82"
+        },
+        {
+            "name": "Markup heading",
+            "scope": "markup.heading, entity.name.section",
+            "foreground": "#E67D74",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup bold",
+            "scope": "markup.bold",
+            "foreground": "#FFDD33",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup underline",
+            "scope": "markup.underline",
+            "foreground": "#E4E4EF",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markup inline code",
+            "scope": "markup.raw.inline",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Markup code block",
+            "scope": "markup.raw.block, markup.fenced_code.block",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Markup quote",
+            "scope": "markup.quote",
+            "foreground": "#CC8C3C"
+        },
+        {
+            "name": "Markup list punct",
+            "scope": "markup.list punctuation.definition.list",
+            "foreground": "#E4E4EF"
+        },
+        {
+            "name": "Markup link text",
+            "scope": "string.other.link.title.markdown, string.other.link.description.markdown",
+            "foreground": "#73C936"
+        },
+        {
+            "name": "Markup link url",
+            "scope": "markup.underline.link",
+            "foreground": "#E4E4EF",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markup strikethrough",
+            "scope": "markup.strikethrough",
+            "foreground": "#CC8C3C",
+            "font_style": "strikethrough"
+        },
+        {
+            "name": "Markup inserted",
+            "scope": "markup.inserted",
+            "foreground": "#33B333"
+        },
+        {
+            "name": "Markup deleted",
+            "scope": "markup.deleted",
+            "foreground": "#E64D4D"
+        },
+        {
+            "name": "Markup changed",
+            "scope": "markup.changed",
+            "foreground": "#E4D97D"
+        },
+        {
+            "name": "Diff added",
+            "scope": "diff.inserted, markup.inserted.diff",
+            "foreground": "#33B333"
+        },
+        {
+            "name": "Diff deleted",
+            "scope": "diff.deleted, markup.deleted.diff",
+            "foreground": "#E64D4D"
+        },
+        {
+            "name": "Diff header",
+            "scope": "meta.diff, meta.diff.header",
+            "foreground": "#CC8C3C"
+        },
+        {
+            "name": "Invalid",
+            "scope": "invalid, invalid.illegal",
+            "foreground": "#FF0000",
+            "background": "#141416"
+        },
+        {
+            "name": "Deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "#CC8C3C",
+            "font_style": "strikethrough"
+        },
+        {
+            "name": "Support class",
+            "scope": "support.class",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Support module",
+            "scope": "support.module",
+            "foreground": "#95A99F"
+        },
+        {
+            "name": "Debug",
+            "scope": "keyword.other.debugger",
+            "foreground": "#FF0000"
+        },
+        {
+            "name": "Todo note",
+            "scope": "comment.line meta.annotation.todo, storage.type.class.todo",
+            "foreground": "#E0AD82"
+        }
+    ]
+}

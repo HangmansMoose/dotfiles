@@ -1,0 +1,56 @@
+{
+	"ignored_packages":[
+		"Vintage",
+	],
+
+	"hardware_acceleration": "opengl",
+	"word_wrap": false,
+	"hot_exit": false,
+	"console_max_history_lines": 10000,
+	"syntax_detection_size_limit": 67108864,
+	"index_files": true,
+	"file_exclude_patterns": ["*.gd.uid"],
+	"folder_exclude_patterns": [
+		".vs",
+		".cache"
+	],
+
+	/*         Theme and Font        */
+	"color_scheme": "Kujukuju.sublime-color-scheme",
+	"theme": "Kujukuju.sublime-theme",
+	"font_face": "CaskaydiaMono NerdFont",
+	"font_size": 14,
+	"font_options": [
+		"no_bold",
+		"no_italic"	
+	],	
+	"caret_extra_bottom": 0,
+	"caret_extra_top": 0,
+	"caret_extra_width": 0,
+
+	/*           Vintage            */
+	"vintage_start_in_command_mode": true,
+	"vintage_use_clipboard": true,
+	"vintage_highlighted_yank": true,
+	"vintageous_enable_surround": true,
+
+	"vintageous_enable_sublime": true,
+	"vintageous_use_sys_clipboard": true,
+	
+	/*			UI 							*/
+	"gutter": true,
+	"relative_line_numbers": true,
+	"mini_diff": false,
+	"highlight_line": true,
+	"inactive_sheet_dimming" : false,
+	"preview_on_click" : false,
+	"auto_hide_menu": true,
+	"reveal_menu": true,
+	"remember_full_screen": true,
+	"remember_layout": true,
+	"always_prompt_for_file_reload": true,
+	"show_full_path": false,
+	"show_git_status": false,
+	"show_minimap": false,
+	"neovintageous_build_version": 13200,
+}

@@ -1,0 +1,32 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Alabaster Color Scheme",
+		"Atlas Ragnarok Color Scheme",
+		"Borliana Color Scheme",
+		"FileBrowser",
+		"FileIcons",
+		"Iridis Colour Scheme",
+		"Lucario Color Scheme",
+		"Nord",
+		"Odin",
+		"Origami",
+		"Package Control",
+		"PackageResourceViewer",
+		"Predawn",
+		"Sequoia Color Scheme",
+		"Serendipity Color Scheme",
+		"Terminus",
+		"Theme - Gravity",
+		"Theme - Spacegray",
+	],
+	"channels":
+	[
+		"https://packages.sublimetext.io/channel.json",
+	],
+}
