@@ -29,7 +29,7 @@
 
 {
   /*          Editor Options          */
-  "window.zoomLevel": -0.2,
+  "window.zoomLevel": -0.25,
   "explorer.compactFolders": false,
   "editor.fontFamily": "CaskaydiaMono Nerd Font",
   "editor.fontSize": 18,
@@ -558,7 +558,7 @@
 "godot.csharp.executablePath": "\"G:\\Godot\\Godot\\Godot_v4.6\\Godot_v4.6-stable_mono_win64.exe\"",
 "godotTools.editorPath.godot4": "\"G:\\Godot\\Godot\\Godot_v4.6\\Godot_v4.6-stable_mono_win64.exe\"",
 "C_Cpp.intelliSenseEngine": "disabled",
-"workbench.colorTheme": "Jellybeans.vim",
+"workbench.colorTheme": "Kujukuju Darker",
 "C/C++ Include Guard.Macro Type": "Filename",
 "C/C++ Include Guard.Remove Extension": false,
 "terminal.integrated.initialHint": false,

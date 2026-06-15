@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:HangmansMoose/nvim.git
+[submodule "vscode/kujukuju-darker.vscode"]
+	path = vscode/kujukuju-darker.vscode
+	url = git@github.com:HangmansMoose/kujukuju-darker.vscode
