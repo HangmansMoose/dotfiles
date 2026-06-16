@@ -1,0 +1,12 @@
+// Settings in here override those in "LSP-clangd/LSP-clangd.sublime-settings"
+{
+	// Settings passed via the LSP initialization handshake
+	"initialization_options": {
+		"clangd.background-index": true,
+		"clangd.header-insertion": "never",
+		"clangd.number-workers": "4",
+		"fallbackFlags": [
+			"-Wno-unused-includes"
+		]
+	}
+}

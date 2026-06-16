@@ -1,0 +1,23 @@
+// Settings in here override those in "LSP/LSP.sublime-settings"
+{
+	// Format on save (applies to all LSP-capable languages)
+	"lsp_format_on_save": true,
+	"lsp_code_actions_on_format": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	},
+	// Inlay hints — show variable types and param names inline
+	"show_inlay_hints": true,
+	// Diagnostics
+	"show_diagnostics_count_in_view_status": true,
+	"show_diagnostics_panel_on_save": 0,
+	"diagnostics_delay_ms": 300,
+	// Completions
+	"inhibit_snippet_completions": true,
+	"inhibit_word_completions": true,
+	// Quick panel shows all references inline
+	"show_references_in_quick_panel": true,
+	// Keep LSP hovers from conflicting with native Sublime hovers
+	// (already handled by "show_definitions": false in base settings)
+	// "hover_highlight_range": true
+}

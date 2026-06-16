@@ -1,0 +1,28 @@
+// Settings in here override those in "LSP-gopls/LSP-gopls.sublime-settings"
+{
+	"clients": {
+		"gopls": {
+			"enabled": true,
+			//"env": {
+			//    "PATH": "/usr/local/go/bin:/home/user/go/bin"
+			//},
+			"settings": {
+				"gopls": {
+					"staticcheck": true,
+					"analyses": {
+						"shadow": true,
+						"unusedparams": true
+					},
+					"hints": {
+						"parameterNames": true,
+						"rangeVariableTypes": true,
+						"assignVariableTypes": true,
+						"compositeLiteralFields": true,
+						"functionTypeParameters": true
+					},
+					"gofumpt": true
+				}
+			}
+		}
+	}
+}

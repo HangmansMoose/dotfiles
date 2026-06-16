@@ -1,0 +1,7 @@
+// Settings in here override those in "Zig Language/Settings/Zig.sublime-settings",
+{
+	// Let ZLS handle formatting — disable the built-in zig fmt
+	"zig.fmt.on_save": false,
+	// Hide the build/fmt output panel automatically
+	"zig.quiet": true
+}
