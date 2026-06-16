@@ -1,8 +1,8 @@
 {
     "extends": "Adaptive.sublime-theme",
     "variables": {
-        "bg0": "#080B14",
-        "bg1": "#080B14",
+        "bg0": "#101010", 
+        "bg1": "#101010",
         "fg_main": "#CBCEBC",
         "fg_dim": "#87919D",
         "accent": "#599999",
@@ -14,7 +14,7 @@
     "rules": [
         {
             "class": "title_bar",
-            "bg": "#080B14",
+            "bg": "#050505",
             "fg": "#87919D",
             "style": "dark"
         },
@@ -25,7 +25,7 @@
         },
         {
             "class": "sidebar_container",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 1.0,
             "content_margin": [
                 0,
@@ -36,7 +36,7 @@
         },
         {
             "class": "sidebar_tree",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 1.0,
             "dark_content": true,
             "row_padding": [
@@ -49,7 +49,7 @@
         },
         {
             "class": "tree_row",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 0.0
         },
         {
@@ -181,7 +181,7 @@
         },
         {
             "class": "tabset_control",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 1.0,
             "content_margin": [
                 0,
@@ -192,7 +192,7 @@
         },
         {
             "class": "tab_control",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 1.0,
             "content_margin": [
                 12,
@@ -445,7 +445,7 @@
         },
         {
             "class": "status_bar",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 1.0,
             "content_margin": [
                 7,
@@ -456,7 +456,7 @@
         },
         {
             "class": "status_button",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 0.0,
             "content_margin": [
                 8,
@@ -504,7 +504,7 @@
             "settings": [
                 "inactive_sheet_dimming"
             ],
-            "background_modifier": "blend(#050505 5%)"
+            "background_modifier": "blend(#101010 5%)"
         },
         {
             "class": "pane_control",
@@ -519,7 +519,7 @@
         },
         {
             "class": "scroll_bar_control",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 0.35,
             "layer0.inner_margin": 0,
             "blur": false,
@@ -543,7 +543,7 @@
             "attributes": [
                 "dark"
             ],
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 0.3
         },
         {
@@ -553,7 +553,7 @@
         },
         {
             "class": "puck_control",
-            "layer0.tint": "#080B14",
+            "layer0.tint": "#101010",
             "layer0.opacity": 0.5
         },
         {

@@ -52,6 +52,7 @@
 		"no_bold",
 		"no_italic"	
 	],	
+	"match_brackets": false,
 	
 	/*           Vintage            */
 	"vintage_start_in_command_mode": true,
