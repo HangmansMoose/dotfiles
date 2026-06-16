@@ -39,8 +39,8 @@
   "profiles": {
     "macos": {
       "settings": {
-        "ui_font_size": 22.0,
-        "buffer_font_size": 22.0,
+        "ui_font_size": 18.0,
+        "buffer_font_size": 18.0,
         "terminal": {
           "shell": {
             "program": "/usr/bin/fish"
@@ -50,7 +50,7 @@
     }
   },
 
-  "diagnostics_max_severity": "off",
+  //"diagnostics_max_severity": "off",
   // This stops the "Unrecognised project" every time you clone something from git
   "cli_default_open_behavior": "new_window",
   "project_panel": {
