@@ -13,6 +13,12 @@
     },
     "rules": [
         {
+            "class": "icon_file_type",
+            //"layer0.tint": [255, 0, 0],
+            "layer0.opacity": 1.0,
+            "content_margin": [8, 8]
+        },
+        {
             "class": "title_bar",
             "bg": "#050505",
             "fg": "#87919D",

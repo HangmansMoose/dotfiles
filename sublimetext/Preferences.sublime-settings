@@ -9,18 +9,17 @@
     "show_definitions": false,
 
     // UI
-    "line_padding_top": 1.5,
-    "line_padding_bottom": 1.5,
+    "line_padding_top": 1,
+    "line_padding_bottom": 1,
     "highlight_line": true,
     "caret_style": "blink",
 
     // Editing
     "translate_tabs_to_spaces": false,
     "tab_size": 4,
-    "trim_trailing_white_space_on_save": false,
     "ensure_newline_at_eof_on_save": true,
     "word_wrap": false,
-    "rulers": [100],
+    //"rulers": [100],
 
     // Sidebar & file tree
     "file_exclude_patterns": [
@@ -37,27 +36,21 @@
 	"hot_exit": false,
 	"console_max_history_lines": 10000,
 	"syntax_detection_size_limit": 67108864,
-	/*"file_exclude_patterns": ["*.gd.uid"],*/
-	/*"folder_exclude_patterns": [
-		".vs",
-		".cache"
-	],*/
 
 	/*         Theme and Font        */
-	"color_scheme": "Kujukuju.sublime-color-scheme",
-	"theme": "Kujukuju.sublime-theme",
-	"font_face": "CaskaydiaMono NerdFont",
-	"font_size": 14,
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"theme": "GitHub Dark Colorblind.sublime-theme",
+	"font_face": "BlexMono Nerd Font Medium",
+	"font_size": 13,
 	"font_options": [
 		"no_bold",
 		"no_italic"	
 	],	
-	"match_brackets": false,
+	//"match_brackets": false,
 	
 	/*           Vintage            */
 	"vintage_start_in_command_mode": true,
 	"vintage_use_clipboard": true,
-	"vintage_highlighted_yank": true,
 	"vintageous_enable_surround": true,
 
 	"vintageous_enable_sublime": true,
@@ -65,7 +58,7 @@
 	
 	/*			UI 							*/
 	"gutter": true,
-	"relative_line_numbers": false,
+	"relative_line_numbers": true,
 	"mini_diff": false,
 	/*"highlight_line": true,*/
 	"inactive_sheet_dimming" : false,
@@ -77,6 +70,5 @@
 	"always_prompt_for_file_reload": true,
 	"show_full_path": false,
 	"show_git_status": false,
-	"show_minimap": false,
 	"neovintageous_build_version": 13200,
 }

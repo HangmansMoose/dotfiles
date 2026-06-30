@@ -1,41 +1,38 @@
 {
 	"bootstrapped": true,
+	"channels":
+	[
+		"https://packages.sublimetext.io/channel.json",
+	],
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
 		"A File Icon",
-		"Alabaster Color Scheme",
-		"Atlas Ragnarok Color Scheme",
+		"ayu",
 		"Borliana Color Scheme",
-		"FileBrowser",
-		"FileIcons",
+		"Evergarden color schemes",
+		"Flexoki Color Scheme",
+		"GitHub Theme",
 		"HLSL Syntax",
-		"Iridis Colour Scheme",
+		"Just",
 		"LSP",
 		"LSP-clangd",
 		"LSP-gopls",
 		"LSP-json",
-		"LSP-rust-analyzer",
 		"Lucario Color Scheme",
-		"Nord",
+		"Materialize",
+		"NeoVintageous",
 		"Odin",
 		"OpenGL Shading Language (GLSL)",
 		"Origami",
 		"Package Control",
-		"PackageResourceViewer",
-		"Predawn",
+		"PackageDev",
 		"Sequoia Color Scheme",
-		"Serendipity Color Scheme",
 		"SideBarEnhancements",
 		"Terminus",
-		"Theme - Gravity",
-		"Theme - Spacegray",
-		"Zig Language",
-	],
-	"channels":
-	[
-		"https://packages.sublimetext.io/channel.json",
+		"Theme - Treble",
+		"VS Code 2026 Color Scheme",
 	],
 }

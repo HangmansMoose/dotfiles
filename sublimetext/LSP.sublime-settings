@@ -2,10 +2,10 @@
 {
 	// Format on save (applies to all LSP-capable languages)
 	"lsp_format_on_save": true,
-	"lsp_code_actions_on_format": {
-		"source.fixAll": true,
-		"source.organizeImports": true
-	},
+	//"lsp_code_actions_on_format": {
+		//"source.fixAll": true,
+		//"source.organizeImports": true
+	//},
 	// Inlay hints — show variable types and param names inline
 	"show_inlay_hints": true,
 	// Diagnostics
@@ -20,4 +20,16 @@
 	// Keep LSP hovers from conflicting with native Sublime hovers
 	// (already handled by "show_definitions": false in base settings)
 	// "hover_highlight_range": true
+
+	"diagnostics_highlight_style": {
+    	"error": "squiggly",
+    	"warning": "squiggly",
+    	"info": "",
+    	"hint": ""
+  	},
+
+  	"link_highlight_style": "none",
+  	"document_highlight_style": "",
+  	"diagnostics_gutter_marker": "dot",
+  	"semantic_highlighting": true,
 }
