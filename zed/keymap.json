@@ -1,9 +1,10 @@
 [
-{
+  {
     "context": "Workspace",
     "bindings": {
       "ctrl-shift-`": "terminal_panel::Toggle",
-      "ctrl-`": "terminal_panel::ToggleFocus"
+      "ctrl-`": "terminal_panel::ToggleFocus",
+      "alt-b": "workspace::ToggleLeftDock"
     }
   },
   {
@@ -17,8 +18,11 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-shift-b": ["task::Spawn",
-        { "task_name": "build_all" }
+      "ctrl-shift-b": [
+        "task::Spawn",
+        {
+          "task_name": "build"
+        }
       ]
     }
   },
@@ -48,4 +52,16 @@
       ]
     }
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-shift-b": "outline_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-b": "outline_panel::ToggleFocus"
+    }
+  }
 ]
