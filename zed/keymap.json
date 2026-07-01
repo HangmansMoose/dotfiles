@@ -1,0 +1,51 @@
+[
+{
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-`": "terminal_panel::Toggle",
+      "ctrl-`": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "f3": ["task::Spawn",
+        { "task_name": "premake" }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-shift-b": ["task::Spawn",
+        { "task_name": "build_all" }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-shift-m": ["task::Spawn",
+        { "task_name": "hot_reload" }
+      ]
+    }
+  },
+
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-shift-c": ["task::Spawn",
+        { "task_name": "clean" }
+      ]
+    }
+  },
+  // Launch External Debugger
+  {
+    "context": "Workspace",
+    "bindings": {
+      "f9": ["task::Spawn",
+        { "task_name": "debug" }
+      ]
+    }
+  },
+]
