@@ -1,0 +1,15 @@
+{
+  "readableLineLength": false,
+  "showLineNumber": true,
+  "livePreview": true,
+  "spellcheck": false,
+  "vimMode": true,
+  "strictLineBreaks": true,
+  "promptDelete": false,
+  "showInlineTitle": true,
+  "foldIndent": true,
+  "showIndentGuide": true,
+  "attachmentFolderPath": "Attachments",
+  "alwaysUpdateLinks": true,
+  "useTab": false
+}

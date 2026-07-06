@@ -1,0 +1,19 @@
+    /* For 'code block' in preview mode */
+    .markdown-preview-view pre > code {
+        font-size: 16px; /* Adjust this value as needed */
+    }
+
+    /* For 'code block' in source mode (editor) */
+    .markdown-source-view pre > code {
+        font-size: 16px; /* Adjust this value as needed */
+    }
+
+    /* For 'inline code block' in preview mode */
+    .markdown-preview-view p > code {
+        font-size: 16px; /* Adjust this value as needed */
+    }
+
+    /* For 'inline code block' in source mode (editor) */
+    .markdown-source-view p > code {
+        font-size: 16px; /* Adjust this value as needed */
+    }

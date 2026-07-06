@@ -1,0 +1,19 @@
+{
+  "accentColor": "#5095f7",
+  "cssTheme": "Minimal",
+  "interfaceFontFamily": "Segoe UI",
+  "textFontFamily": "DroidSansM Nerd Font",
+  "monospaceFontFamily": "DroidSansM Nerd Font",
+  "baseFontSize": 14,
+  "enabledCssSnippets": [
+    "no_wrap",
+    "code_block_text",
+    "image_center",
+    "image_align"
+  ],
+  "theme": "obsidian",
+  "baseFontSizeAction": true,
+  "showViewHeader": true,
+  "showRibbon": true,
+  "nativeMenus": false
+}

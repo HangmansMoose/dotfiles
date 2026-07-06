@@ -1,0 +1,208 @@
+{
+  "recentFiles": [
+    {
+      "basename": "ls",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/ls.md"
+    },
+    {
+      "basename": "find",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/find.md"
+    },
+    {
+      "basename": "grep",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/grep.md"
+    },
+    {
+      "basename": "wget",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/wget.md"
+    },
+    {
+      "basename": "curl",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/curl.md"
+    },
+    {
+      "basename": "nohup",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/nohup.md"
+    },
+    {
+      "basename": "cut",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/cut.md"
+    },
+    {
+      "basename": "sort and uniq",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/sort and uniq.md"
+    },
+    {
+      "basename": "head and tail",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/head and tail.md"
+    },
+    {
+      "basename": "stat and du",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/stat and du.md"
+    },
+    {
+      "basename": "sha2sum",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/sha2sum.md"
+    },
+    {
+      "basename": "numfmt",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/numfmt.md"
+    },
+    {
+      "basename": "date",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/date.md"
+    },
+    {
+      "basename": "tr",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/tr.md"
+    },
+    {
+      "basename": "wc",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/wc.md"
+    },
+    {
+      "basename": "od",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/od.md"
+    },
+    {
+      "basename": "Cat",
+      "path": "Programming/Languages/Go/Implementing Tools in Go/Cat.md"
+    },
+    {
+      "basename": "Syntax",
+      "path": "Programming/Languages/Go/Syntax.md"
+    },
+    {
+      "basename": "Dear ImGui",
+      "path": "Programming/Game Development/Tooling/DearImGui/Dear ImGui.md"
+    },
+    {
+      "basename": "SDL",
+      "path": "Programming/Game Development/Frameworks/SDL/SDL.md"
+    },
+    {
+      "basename": "SDL_Keycode vs SDL_Scancode",
+      "path": "Programming/Game Development/Frameworks/SDL/SDL_Keycode vs SDL_Scancode.md"
+    },
+    {
+      "basename": "Grok",
+      "path": "Programming/Game Development/Frameworks/SDL/SDL3/Grok.md"
+    },
+    {
+      "basename": "Duke Nukem Clone",
+      "path": "Programming/Game Development/Frameworks/SDL/SDL3/Duke Nukem Clone.md"
+    },
+    {
+      "basename": "SDL3_GPU",
+      "path": "Programming/Game Development/Frameworks/SDL/SDL3/SDL3_GPU.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes009/notes/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes008/notes/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes007/notes/README.md"
+    },
+    {
+      "basename": "ZIYDOOM Issues",
+      "path": "Programming/Game Development/DOOM/ZIYDoom/ZIYDOOM Issues.md"
+    },
+    {
+      "basename": "ZIG DOOM Dev Log",
+      "path": "Programming/Game Development/DOOM/ZIYDoom/ZIG DOOM Dev Log.md"
+    },
+    {
+      "basename": "DOOM Engine",
+      "path": "Programming/Game Development/DOOM/DOOM Engine.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes004/notes/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes003/notes/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes002/notes/README.md"
+    },
+    {
+      "basename": "Godot Old School FPS - Scratchpad",
+      "path": "Programming/Courses/Udemy/Old School FPS/Godot Old School FPS - Scratchpad.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes006/notes/README.md"
+    },
+    {
+      "basename": "README",
+      "path": "Programming/Game Development/DOOM/DIYDoom/DIYDOOM/Notes005/notes/README.md"
+    },
+    {
+      "basename": "Zig Build System",
+      "path": "Programming/Languages/Zig/Zig Build System.md"
+    },
+    {
+      "basename": "Zig Syntax",
+      "path": "Programming/Languages/Zig/Zig Syntax.md"
+    },
+    {
+      "basename": "Zig Windows issues with std.io.getStdOut",
+      "path": "Programming/Languages/Zig/Zig Windows issues with std.io.getStdOut.md"
+    },
+    {
+      "basename": "Zig Language Features",
+      "path": "Programming/Languages/Zig/Zig Language Features.md"
+    },
+    {
+      "basename": "Setting up an Isometric Game in Godot",
+      "path": "Godot/Setting up an Isometric Game in Godot.md"
+    },
+    {
+      "basename": "LCTHW Go - Course Notes",
+      "path": "Programming/Courses/LCTHW/Go/LCTHW Go - Course Notes.md"
+    },
+    {
+      "basename": "MF - Chapter 01",
+      "path": "Godot/Godot MetroidForge/MF - Chapter 01.md"
+    },
+    {
+      "basename": "Building UE From Source",
+      "path": "Unreal/Building UE From Source.md"
+    },
+    {
+      "basename": "Unreal Dev in Neovim",
+      "path": "Unreal/Unreal Dev in Neovim.md"
+    },
+    {
+      "basename": "GDScript",
+      "path": "Godot/GDScript.md"
+    },
+    {
+      "basename": "Developing a Player State Machine",
+      "path": "Godot/Developing a Player State Machine.md"
+    },
+    {
+      "basename": "GDScript to CPP",
+      "path": "Godot/GDScript to CPP.md"
+    },
+    {
+      "basename": "CPP",
+      "path": "Godot/CPP.md"
+    },
+    {
+      "basename": "Godot Scratchpad",
+      "path": "Godot/Godot Scratchpad.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}
