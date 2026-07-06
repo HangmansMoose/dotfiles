@@ -116,7 +116,7 @@
         {
             "name": "Placeholder",
             "scope": "constant.other.placeholder",
-            "foreground": "#BAE67E"
+            "foreground": "#1A3B49"
         },
         {
             "name": "Variable",
@@ -291,7 +291,7 @@
         {
             "name": "Attribute value",
             "scope": "string.quoted.double.html, string.quoted.double.xml, string.quoted.single.html",
-            "foreground": "#BAE67E"
+            "foreground": "#FFA717"
         },
         {
             "name": "CSS property",

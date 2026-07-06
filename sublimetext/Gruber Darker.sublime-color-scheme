@@ -206,12 +206,12 @@
         {
             "name": "Function builtin",
             "scope": "support.function.builtin, support.function",
-            "foreground": "#E0AD82"
+            "foreground": "#82A6C8"
         },
         {
             "name": "Function macro",
             "scope": "entity.name.function.preprocessor",
-            "foreground": "#E0AD82"
+            "foreground": "#82A6C8"
         },
         {
             "name": "Macro",

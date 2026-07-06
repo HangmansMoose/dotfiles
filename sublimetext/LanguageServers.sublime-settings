@@ -1,32 +1,23 @@
 {
-	"clients": {
-		"zls": {
-			"enabled": true,
-			"command": [
-				"~/.zvm/bin/zls.exe"
-			],
-			"selector": "source.zig"
-		},
-		"odin": {
-			"enabled": true,
-			"command": [
-				"G:/dev_tools/ols/ols.exe"
-			],
-			"languageId": "odin",
-			"selector": "source.odin",
+	"zls": {
+		"enabled": true,
+		"command": [
+			"~/.zvm/bin/zls.exe"
+		],
+		"selector": "source.zig"
+	},
+	"odin": {
+		"enabled": true,
+		"command": [
+			"G:/dev_tools/ols/ols.exe"
+		],
+		"selector": "source.odin",
+		"initialization_options": {
 			"enable_semantic_tokens": true,
 			"enable_document_symbols": true,
 			"enable_hover": true,
 			"enable_snippets": true,
 			"enable_format": true,
 		}
-	},
-	"lsp_format_on_save": true,
-	"lsp_code_actions_on_format": {
-		// Adds/removes discards
-		"source.fixAll": true,
-		// Sorts @import declarations
-		"source.organizeImports": true
-	},
-	"show_inlay_hints": true
+	}
 }

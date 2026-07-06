@@ -1,0 +1,10 @@
+[
+	/*                        CORE                                             */
+	{ "keys": ["alt+b"], "command": "toggle_side_bar" },
+
+	/*                        TERMINUS                                         */
+	{ "keys": ["alt+`"], "command": "toggle_terminus_panel" },
+
+	/*                        ORIGAMI                                          */
+	{ "keys": ["ctrl+k", "ctrl+x"], "command": "destroy_pane", "args": {"direction": "self"} },
+]
