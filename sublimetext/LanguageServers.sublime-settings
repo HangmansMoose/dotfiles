@@ -6,18 +6,18 @@
 		],
 		"selector": "source.zig"
 	},
-	"odin": {
-		"enabled": true,
-		"command": [
-			"G:/dev_tools/ols/ols.exe"
-		],
-		"selector": "source.odin",
-		"initialization_options": {
-			"enable_semantic_tokens": true,
-			"enable_document_symbols": true,
-			"enable_hover": true,
-			"enable_snippets": true,
-			"enable_format": true,
-		}
-	}
+	//"odin": {
+		//"enabled": true,
+		//"command": [
+			//"G:/dev_tools/ols/ols.exe"
+		//],
+		//"selector": "source.odin",
+		//"initialization_options": {
+			//"enable_semantic_tokens": true,
+			//"enable_document_symbols": true,
+			//"enable_hover": true,
+			//"enable_snippets": true,
+			//"enable_format": true,
+		//}
+	//}
 }
