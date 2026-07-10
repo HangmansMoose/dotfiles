@@ -1,0 +1,197 @@
+{
+    "name": "Naysayer Midnight",
+    "author": "Ported from RostislavArts/naysayer.nvim (itself a port of Nick Aversano's Emacs naysayer-theme, used in Jonathan Blow's compiler livestreams)",
+    "variables": {
+        "bg": "#050505",
+        "gutter": "#050505",
+        "highlight": "#0a1215",
+        "line_fg": "#126367",
+        "text": "#d0b892",
+        "comment": "#53d549",
+        "string": "#3ad0b5",
+        "string_dim": "#2fa89e",
+        "number": "#87ffde",
+        "keyword": "#ffffff",
+        "keyword_dim": "#b0b0b0",
+        "type": "#8cde94",
+        "type_dim": "#79c4a6",
+        "variable": "#d0b892",
+        "variable_dim": "#a0b8c8",
+        "function_dim": "#cccccc",
+        "macro": "#8cde94",
+        "special": "#FD971F",
+        "warning": "#ffaa00",
+        "error": "#ff0000",
+        "error_alt": "#F92672",
+        "info": "#66D9EF",
+        "hint": "#A1EFE4",
+        "violet": "#AE81FF",
+        "yellow": "#E6DB74",
+        "green_accent": "#A6E22E",
+        "magenta": "#FD5FF0",
+        "selection": "#0000ff",
+        "white": "#ffffff",
+        "lualine_fg": "#12251b",
+        "lualine_bg": "#d3b58e"
+    },
+    "globals": {
+        "background": "var(bg)",
+        "foreground": "var(text)",
+        "caret": "var(white)",
+        "invisibles": "color(var(line_fg) alpha(0.6))",
+        "line_highlight": "var(highlight)",
+        "selection": "var(selection)",
+        "selection_foreground": "var(white)",
+        "selection_border": "var(selection)",
+        "inactive_selection": "color(var(selection) alpha(0.4))",
+        "inactive_selection_foreground": "var(text)",
+        "misspelling": "var(error_alt)",
+        "gutter_foreground": "var(line_fg)",
+        "gutter_foreground_highlight": "var(white)",
+        "shadow": "color(black alpha(0.5))",
+        "highlight": "var(selection)",
+        "find_highlight": "var(yellow)",
+        "find_highlight_foreground": "var(bg)",
+        "brackets_foreground": "var(type)",
+        "bracket_contents_foreground": "var(type)",
+        "tags_options": "underline",
+        "popup_css": ".mdpopups { background-color: #050505; }"
+    },
+    "rules": [
+        {
+            "scope": "comment, punctuation.definition.comment",
+            "foreground": "var(comment)"
+        },
+        {
+            "scope": "string, string.quoted, string.template",
+            "foreground": "var(string)"
+        },
+        {
+            "scope": "string.regexp",
+            "foreground": "var(magenta)"
+        },
+        {
+            "scope": "constant.character.escape",
+            "foreground": "var(string_dim)"
+        },
+        {
+            "scope": "constant.numeric",
+            "foreground": "var(number)"
+        },
+        {
+            "scope": "constant.language, constant.other",
+            "foreground": "var(number)"
+        },
+        {
+            "scope": "keyword, keyword.control, storage",
+            "foreground": "var(keyword)"
+        },
+        {
+            "scope": "keyword.operator",
+            "foreground": "var(keyword_dim)"
+        },
+        {
+            "scope": "storage.type, entity.name.type, support.type, support.class, entity.other.inherited-class",
+            "foreground": "var(type)"
+        },
+        {
+            "scope": "storage.modifier, meta.return-type",
+            "foreground": "var(type_dim)"
+        },
+        {
+            "scope": "variable, variable.other, variable.other.object",
+            "foreground": "var(variable)"
+        },
+        {
+            "scope": "variable.parameter, entity.name.variable.parameter",
+            "foreground": "var(variable_dim)"
+        },
+        {
+            "scope": "variable.language",
+            "foreground": "var(violet)",
+            "font_style": "italic"
+        },
+        {
+            "scope": "entity.name.function, meta.function-call, meta.function",
+            "foreground": "var(variable)"
+        },
+        {
+            "scope": "support.function",
+            "foreground": "var(function_dim)"
+        },
+        {
+            "scope": "entity.name.class, entity.name.namespace",
+            "foreground": "var(type)"
+        },
+        {
+            "scope": "entity.name.tag",
+            "foreground": "var(yellow)"
+        },
+        {
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(green_accent)"
+        },
+        {
+            "scope": "keyword.other.preprocessor, meta.preprocessor",
+            "foreground": "var(macro)"
+        },
+        {
+            "scope": "punctuation, punctuation.separator, punctuation.terminator, punctuation.definition.string, punctuation.section, meta.brace",
+            "foreground": "var(text)"
+        },
+        {
+            "scope": "punctuation.section.embedded, punctuation.definition.template-expression",
+            "foreground": "var(orange)"
+        },
+        {
+            "scope": "markup.heading",
+            "foreground": "var(type)",
+            "font_style": "bold"
+        },
+        {
+            "scope": "markup.bold",
+            "font_style": "bold"
+        },
+        {
+            "scope": "markup.italic",
+            "font_style": "italic"
+        },
+        {
+            "scope": "markup.underline.link",
+            "foreground": "var(blue)",
+            "font_style": "underline"
+        },
+        {
+            "scope": "markup.quote",
+            "foreground": "var(line_fg)",
+            "font_style": "italic"
+        },
+        {
+            "scope": "markup.inserted, diff.inserted",
+            "foreground": "var(green_accent)"
+        },
+        {
+            "scope": "markup.deleted, diff.deleted",
+            "foreground": "var(error_alt)"
+        },
+        {
+            "scope": "markup.changed, diff.changed",
+            "foreground": "var(warning)"
+        },
+        {
+            "scope": "meta.diff.header",
+            "foreground": "var(line_fg)"
+        },
+        {
+            "scope": "invalid, invalid.illegal",
+            "foreground": "var(error)",
+            "background": "color(var(error) alpha(0.15))"
+        },
+        {
+            "scope": "invalid.deprecated",
+            "foreground": "var(warning)",
+            "background": "color(var(warning) alpha(0.15))",
+            "font_style": "italic"
+        }
+    ]
+}
