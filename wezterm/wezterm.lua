@@ -21,7 +21,7 @@ end
 local host_os = get_os()
 
 -- For example, changing the color scheme:
-config.color_scheme = "Black Metal (Mayhem)(base16)"
+config.color_scheme = "ayu"
 if host_os == 'windows' then
     config.default_cwd = "G:/dev"
 else

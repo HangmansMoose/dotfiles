@@ -1,0 +1,282 @@
+{
+  "extends": "Default.sublime-theme",
+  "variables": {
+    "kanso_bg": "#2f3036",
+    "kanso_elevated": "#2f3036",
+    "kanso_tabbar": "#2f3036",
+    "kanso_tab_active": "#43464E",
+    "kanso_tab_inactive": "#2f3036",
+    "kanso_titlebar": "#2f3036",
+    "kanso_statusbar": "#2f3036",
+    "kanso_panel": "#2f3036",
+    "kanso_border": "#43464E",
+    "kanso_text": "#c5c9c7",
+    "kanso_text_muted": "#75797f",
+    "kanso_accent": "#c4746e",
+    "kanso_hover": "#43464E",
+    "kanso_selected": "#43464E",
+    "kanso_scroll": "#75797f"
+  },
+  "rules": [
+    {
+      "class": "title_bar",
+      "bg": "var(kanso_titlebar)",
+      "fg": "var(kanso_text)"
+    },
+    {
+      "class": "sidebar_container",
+      "layer0.tint": "var(kanso_bg)",
+      "layer0.opacity": 1.0,
+      "content_margin": [
+        0,
+        6,
+        0,
+        6
+      ]
+    },
+    {
+      "class": "sidebar_tree",
+      "row_padding": [
+        16,
+        4
+      ],
+      "indent": 12,
+      "indent_offset": 8,
+      "indent_top_level": false,
+      "dark_content": true
+    },
+    {
+      "class": "tree_row",
+      "layer0.tint": "var(kanso_bg)",
+      "layer0.opacity": 0
+    },
+    {
+      "class": "tree_row",
+      "attributes": [
+        "hover"
+      ],
+      "layer0.tint": "var(kanso_hover)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "tree_row",
+      "attributes": [
+        "selected"
+      ],
+      "layer0.tint": "var(kanso_selected)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "sidebar_label",
+      "color": "var(kanso_text_muted)",
+      "font.size": 12
+    },
+    {
+      "class": "sidebar_label",
+      "parents": [
+        {
+          "class": "tree_row",
+          "attributes": [
+            "selected"
+          ]
+        }
+      ],
+      "color": "var(kanso_text)"
+    },
+    {
+      "class": "sidebar_label",
+      "parents": [
+        {
+          "class": "tree_row",
+          "attributes": [
+            "expandable"
+          ]
+        }
+      ],
+      "color": "var(kanso_text)"
+    },
+    {
+      "class": "sidebar_heading",
+      "color": "var(kanso_accent)",
+      "font.bold": true
+    },
+    {
+      "class": "icon_folder",
+      "content_margin": [
+        9,
+        9
+      ]
+    },
+    {
+      "class": "tabset_control",
+      "layer0.tint": "var(kanso_tabbar)",
+      "layer0.opacity": 1.0,
+      "tab_overlap": 0,
+      "tab_height": 36,
+      "tab_width": 100,
+      "mouse_wheel_switch": false
+    },
+    {
+      "class": "tab_control",
+      "layer0.tint": "var(kanso_tab_inactive)",
+      "layer0.opacity": 1.0,
+      "content_margin": [
+        12,
+        0,
+        12,
+        0
+      ]
+    },
+    {
+      "class": "tab_control",
+      "attributes": [
+        "selected"
+      ],
+      "layer0.tint": "var(kanso_tab_active)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "tab_control",
+      "attributes": [
+        "hover"
+      ],
+      "layer0.tint": "var(kanso_hover)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "tab_label",
+      "color": "var(kanso_text_muted)",
+      "font.size": 12
+    },
+    {
+      "class": "tab_label",
+      "parents": [
+        {
+          "class": "tab_control",
+          "attributes": [
+            "selected"
+          ]
+        }
+      ],
+      "color": "var(kanso_text)"
+    },
+    {
+      "class": "tab_control",
+      "attributes": [
+        "selected"
+      ],
+      "layer2.tint": "var(kanso_accent)",
+      "layer2.opacity": 1.0,
+      "layer2.inner_margin": [
+        0,
+        34,
+        0,
+        0
+      ],
+      "layer2.draw_center": true
+    },
+    {
+      "class": "status_bar",
+      "layer0.tint": "var(kanso_statusbar)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "label_control",
+      "parents": [
+        {
+          "class": "status_bar"
+        }
+      ],
+      "color": "var(kanso_text_muted)"
+    },
+    {
+      "class": "panel_control",
+      "layer0.tint": "var(kanso_panel)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "panel_grid_control",
+      "inside_spacing": 4,
+      "outside_hspacing": 4,
+      "outside_vspacing": 4
+    },
+    {
+      "class": "quick_panel",
+      "row_padding": [
+        8,
+        4
+      ],
+      "layer0.tint": "var(kanso_elevated)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "quick_panel_label",
+      "fg": "var(kanso_text_muted)",
+      "match_fg": "var(kanso_accent)"
+    },
+    {
+      "class": "quick_panel_label",
+      "parents": [
+        {
+          "class": "quick_panel_row",
+          "attributes": [
+            "selected"
+          ]
+        }
+      ],
+      "fg": "var(kanso_text)",
+      "match_fg": "var(kanso_accent)"
+    },
+    {
+      "class": "quick_panel_row",
+      "attributes": [
+        "selected"
+      ],
+      "layer0.tint": "var(kanso_selected)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "popup_control",
+      "layer0.tint": "var(kanso_elevated)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "auto_complete",
+      "row_padding": [
+        8,
+        3
+      ],
+      "layer0.tint": "var(kanso_elevated)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "auto_complete_label",
+      "fg": "var(kanso_text_muted)",
+      "match_fg": "var(kanso_accent)",
+      "selected_fg": "var(kanso_text)",
+      "selected_match_fg": "var(kanso_accent)"
+    },
+    {
+      "class": "scroll_bar_control",
+      "layer0.tint": "var(kanso_bg)",
+      "layer0.opacity": 1.0
+    },
+    {
+      "class": "puck_control",
+      "layer0.tint": "var(kanso_scroll)",
+      "layer0.opacity": 0.5
+    },
+    {
+      "class": "puck_control",
+      "attributes": [
+        "hover"
+      ],
+      "layer0.opacity": 0.9
+    },
+    {
+      "class": "grid_layout_control",
+      "border_color": "var(kanso_border)",
+      "border_size": 1
+    }
+  ]
+}
