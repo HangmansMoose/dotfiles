@@ -38,15 +38,15 @@
 	"syntax_detection_size_limit": 67108864,
 
 	/*         Theme and Font        */
-	"color_scheme": "GitHub Dark Colorblind.sublime-color-scheme",
+	"color_scheme": "Kanso Deep.sublime-color-scheme",
 	"theme": "GitHub Adaptive.sublime-theme",
-	"font_face": "BlexMono Nerd Font Medium",
-	"font_size": 13,
+	"font_face": "SauceCodePro Nerd Font",
+	"font_size": 14,
 	"font_options": [
 		"no_bold",
 		"no_italic"	
 	],	
-	//"match_brackets": false,
+	"match_brackets": false,
 	
 	/*           Vintage            */
 	"vintage_start_in_command_mode": true,
