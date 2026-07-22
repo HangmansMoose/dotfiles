@@ -8,37 +8,40 @@ local config = wezterm.config_builder()
 --- Get the current operating system
 --- @return "windows"| "linux" | "macos"
 local function get_os()
-    local bin_format = package.cpath:match("%p[\\|/]?%p(%a+)")
-    if bin_format == "dll" then
-        return "windows"
-    elseif bin_format == "so" then
-        return "linux"
-    end
+	local bin_format = package.cpath:match("%p[\\|/]?%p(%a+)")
+	if bin_format == "dll" then
+		return "windows"
+	elseif bin_format == "so" then
+		return "linux"
+	end
 
-    return "macos"
+	return "macos"
 end
+
+local isWindows = package.config:sub(1, 1) == "\\"   
 
 local host_os = get_os()
 
 -- For example, changing the color scheme:
 config.color_scheme = "Black Metal (Mayhem)(base16)"
-if host_os == 'windows' then
-    config.default_cwd = "G:/dev"
+if isWindows then
+	config.default_cwd = "G:/"
 else
-    config.default_cwd = "~/dev"
+	config.default_cwd = "~"
 end
 config.font = wezterm.font("CaskaydiaMono Nerd Font")
 config.font_size = 14
-config.animation_fps = 144
+config.animation_fps = 60
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 750
 config.scrollback_lines = 20000
 config.automatically_reload_config = true
-config.max_fps = 120
+config.max_fps = 60
 -- WebGpu allows for the use of DirectX in windows
-config.front_end = "WebGpu"
+config.front_end = "OpenGL"
+config.allow_win32_input_mode = true
 
 config.colors = {
 	cursor_bg = "#00ff33",
@@ -51,9 +54,10 @@ config.default_prog = {
 }
 
 config.launch_menu = {
-    { label = "Powershell Core", args = { "pwsh.exe", "-NoLogo", "-NoExit" } },
-    { label = "Arch", args = { "wsl.exe", "-d", "archlinux" } },
-    { label = "Ubuntu", args = { "wsl.exe", "-d", "Ubuntu-24.04" } }
+	{ label = "Powershell", args = { "pwsh.exe", "-NoLogo", "-NoExit" } },
+	{ label = "Powershell VSDev", args = { "pwsh.exe", "-NoLogo", "-NoExit", "-File", "G:/dev_tools/vsdev.ps1" } },
+	{ label = "Arch", args = { "wsl.exe", "-d", "archlinux" } },
+	{ label = "Ubuntu", args = { "wsl.exe", "-d", "Ubuntu-26.04" } },
 }
 
 -- This section makes wezterm launch into fullscreen mode
@@ -71,14 +75,14 @@ end)
 
 config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 
 config.leader = { key = "a", mods = "CTRL" }
 config.keys = {
-    --	Using the ShowLauncherArgs command with the LAUNCH_MENU_ITEMS flag is what allows you to show only what you have defined
-    --	in config.launch_menu in the launcher
-    { key = 'F3', mods = 'NONE', action = wezterm.action.ShowLauncherArgs{ flags = 'LAUNCH_MENU_ITEMS' } },
-    { key = 'F2', mods = 'NONE', action = wezterm.action.ActivateCommandPalette },
+	--	Using the ShowLauncherArgs command with the LAUNCH_MENU_ITEMS flag is what allows you to show only what you have defined
+	--	in config.launch_menu in the launcher
+	{ key = "F3", mods = "NONE", action = wezterm.action.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
+	{ key = "F2", mods = "NONE", action = wezterm.action.ActivateCommandPalette },
 	{ key = "-", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "%", mods = "LEADER|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "s", mods = "LEADER", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
