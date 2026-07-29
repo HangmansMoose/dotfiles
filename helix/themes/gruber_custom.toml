@@ -1,0 +1,7 @@
+inherits = "gruber-darker"
+
+"comment" = { fg = "#6f7b68" }
+
+[palette]
+bg0 = "#101010"
+bg1 = "#151515"

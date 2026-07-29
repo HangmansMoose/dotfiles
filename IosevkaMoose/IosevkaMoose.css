@@ -1,0 +1,216 @@
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: condensed;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-Condensed.woff2') format('woff2'), url('TTF/IosevkaMoose-Condensed.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-Regular.woff2') format('woff2'), url('TTF/IosevkaMoose-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: semi-expanded;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-SemiExtended.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtended.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: condensed;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-CondensedItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-Italic.woff2') format('woff2'), url('TTF/IosevkaMoose-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: semi-expanded;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: condensed;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-CondensedBold.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-Bold.woff2') format('woff2'), url('TTF/IosevkaMoose-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: semi-expanded;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedBold.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: condensed;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-CondensedBoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-BoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: semi-expanded;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedBoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: condensed;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-CondensedMedium.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedMedium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-Medium.woff2') format('woff2'), url('TTF/IosevkaMoose-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: semi-expanded;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedMedium.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedMedium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: condensed;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-CondensedMediumItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedMediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-MediumItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: semi-expanded;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedMediumItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedMediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: condensed;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-CondensedSemiBold.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedSemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-SemiBold.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: semi-expanded;
+	font-style: normal;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedSemiBold.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedSemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: condensed;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-CondensedSemiBoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-CondensedSemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-SemiBoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Iosevka Moose Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: semi-expanded;
+	font-style: italic;
+	src: url('WOFF2/IosevkaMoose-SemiExtendedSemiBoldItalic.woff2') format('woff2'), url('TTF/IosevkaMoose-SemiExtendedSemiBoldItalic.ttf') format('truetype');
+}

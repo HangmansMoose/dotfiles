@@ -1,0 +1,212 @@
+# Kansō Zen for Helix
+# Ported from webhooked/kanso.nvim (Neovim), "zen" variant — deeper, more
+# contrasted background shades than "ink". Kansō (簡素) is a calm,
+# low-contrast evolution of Kanagawa designed to reduce visual noise.
+#
+# This port omits all italics and underlines/undercurls.
+#
+# Source: https://github.com/webhooked/kanso.nvim
+#         lua/kanso/colors.lua (palette) + lua/kanso/themes.lua (zen mapping)
+
+# -----------------------------------------------------------------------------
+# Syntax highlighting
+# -----------------------------------------------------------------------------
+"attribute" = "yellow3"
+
+"type" = "aqua"
+"type.builtin" = "aqua"
+
+"constructor" = "yellow3"
+
+"constant" = "orange"
+"constant.builtin" = "orange"
+"constant.character.escape" = "red3"
+"constant.numeric" = "pink"
+
+"string" = "green3"
+"string.regexp" = "red3"
+"string.special" = "yellow3"
+"string.special.symbol" = "violet2"
+"string.special.url" = "yellow3"
+
+"comment" = "gray4"
+"comment.line" = "gray4"
+"comment.block" = "gray4"
+"comment.block.documentation" = "gray4"
+
+"variable" = "fg"
+"variable.builtin" = "violet2"
+"variable.parameter" = "gray3"
+"variable.other.member" = "violet2"
+
+"label" = "violet2"
+
+"punctuation" = "gray3"
+"punctuation.delimiter" = "gray3"
+"punctuation.bracket" = "gray3"
+"punctuation.special" = "yellow3"
+
+"keyword" = "violet2"
+"keyword.control" = "violet2"
+"keyword.control.conditional" = "violet2"
+"keyword.control.repeat" = "violet2"
+"keyword.control.import" = "gray3"
+"keyword.control.return" = "violet2"
+"keyword.control.exception" = "violet2"
+"keyword.operator" = "gray3"
+"keyword.directive" = "gray3"
+"keyword.function" = "violet2"
+"keyword.storage" = "violet2"
+"keyword.storage.type" = "violet2"
+"keyword.storage.modifier" = "violet2"
+
+"operator" = "gray3"
+
+"function" = "blue3"
+"function.builtin" = "blue3"
+"function.method" = "blue3"
+"function.macro" = "gray3"
+"function.special" = "blue3"
+
+"tag" = "violet2"
+
+"namespace" = "gray3"
+
+"special" = "gray5"
+
+"markup.heading" = { fg = "blue3", modifiers = ["bold"] }
+"markup.list" = "violet2"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = "fg"
+"markup.strikethrough" = "fg"
+"markup.link.url" = "yellow3"
+"markup.link.text" = "blue3"
+"markup.raw" = "green3"
+"markup.quote" = "gray4"
+
+"diff.plus" = "git_green"
+"diff.minus" = "git_red"
+"diff.delta" = "git_yellow"
+
+# -----------------------------------------------------------------------------
+# Diagnostics
+# -----------------------------------------------------------------------------
+"error" = "red"
+"warning" = "yellow"
+"info" = "blue2"
+"hint" = "green4"
+
+"diagnostic.error" = { fg = "red" }
+"diagnostic.warning" = { fg = "yellow" }
+"diagnostic.info" = { fg = "blue2" }
+"diagnostic.hint" = { fg = "green4" }
+
+# -----------------------------------------------------------------------------
+# UI
+# -----------------------------------------------------------------------------
+"ui.background" = { fg = "fg", bg = "bg0" }
+"ui.text" = "fg"
+"ui.text.focus" = "fg2"
+"ui.text.inactive" = "gray2"
+
+"ui.window" = { fg = "bg2" }
+
+"ui.statusline" = { fg = "fg", bg = "bg2" }
+"ui.statusline.inactive" = { fg = "gray4", bg = "bg1" }
+"ui.statusline.normal" = { fg = "bg0", bg = "aqua", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg0", bg = "green3", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg0", bg = "yellow3", modifiers = ["bold"] }
+
+"ui.bufferline" = { fg = "gray4", bg = "bg1" }
+"ui.bufferline.active" = { fg = "fg2", bg = "bg2", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "bg1" }
+
+"ui.popup" = { fg = "gray2", bg = "bg0" }
+"ui.popup.info" = { fg = "gray2", bg = "bg0" }
+"ui.window.border" = "bg2"
+
+"ui.help" = { fg = "gray2", bg = "bg0" }
+
+"ui.linenr" = { fg = "gray5", bg = "bg0" }
+"ui.linenr.selected" = { fg = "fg2", bg = "bg0", modifiers = ["bold"] }
+
+"ui.cursorline.primary" = { bg = "bg1" }
+"ui.cursorline.secondary" = { bg = "bg1" }
+"ui.cursorcolumn.primary" = { bg = "bg1" }
+
+"ui.selection" = { bg = "bg3" }
+"ui.selection.primary" = { bg = "bg3" }
+
+"ui.cursor" = { fg = "bg0", bg = "fg2" }
+"ui.cursor.primary" = { fg = "bg0", bg = "fg2" }
+"ui.cursor.match" = { fg = "yellow3", modifiers = ["bold"] }
+"ui.cursor.insert" = { fg = "bg0", bg = "green3" }
+"ui.cursor.select" = { fg = "bg0", bg = "yellow3" }
+
+"ui.gutter" = { bg = "bg0" }
+"ui.gutter.selected" = { bg = "bg0" }
+
+"ui.virtual.whitespace" = "bg3"
+"ui.virtual.indent-guide" = "bg2"
+"ui.virtual.ruler" = { bg = "bg2" }
+"ui.virtual.jump-label" = { fg = "yellow3", modifiers = ["bold"] }
+"ui.virtual.inlay-hint" = { fg = "gray4", bg = "bg1" }
+
+"ui.menu" = { fg = "fg2", bg = "bg0" }
+"ui.menu.selected" = { fg = "fg2", bg = "bg3" }
+"ui.menu.scroll" = { fg = "bg3", bg = "bg0" }
+
+"ui.highlight" = { bg = "bg3" }
+"ui.highlight.frameline" = { bg = "alt_blue2" }
+
+"ui.picker.header.column" = { fg = "fg2", modifiers = ["bold"] }
+"ui.picker.header.column.active" = { fg = "yellow3", modifiers = ["bold"] }
+
+"ui.debug.breakpoint" = "red"
+"ui.debug.active" = "yellow"
+
+# -----------------------------------------------------------------------------
+# Palette
+# -----------------------------------------------------------------------------
+[palette]
+# Backgrounds (zen shades — darker/higher-contrast than "ink")
+bg0        = "#090E13" # base background
+bg1        = "#1C1E25" # dim background / floats / popups
+bg2        = "#22262D" # cursorline / gutter / statusline
+bg3        = "#393B44" # selection / active indent guide / pmenu sel
+
+# Popup accents
+alt_blue1  = "#223249" # reversed fg
+alt_blue2  = "#2D4F67" # search background / frameline highlight
+
+# Foregrounds / grays
+fg         = "#C5C9C7" # default text
+fg2        = "#f2f1ef" # bright fg (active line number, cursor)
+gray       = "#717C7C" # deprecated
+gray2      = "#A4A7A4" # dim fg / float fg
+gray3      = "#909398" # operators, punctuation, parameters
+gray4      = "#75797f" # comments
+gray5      = "#5C6066" # line numbers, non-text, special
+
+# Syntax colors (non-saturated / default)
+red        = "#C34043" # errors, git delete
+red3       = "#c4746e" # regex
+green      = "#98BB6C" # ok / diagnostics
+green3     = "#8a9a7b" # strings
+green4     = "#6A9589" # hints
+orange     = "#b6927b" # constants
+yellow     = "#DCA561" # warnings, git modify
+yellow3    = "#c4b28a" # special1 (constructors, url)
+blue2      = "#658594" # info
+blue3      = "#8ba4b0" # functions
+violet2    = "#8992a7" # keywords, identifiers, statements
+pink       = "#a292a3" # numbers
+aqua       = "#8ea4a2" # types
+
+# Diff / VCS
+diff_add    = "#2B3328"
+diff_delete = "#43242B"
+diff_change = "#252535"
+git_green   = "#76946A"
+git_red     = "#C34043"
+git_yellow  = "#DCA561"
