@@ -9,30 +9,28 @@
 {
   // Extensions to install automatically on a new install
   "auto_install_extensions": {
-      "chaos-theory-theme": true,
-      "codesandbox-theme": true,
+      "clice": true,
       "colored-zed-icons-theme": true,
+      "comment": true,
       "gdscript": true,
+      "git-firefly": true,
+      "glsl": true,
       "gruber-darker": true,
-      "haku-dark-theme": true,
-      "html": true,
       "jellybeans-vim": true,
+      "just": true,
       "kanagawa-themes": true,
       "kanso": true,
+      "latex": true,
       "lua": true,
       "make": true,
       "material-icon-theme": true,
-      "melange": true,
-      "naysayer-theme": true,
       "neocmake": true,
-      "oceanic-next": true,
       "odin": true,
       "pylsp": true,
       "sitruuna": true,
+      "sonder-theme": true,
       "sublime-mariana-theme": true,
       "toml": true,
-      "tomorrow-theme": true,
-      "vscode-icons": true,
       "zig": true,
   },
 
@@ -85,7 +83,7 @@
   "buffer_font_weight": 400.0,
   "ensure_final_newline_on_save": false,
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Colored Zed Icons Theme Dark",
     "dark": "Material Icon Theme",
   },
@@ -141,11 +139,7 @@
   },
 
   // Current Set theme
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Oshen"
-  },
+  "theme": "Kanso Zen (No italics)",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -277,6 +271,39 @@
       "syntax": {
         "comment": { "color": "#6f7b68" },
         "meta.preprocessor": { "font_weight": 400 },
+      },
+    },
+    "Sonder": {
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      "tab.inactive_background": "#202020",
+      "tab.active_background": "#333333",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      //"editor.active_line.background": "#111144",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
+      "syntax": {
+        "comment": { "color": "#6f7b68" },
+        "meta.preprocessor": { "font_weight": 400 },
+      },
+    },
+    "Ultimate Dark Neo": {
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      "tab.inactive_background": "#202020",
+      "tab.active_background": "#333333",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      //"editor.active_line.background": "#111144",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
+      "syntax": {
+        "comment": { "color": "#6f7b68" },
       },
     },
     "Jellybeans": {
