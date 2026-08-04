@@ -1,0 +1,4 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:4300
+SETUVAR fish_user_paths:/Applications/Sublime\x20Text\x2eapp/Contents/SharedSupport/bin\x1e/Users/glen/go/bin\x1e/opt/local/bin\x1e/opt/nvim/bin\x1e/Applications/Visual\x20Studio\x20Code\x2eapp/Contents/Resources/app/bin\x1e/Applications/Sublime\x20Text\x2eapp/Contents/SharedSupport/bin/\x1e/usr/bin\x1e/opt/homebrew/bin
