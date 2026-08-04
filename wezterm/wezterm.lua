@@ -33,12 +33,46 @@ end
 local host_os = get_os()
 
 -- For example, changing the color scheme:
-config.color_scheme = "Tomorrow Night Bright"
+--config.color_scheme = "Tomorrow Night Bright"
 if host_os == 'Windows' then
     config.default_cwd = "G:/"
 else
     config.default_cwd = "~/dev"
 end
+
+-- wezterm.GLOBAL survives config reloads; a plain local table wouldn't
+wezterm.GLOBAL.tab_titles = wezterm.GLOBAL.tab_titles or {}
+
+local function basename(s)
+  s = string.gsub(s or '', '(.*[/\\])(.*)', '%2')
+  return (string.gsub(s, '%.exe$', ''))  -- Windows
+end
+
+wezterm.on('format-tab-title', function(tab)
+  -- respect manual renames (tab:set_title / OSC 0;2)
+  if tab.tab_title and #tab.tab_title > 0 then
+    return ' ' .. tab.tab_title .. ' '
+  end
+
+  local key = tostring(tab.tab_id)
+  local cached = wezterm.GLOBAL.tab_titles[key]
+  if cached then
+    return ' ' .. cached .. ' '
+  end
+
+  local pane = tab.active_pane
+  local name = basename(pane.foreground_process_name)
+  if name == '' then
+    name = pane.domain_name or pane.title  -- ssh/mux panes have no local proc
+  end
+  if name == '' then
+    return ' shell '  -- not resolved yet, don't cache; retry next frame
+  end
+
+  wezterm.GLOBAL.tab_titles[key] = name
+  return ' ' .. name .. ' '
+end)
+
 config.font = wezterm.font("CaskaydiaMono Nerd Font")
 config.font_size = 14
 config.animation_fps = 144
@@ -49,7 +83,7 @@ config.cursor_blink_rate = 500
 config.scrollback_lines = 20000
 config.automatically_reload_config = true
 config.max_fps = 120
-config.term = "xterm-256"
+--config.term = "xterm-256"
 -- WebGpu allows for the use of DirectX in windows
 config.webgpu_preferred_adapter = {
         backend = "Dx12",
@@ -61,20 +95,14 @@ config.webgpu_preferred_adapter = {
 }
 config.front_end = "WebGpu"
 
-config.colors = {
-}
-
-config.window_frame = {
-	active_titlebar_bg = "#050505"
-}
-config.default_prog = {
-	"pwsh.exe",
-	"-nologo",
-	"-NoExit",
-}
+config.default_prog = { "pwsh.exe" }
 
 config.launch_menu = {
-    { label = "Powershell Core", args = { "pwsh.exe", "-NoLogo", "-NoExit" } },
+    { label = "pwsh", args = { "pwsh.exe"} },
+    { label = "pwsh vsdev", args = { "pwsh.exe", "-NoExit", "-c", "G:\\dev_tools\\scripts\\vsdev.ps1" } },
+    { label = "Ubuntu26", args = { "wsl.exe", "-d", "Ubuntu26.04" } },
+    { label = "Arch", args = { "wsl.exe", "-d", "archlinux" } },
+    { label = "Fedora44", args = { "wsl.exe", "-d", "FedoraLinux-44" } },
 }
 
 -- This section makes wezterm launch into fullscreen mode
@@ -90,54 +118,20 @@ require("wezterm").on("format-window-title", function()
 	return "Wezterm"
 end)
 
-config.window_decorations = "NONE | RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = true
 -- config.tab_bar_at_bottom = true
+config.window_frame = {
+	active_titlebar_bg = "#050505",
+	inactive_titlebar_bg = "#050505",
+	active_titlebar_fg = "#FFA717"
+}
 config.colors = {
-	-- background = '#3b224c',
-	-- background = "#181616", -- vague.nvim bg
-	-- background = "#080808", -- almost black
-	-- background = "#0c0b0f", -- dark purple
-	-- background = "#020202", -- dark purple
-	-- background = "#17151c", -- brighter purple
-	-- background = "#16141a",
-	-- background = "#0e0e12", -- bright washed lavendar
-	-- background = 'rgba(59, 34, 76, 100%)',
-	-- cursor_border = "#bea3c7",
-	-- cursor_fg = "#281733",
-	-- cursor_bg = "#bea3c7",
-	-- selection_fg = '#281733',
+	background = '#000000',
 	cursor_bg = "#7e7e7e",
 	cursor_fg = "#1a1a1a",
-
-	tab_bar = {
-		background = "#0c0b0f",
-		-- background = "rgba(0, 0, 0, 0%)",
-		active_tab = {
-			bg_color = "#0c0b0f",
-			fg_color = "#FFA717",
-			intensity = "Normal",
-			underline = "None",
-			italic = false,
-			strikethrough = false,
-		},
-		inactive_tab = {
-			bg_color = "#0c0b0f",
-			fg_color = "#f8f2f5",
-			intensity = "Normal",
-			underline = "None",
-			italic = false,
-			strikethrough = false,
-		},
-
-		new_tab = {
-			-- bg_color = "rgba(59, 34, 76, 50%)",
-			bg_color = "#0c0b0f",
-			fg_color = "white",
-		},
-	},
 }
 
 config.leader = { key = "a", mods = "CTRL" }

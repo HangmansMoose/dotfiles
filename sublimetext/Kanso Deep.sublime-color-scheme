@@ -6,6 +6,7 @@
     "fg": "#c5c9c7",
     "gutter_bg": "#050505",
     "line_num": "#5C6066",
+    "block_caret": "#5C6066",
     "line_num_act": "#c5c9c7",
     "active_line": "#22262D",
     "selection": "#393B44",
@@ -21,6 +22,8 @@
     "background": "var(bg)",
     "foreground": "var(fg)",
     "caret": "var(caret)",
+    "block_caret": "var(block_caret)",
+    "block_caret_border": "hsla(0, 0%, 0%, 0)",
     "line_highlight": "var(active_line)",
     "selection": "var(selection)",
     "selection_border": "var(selection)",
@@ -40,7 +43,7 @@
     "brackets_foreground": "var(accent)",
     "bracket_contents_foreground": "var(accent)",
     "tags_foreground": "var(accent)",
-    "shadow": "#00000030"
+    "shadow": "#00000030",
   },
   "rules": [
     {

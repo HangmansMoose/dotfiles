@@ -28,7 +28,15 @@
     ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "CaskaydiaMono Nerd Font",
+                "size": 14
+            },
+            "useAcrylic": false
+        },
         "list": 
         [
             {
@@ -44,10 +52,10 @@
                 "name": "Command Prompt"
             },
             {
+                "colorScheme": "Tomorrow Night Bright",
                 "font": 
                 {
-                    "face": "CaskaydiaMono Nerd Font",
-                    "size": 13
+                    "face": "CaskaydiaMono Nerd Font"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -55,83 +63,90 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
-                "hidden": true,
-                "name": "Ubuntu-24.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{23d1bbb4-fab3-59d6-be60-8ba1cec6ec11}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
+                "guid": "{d16ae8d6-5ef2-5854-8b40-bade4f052ef2}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{bc1a6f3b-45c5-5a8b-a46b-2c98cf1cdbd8}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
+                "guid": "{42aed7ee-4501-5cd6-8e7f-af3c26dab4cc}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "colorScheme": "Tango Dark",
-                "font": 
-                {
-                    "face": "LiterationMono Nerd Font",
-                    "size": 13
-                },
-                "guid": "{4c8f07bd-5134-54b1-a923-4a6dbffd7b45}",
-                "hidden": false,
-                "name": "archlinux",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
-                "hidden": false,
-                "name": "Ubuntu 24.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "colorScheme": "Tango Dark",
-                "commandline": "C:\\msys64\\msys2.exe",
-                "font": 
-                {
-                    "cellHeight": "1.25",
-                    "face": "CaskaydiaMono Nerd Font",
-                    "size": 13
-                },
-                "guid": "{24f6b78c-2894-42b4-9759-01f27c112f2f}",
-                "hidden": false,
-                "icon": "C:\\msys64\\msys2.ico",
-                "name": "minGW"
-            },
-            {
-                "colorScheme": "Dark+",
-                "commandline": "C:\\raylib\\w64devkit\\w64devkit.exe",
-                "cursorShape": "filledBox",
-                "font": 
-                {
-                    "face": "CaskaydiaMono Nerd Font",
-                    "size": 13
-                },
-                "guid": "{fbdf82b9-09c2-4c60-9309-cec9175eb9df}",
-                "hidden": false,
-                "icon": "C:\\raylib\\w64devkit\\w64devkit.exe",
-                "name": "w64devkit"
             },
             {
                 "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{65a64116-481b-5720-8f9a-3cb6fee61253}",
+                "hidden": false,
+                "name": "archlinux",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "commandline": "C:\\msys64\\ucrt64.exe",
+                "guid": "{a4464d2f-b4aa-44b4-b701-e820f787a56a}",
+                "hidden": false,
+                "icon": "C:\\msys64\\ucrt64.ico",
+                "name": "msys64-ucrt"
+            },
+            {
+                "commandline": "C:\\msys64\\mingw64.exe",
+                "font": 
+                {
+                    "face": "CaskaydiaMono Nerd Font"
+                },
+                "guid": "{b5712145-32c9-4958-b502-94894e22501b}",
+                "hidden": false,
+                "icon": "C:\\msys64\\mingw64.ico",
+                "name": "mingw",
+                "tabTitle": "mingw"
             }
         ]
     },
-    "schemes": [],
-    "themes": []
+    "schemes": 
+    [
+        {
+            "background": "#000000",
+            "black": "#000000",
+            "blue": "#7AA6DA",
+            "brightBlack": "#000000",
+            "brightBlue": "#7AA6DA",
+            "brightCyan": "#70C0B1",
+            "brightGreen": "#B9CA4A",
+            "brightPurple": "#C397D8",
+            "brightRed": "#D54E53",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#E7C547",
+            "cursorColor": "#EAEAEA",
+            "cyan": "#70C0B1",
+            "foreground": "#EAEAEA",
+            "green": "#B9CA4A",
+            "name": "Tomorrow Night Bright",
+            "purple": "#C397D8",
+            "red": "#D54E53",
+            "selectionBackground": "#424242",
+            "white": "#FFFFFF",
+            "yellow": "#E7C547"
+        }
+    ],
+	"themes": [
+		{
+			"name": "Custom",
+			"tabRow": {
+				"background": "#050505",
+				"unfocusedBackground": "#151515"
+			}
+		}
+	],
+	"theme": "Custom",
 }

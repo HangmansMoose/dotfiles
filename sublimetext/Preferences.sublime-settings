@@ -12,7 +12,10 @@
     "line_padding_top": 1,
     "line_padding_bottom": 1,
     "highlight_line": true,
-    "caret_style": "blink",
+    "caret_style": "solid",
+    "caret_extra_bottom": 0,
+    "caret_extra_top": 0,
+    "caret_extra_width": 2,
 
     // Editing
     "translate_tabs_to_spaces": false,
@@ -39,9 +42,9 @@
 
 	/*         Theme and Font        */
 	"color_scheme": "Kanso Deep.sublime-color-scheme",
-	"theme": "GitHub Adaptive.sublime-theme",
-	"font_face": "SauceCodePro Nerd Font",
-	"font_size": 14,
+	"theme": "GitHub Dark Colorblind.sublime-theme",
+	"font_face": "CaskaydiaMono NF",
+	"font_size": 13,
 	"font_options": [
 		"no_bold",
 		"no_italic"	
@@ -71,4 +74,19 @@
 	"show_full_path": false,
 	"show_git_status": false,
 	"neovintageous_build_version": 13200,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html, text.xml",
+		},
+		{
+			"rhs_empty": true,
+			"selector": "punctuation.accessor",
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex",
+		}
+	],
 }
