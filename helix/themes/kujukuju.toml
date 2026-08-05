@@ -1,0 +1,185 @@
+# Kujukuju theme for Helix
+# Ported from the Neovim colorscheme (kujukuju.lua), itself ported from
+# focus-editor: https://github.com/focus-editor/focus
+#
+# Install: copy to your Helix themes folder (usually ~/.config/helix/themes/)
+# as kujukuju.toml, then set `theme = "kujukuju"` in config.toml.
+
+"attribute" = "type"
+"type" = { fg = "type" }
+"type.builtin" = { fg = "type" }
+"type.parameter" = { fg = "type" }
+"constructor" = { fg = "type" }
+
+"constant" = { fg = "value" }
+"constant.builtin" = { fg = "value" }
+"constant.builtin.boolean" = { fg = "value" }
+"constant.character" = { fg = "string" }
+"constant.character.escape" = { fg = "string" }
+"constant.numeric" = { fg = "number" }
+"constant.numeric.integer" = { fg = "number" }
+"constant.numeric.float" = { fg = "number" }
+
+"string" = { fg = "string" }
+"string.regexp" = { fg = "keyword" }
+"string.special" = { fg = "string" }
+"string.special.path" = { fg = "string" }
+"string.special.url" = { fg = "keyword", modifiers = ["underlined"] }
+"string.special.symbol" = { fg = "number" }
+
+"comment" = { fg = "comment" }
+"comment.line" = { fg = "comment" }
+"comment.block" = { fg = "comment" }
+"comment.block.documentation" = { fg = "comment" }
+
+"variable" = { fg = "fg" }
+"variable.builtin" = { fg = "number" }
+"variable.parameter" = { fg = "fg" }
+"variable.other.member" = { fg = "fg" }
+
+"label" = { fg = "keyword" }
+
+"punctuation" = { fg = "fg" }
+"punctuation.delimiter" = { fg = "fg" }
+"punctuation.bracket" = { fg = "fg" }
+"punctuation.special" = { fg = "string" }
+
+"keyword" = { fg = "keyword" }
+"keyword.control" = { fg = "keyword" }
+"keyword.control.conditional" = { fg = "keyword" }
+"keyword.control.repeat" = { fg = "keyword" }
+"keyword.control.import" = { fg = "keyword" }
+"keyword.control.return" = { fg = "keyword" }
+"keyword.control.exception" = { fg = "keyword" }
+"keyword.operator" = { fg = "keyword" }
+"keyword.directive" = { fg = "type" }
+"keyword.function" = { fg = "keyword" }
+"keyword.storage" = { fg = "type" }
+"keyword.storage.type" = { fg = "type" }
+"keyword.storage.modifier" = { fg = "type" }
+
+"operator" = { fg = "keyword" }
+
+"function" = { fg = "func" }
+"function.builtin" = { fg = "gutter" }
+"function.method" = { fg = "func" }
+"function.macro" = { fg = "gutter" }
+"function.special" = { fg = "func" }
+
+"tag" = { fg = "type" }
+"tag.attribute" = { fg = "type" }
+"namespace" = { fg = "type" }
+"special" = { fg = "string" }
+
+"markup.heading" = { fg = "type" }
+"markup.heading.marker" = { fg = "type" }
+"markup.heading.1" = { fg = "type" }
+"markup.heading.2" = { fg = "gutter" }
+"markup.heading.3" = { fg = "gutter" }
+"markup.heading.4" = { fg = "gutter" }
+"markup.heading.5" = { fg = "gutter" }
+"markup.heading.6" = { fg = "gutter" }
+"markup.list" = { fg = "keyword" }
+"markup.bold" = { fg = "keyword", modifiers = ["bold"] }
+"markup.italic" = { fg = "fg", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "comment", modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "keyword", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "string" }
+"markup.link.label" = { fg = "string" }
+"markup.raw" = { fg = "string" }
+"markup.raw.inline" = { fg = "string" }
+"markup.quote" = { fg = "comment" }
+
+"diff.plus" = { fg = "ok" }
+"diff.minus" = { fg = "error" }
+"diff.delta" = { fg = "warn" }
+
+"diagnostic.error" = { underline = { color = "error", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "warn", style = "curl" } }
+"diagnostic.info" = { underline = { color = "accent", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "fg", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+"info" = { fg = "accent", modifiers = ["bold"] }
+"hint" = { fg = "fg", modifiers = ["bold"] }
+"warning" = { fg = "warn", modifiers = ["bold"] }
+"error" = { fg = "error", modifiers = ["bold"] }
+
+"ui.background" = { fg = "fg", bg = "bg" }
+"ui.linenr" = { fg = "gutter" }
+"ui.linenr.selected" = { fg = "fg", bg = "cursorline" }
+
+"ui.cursor" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary" = { fg = "bg", bg = "cursor" }
+"ui.cursor.match" = { fg = "bracket", modifiers = ["underlined"] }
+"ui.cursor.insert" = { fg = "bg", bg = "cursor" }
+"ui.cursor.select" = { fg = "bg", bg = "cursor" }
+
+"ui.cursorline.primary" = { bg = "cursorline" }
+"ui.cursorline.secondary" = { bg = "cursorline" }
+
+"ui.selection" = { bg = "sel_inactive" }
+"ui.selection.primary" = { bg = "sel_active" }
+
+"ui.statusline" = { fg = "fg_dim", bg = "bg_panel" }
+"ui.statusline.inactive" = { fg = "comment", bg = "bg_panel" }
+"ui.statusline.normal" = { fg = "bg", bg = "accent", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "ok", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "keyword", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "border" }
+
+"ui.bufferline" = { fg = "comment", bg = "bg_panel" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg" }
+"ui.bufferline.background" = { bg = "bg_panel" }
+
+"ui.popup" = { fg = "fg", bg = "bg_popup" }
+"ui.popup.info" = { fg = "fg", bg = "bg_popup" }
+"ui.window" = { fg = "border" }
+"ui.help" = { fg = "fg", bg = "bg_popup" }
+
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "fg", bg = "sel_active" }
+"ui.text.inactive" = { fg = "comment" }
+"ui.text.info" = { fg = "fg", bg = "bg_popup" }
+
+"ui.menu" = { fg = "fg", bg = "bg_popup" }
+"ui.menu.selected" = { fg = "fg", bg = "sel_active" }
+"ui.menu.scroll" = { fg = "gutter", bg = "bg_popup" }
+
+"ui.virtual" = { fg = "gutter" }
+"ui.virtual.ruler" = { bg = "cursorline" }
+"ui.virtual.whitespace" = { fg = "gutter" }
+"ui.virtual.indent-guide" = { fg = "border" }
+"ui.virtual.inlay-hint" = { fg = "comment", bg = "bg_panel" }
+"ui.virtual.jump-label" = { fg = "cursor", modifiers = ["bold"] }
+"ui.virtual.wrap" = { fg = "gutter" }
+
+"ui.highlight" = { bg = "sel_inactive" }
+
+"ui.debug" = { fg = "error" }
+
+[palette]
+bg = "#050505"
+bg_panel = "#050505"
+bg_popup = "#050505"
+fg = "#CBCEBC"
+fg_dim = "#CBCEBC"
+comment = "#87919D"
+gutter = "#E0AD82"
+border = "#21333F"
+cursor = "#FFA717"
+cursorline = "#191C25"
+sel_active = "#1A3C49"
+sel_inactive = "#1A3B49"
+bracket = "#E8FCFE"
+accent = "#599999"
+string = "#BAE67E"
+number = "#9DD2BB"
+value = "#FF6A27"
+keyword = "#F07178"
+type = "#FFA759"
+func = "#FFCC66"
+error = "#FF0000"
+warn = "#E4D97D"
+ok = "#33B333"

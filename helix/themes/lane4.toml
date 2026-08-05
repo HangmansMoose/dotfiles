@@ -1,0 +1,33 @@
+"ui.background" = { bg = "bg" }
+"ui.text" = { fg = "fg" }
+"ui.selection" = { bg = "selection", underline = { style = "line" } }
+"ui.cursor" = { fg = "bg", bg = "cursor" }
+"ui.cursorline" = { bg = "#0a0a30" }
+"ui.statusline" = { fg = "fg", bg = "statusbg" }
+"ui.menu" = { fg = "fg", bg = "menu" }
+"ui.menu.selected" = { fg = "bg", bg = "keyword" }
+"ui.virtual.ruler" = { bg = "statusbg" }
+
+# Wow, what a comment
+"comment" = { fg = "comment", bg = "statusbg", modifiers = ["italic"] }
+"keyword" = { fg = "keyword", modifiers = ["bold"] }
+"string" = { fg = "string" }
+"type" = { fg = "type" }
+"number" = { fg = "number" }
+"function" = { fg = "function" }
+"diagnostic.error" = { bg = "bg", fg = "error" }
+
+[palette]
+bg        = "#00001c"
+fg        = "#f8e8c8"
+comment   = "#ffe000"
+keyword   = "#ffb347"
+string    = "#ffd97a"
+type      = "#ffcc66"
+number    = "#ff9966"
+function  = "#ffc266"
+cursor    = "#ffffff"
+selection = "#333355"
+statusbg  = "#111133"
+menu      = "#1a1a3a"
+error     = "#ff6666"

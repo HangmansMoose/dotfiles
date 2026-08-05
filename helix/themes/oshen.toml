@@ -1,0 +1,184 @@
+# Oshen theme for Helix
+# Ported from the Neovim colorscheme Oshen.nvim: https://github.com/54L1M/Oshen.nvim
+# "A dark colorscheme inspired by deep ocean water at night"
+#
+# Install: copy to your Helix themes folder (usually ~/.config/helix/themes/)
+# as oshen.toml, then set `theme = "oshen"` in config.toml.
+
+"attribute" = "lavender"
+"type" = { fg = "lavender" }
+"type.builtin" = { fg = "lavender" }
+"type.parameter" = { fg = "lavender" }
+"type.enum.variant" = { fg = "amber" }
+"constructor" = { fg = "lavender" }
+
+"constant" = { fg = "amber" }
+"constant.builtin" = { fg = "amber" }
+"constant.builtin.boolean" = { fg = "amber" }
+"constant.character" = { fg = "green" }
+"constant.character.escape" = { fg = "sky" }
+"constant.numeric" = { fg = "amber" }
+"constant.numeric.integer" = { fg = "amber" }
+"constant.numeric.float" = { fg = "amber" }
+
+"string" = { fg = "green" }
+"string.regexp" = { fg = "sky" }
+"string.special" = { fg = "sky" }
+"string.special.path" = { fg = "green" }
+"string.special.url" = { fg = "sky", modifiers = ["underlined"] }
+"string.special.symbol" = { fg = "amber" }
+
+"comment" = { fg = "overlay1", modifiers = ["italic"] }
+"comment.line" = { fg = "overlay1", modifiers = ["italic"] }
+"comment.block" = { fg = "overlay1", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "overlay1", modifiers = ["italic"] }
+
+"variable" = { fg = "text" }
+"variable.builtin" = { fg = "amber" }
+"variable.parameter" = { fg = "subtext1" }
+"variable.other.member" = { fg = "text" }
+
+"label" = { fg = "sky" }
+
+"punctuation" = { fg = "overlay2" }
+"punctuation.delimiter" = { fg = "overlay2" }
+"punctuation.bracket" = { fg = "overlay2" }
+"punctuation.special" = { fg = "sky" }
+
+"keyword" = { fg = "amber" }
+"keyword.control" = { fg = "amber" }
+"keyword.control.conditional" = { fg = "amber" }
+"keyword.control.repeat" = { fg = "amber" }
+"keyword.control.import" = { fg = "amber" }
+"keyword.control.return" = { fg = "amber" }
+"keyword.control.exception" = { fg = "red" }
+"keyword.operator" = { fg = "overlay2" }
+"keyword.directive" = { fg = "peach" }
+"keyword.function" = { fg = "amber" }
+"keyword.storage" = { fg = "lavender" }
+"keyword.storage.type" = { fg = "lavender" }
+"keyword.storage.modifier" = { fg = "lavender" }
+
+"operator" = { fg = "overlay2" }
+
+"function" = { fg = "teal" }
+"function.builtin" = { fg = "teal" }
+"function.method" = { fg = "teal" }
+"function.macro" = { fg = "peach" }
+"function.special" = { fg = "teal" }
+
+"tag" = { fg = "lavender" }
+"tag.attribute" = { fg = "peach" }
+"namespace" = { fg = "lavender" }
+"special" = { fg = "sky" }
+
+"markup.heading" = { fg = "amber", modifiers = ["bold"] }
+"markup.heading.marker" = { fg = "overlay1" }
+"markup.heading.1" = { fg = "amber", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "peach", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "teal", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "green", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "sky", modifiers = ["bold"] }
+"markup.heading.6" = { fg = "lavender", modifiers = ["bold"] }
+"markup.list" = { fg = "amber" }
+"markup.bold" = { fg = "peach", modifiers = ["bold"] }
+"markup.italic" = { fg = "text", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "overlay1", modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "sky", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "lavender" }
+"markup.link.label" = { fg = "green" }
+"markup.raw" = { fg = "green" }
+"markup.raw.inline" = { fg = "green" }
+"markup.quote" = { fg = "overlay1" }
+
+"diff.plus" = { fg = "green" }
+"diff.minus" = { fg = "red" }
+"diff.delta" = { fg = "peach" }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "peach", style = "curl" } }
+"diagnostic.info" = { underline = { color = "teal", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "lavender", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+"info" = { fg = "teal", modifiers = ["bold"] }
+"hint" = { fg = "lavender", modifiers = ["bold"] }
+"warning" = { fg = "peach", modifiers = ["bold"] }
+"error" = { fg = "red", modifiers = ["bold"] }
+
+"ui.background" = { fg = "text", bg = "base" }
+"ui.linenr" = { fg = "overlay1" }
+"ui.linenr.selected" = { fg = "text", bg = "surface0" }
+
+"ui.cursor" = { fg = "base", bg = "amber" }
+"ui.cursor.primary" = { fg = "base", bg = "amber" }
+"ui.cursor.match" = { fg = "amber", modifiers = ["underlined"] }
+"ui.cursor.insert" = { fg = "base", bg = "green" }
+"ui.cursor.select" = { fg = "base", bg = "lavender" }
+
+"ui.cursorline.primary" = { bg = "surface0" }
+"ui.cursorline.secondary" = { bg = "surface0" }
+
+"ui.selection" = { bg = "surface1" }
+"ui.selection.primary" = { bg = "navy" }
+
+"ui.statusline" = { fg = "subtext0", bg = "mantle" }
+"ui.statusline.inactive" = { fg = "overlay1", bg = "mantle" }
+"ui.statusline.normal" = { fg = "base", bg = "teal", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "base", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base", bg = "lavender", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "steel" }
+
+"ui.bufferline" = { fg = "overlay1", bg = "mantle" }
+"ui.bufferline.active" = { fg = "text", bg = "base" }
+"ui.bufferline.background" = { bg = "crust" }
+
+"ui.popup" = { fg = "text", bg = "mantle" }
+"ui.popup.info" = { fg = "text", bg = "mantle" }
+"ui.window" = { fg = "steel" }
+"ui.help" = { fg = "text", bg = "mantle" }
+
+"ui.text" = { fg = "text" }
+"ui.text.focus" = { fg = "text", bg = "surface2" }
+"ui.text.inactive" = { fg = "overlay1" }
+"ui.text.info" = { fg = "text", bg = "mantle" }
+
+"ui.menu" = { fg = "text", bg = "mantle" }
+"ui.menu.selected" = { fg = "text", bg = "surface2" }
+"ui.menu.scroll" = { fg = "steel", bg = "mantle" }
+
+"ui.virtual" = { fg = "overlay0" }
+"ui.virtual.ruler" = { bg = "surface0" }
+"ui.virtual.whitespace" = { fg = "overlay0" }
+"ui.virtual.indent-guide" = { fg = "surface1" }
+"ui.virtual.inlay-hint" = { fg = "overlay1", bg = "mantle" }
+"ui.virtual.jump-label" = { fg = "amber", modifiers = ["bold"] }
+"ui.virtual.wrap" = { fg = "overlay0" }
+
+"ui.highlight" = { bg = "surface2" }
+
+"ui.debug" = { fg = "red" }
+
+[palette]
+crust = "#060810"
+mantle = "#090c12"
+base = "#0e1117"
+surface0 = "#131c2b"
+surface1 = "#1e2d42"
+surface2 = "#2a3f58"
+overlay0 = "#3d5570"
+overlay1 = "#526d82"
+overlay2 = "#6a8599"
+subtext0 = "#8899aa"
+subtext1 = "#b0c4d8"
+text = "#f1faee"
+amber = "#ffb703"
+peach = "#e8944a"
+green = "#a8c97f"
+sky = "#7ab8d4"
+teal = "#abdadc"
+steel = "#457b9d"
+lavender = "#c3a0d8"
+red = "#e05c6e"
+navy = "#1d3567"
