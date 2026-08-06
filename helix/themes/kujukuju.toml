@@ -24,7 +24,7 @@
 "string.regexp" = { fg = "keyword" }
 "string.special" = { fg = "string" }
 "string.special.path" = { fg = "string" }
-"string.special.url" = { fg = "keyword", modifiers = ["underlined"] }
+"string.special.url" = { fg = "keyword"}
 "string.special.symbol" = { fg = "number" }
 
 "comment" = { fg = "comment" }
@@ -80,10 +80,10 @@
 "markup.heading.5" = { fg = "gutter" }
 "markup.heading.6" = { fg = "gutter" }
 "markup.list" = { fg = "keyword" }
-"markup.bold" = { fg = "keyword", modifiers = ["bold"] }
-"markup.italic" = { fg = "fg", modifiers = ["italic"] }
+"markup.bold" = { fg = "keyword"}
+"markup.italic" = { fg = "fg"}
 "markup.strikethrough" = { fg = "comment", modifiers = ["crossed_out"] }
-"markup.link.url" = { fg = "keyword", modifiers = ["underlined"] }
+"markup.link.url" = { fg = "keyword"}
 "markup.link.text" = { fg = "string" }
 "markup.link.label" = { fg = "string" }
 "markup.raw" = { fg = "string" }
@@ -99,7 +99,6 @@
 "diagnostic.info" = { underline = { color = "accent", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "fg", style = "curl" } }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
-"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
 "info" = { fg = "accent", modifiers = ["bold"] }
 "hint" = { fg = "fg", modifiers = ["bold"] }
@@ -112,7 +111,7 @@
 
 "ui.cursor" = { fg = "bg", bg = "cursor" }
 "ui.cursor.primary" = { fg = "bg", bg = "cursor" }
-"ui.cursor.match" = { fg = "bracket", modifiers = ["underlined"] }
+"ui.cursor.match" = { fg = "bracket"}
 "ui.cursor.insert" = { fg = "bg", bg = "cursor" }
 "ui.cursor.select" = { fg = "bg", bg = "cursor" }
 

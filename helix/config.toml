@@ -1,7 +1,8 @@
-theme = "kanso-zen"
+theme = "kujukuju"
 
 [editor]
 line-number = "relative"
+gutters = ["diagnostics", "spacer" , "line-numbers", "spacer"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -9,3 +10,7 @@ normal = "block"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal.space]
+"m" = ":run-shell-command just run"
+"M" = ":run-shell-command just debug"
