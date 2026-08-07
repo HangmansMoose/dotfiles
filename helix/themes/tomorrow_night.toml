@@ -1,0 +1,216 @@
+# Tomorrow Night
+# Ported from the Zed "Tomorrow Night" theme:
+# https://github.com/biaqat/tomorrow-theme-zed
+# All font styles/weights are normal — no bold or italic anywhere.
+
+attribute = "yellow"
+type = "type_color"
+"type.builtin" = "type_color"
+"type.enum.variant" = "type_color"
+constructor = "purple"
+constant = "orange"
+"constant.builtin" = "const_builtin"
+"constant.builtin.boolean" = "const_builtin"
+"constant.character" = "orange"
+"constant.character.escape" = "yellow"
+"constant.numeric" = "orange"
+"constant.numeric.integer" = "orange"
+"constant.numeric.float" = "orange"
+string = "string_color"
+"string.regexp" = "yellow"
+"string.special" = "yellow"
+"string.special.path" = "string_color"
+"string.special.url" = "string_color"
+"string.special.symbol" = "orange"
+comment = "fg_muted"
+"comment.line" = "fg_muted"
+"comment.block" = "fg_muted"
+"comment.block.documentation" = "fg_muted"
+"comment.line.documentation" = "fg_muted"
+"comment.unused" = "fg_muted"
+variable = "fg"
+"variable.builtin" = "purple"
+"variable.parameter" = "fg"
+"variable.other.member" = "fg"
+"variable.other.member.private" = "fg"
+label = "blue"
+punctuation = "fg"
+"punctuation.delimiter" = "fg"
+"punctuation.bracket" = "fg"
+"punctuation.special" = "fg"
+keyword = "purple"
+"keyword.control" = "purple"
+"keyword.control.conditional" = "purple"
+"keyword.control.repeat" = "purple"
+"keyword.control.import" = "purple"
+"keyword.control.return" = "purple"
+"keyword.control.exception" = "purple"
+"keyword.operator" = "purple"
+"keyword.directive" = "purple"
+"keyword.function" = "purple"
+"keyword.storage" = "purple"
+"keyword.storage.type" = "purple"
+"keyword.storage.modifier" = "purple"
+operator = "fg"
+function = "aqua"
+"function.builtin" = "aqua"
+"function.method" = "aqua"
+"function.macro" = "purple"
+"function.special" = "aqua"
+tag = "tag_color"
+"tag.builtin" = "tag_color"
+namespace = "type_color"
+special = "yellow"
+"markup.heading" = "purple"
+"markup.heading.marker" = "fg_muted"
+"markup.list" = "orange"
+"markup.list.unnumbered" = "orange"
+"markup.list.numbered" = "orange"
+"markup.list.checked" = "green"
+"markup.list.unchecked" = "fg_muted"
+"markup.bold" = "fg"
+"markup.italic" = "fg"
+"markup.strikethrough" = "fg_muted"
+"markup.link.url" = "string_color"
+"markup.link.text" = "blue"
+"markup.link.label" = "aqua"
+"markup.quote" = "fg_muted"
+"markup.raw" = "green"
+"markup.raw.inline" = "green"
+"markup.raw.block" = "green"
+"diff.plus" = "diff_add"
+"diff.plus.gutter" = "diff_add"
+"diff.minus" = "diff_delete"
+"diff.minus.gutter" = "diff_delete"
+"diff.delta" = "diff_change"
+"diff.delta.moved" = "purple"
+"diff.delta.conflict" = "conflict"
+"diff.delta.gutter" = "diff_change"
+embedded = "fg"
+
+"ui.background" = { fg = "fg", bg = "bg" }
+"ui.background.separator" = { fg = "border" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "accent" }
+"ui.text.inactive" = { fg = "fg_muted" }
+"ui.text.info" = { fg = "fg_muted" }
+"ui.text.directory" = { fg = "blue" }
+"ui.text.symlink" = { fg = "aqua" }
+
+"ui.virtual" = { fg = "fg_gutter" }
+"ui.virtual.ruler" = { bg = "bg_highlight" }
+"ui.virtual.whitespace" = { fg = "fg_gutter" }
+"ui.virtual.indent-guide" = { fg = "indent_guide" }
+"ui.virtual.inlay-hint" = { fg = "fg_muted", bg = "bg_panel" }
+"ui.virtual.inlay-hint.parameter" = { fg = "fg_muted", bg = "bg_panel" }
+"ui.virtual.inlay-hint.type" = { fg = "fg_muted", bg = "bg_panel" }
+"ui.virtual.wrap" = { fg = "fg_gutter" }
+"ui.virtual.jump-label" = { fg = "bg", bg = "accent" }
+
+"ui.gutter" = { fg = "fg_gutter", bg = "bg" }
+"ui.gutter.selected" = { fg = "fg_linenr_active", bg = "bg_highlight" }
+"ui.linenr" = { fg = "fg_gutter" }
+"ui.linenr.selected" = { fg = "fg_linenr_active" }
+
+"ui.statusline" = { fg = "fg", bg = "bg_statusline" }
+"ui.statusline.inactive" = { fg = "fg_muted", bg = "bg_statusline" }
+"ui.statusline.normal" = { fg = "bg", bg = "blue" }
+"ui.statusline.insert" = { fg = "bg", bg = "green" }
+"ui.statusline.select" = { fg = "bg", bg = "purple" }
+"ui.statusline.separator" = { fg = "border" }
+
+"ui.bufferline" = { fg = "fg_muted", bg = "bg_tab_inactive" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg_tab_active" }
+"ui.bufferline.background" = { bg = "bg_tab_inactive" }
+
+"ui.popup" = { fg = "fg", bg = "bg_menu" }
+"ui.popup.info" = { fg = "fg", bg = "bg_menu" }
+"ui.picker.header" = { fg = "fg_muted", bg = "bg_menu" }
+"ui.picker.header.column" = { fg = "fg_muted" }
+"ui.picker.header.column.active" = { fg = "accent" }
+"ui.window" = { fg = "border" }
+"ui.help" = { fg = "fg", bg = "bg_menu" }
+
+"ui.menu" = { fg = "fg", bg = "bg_menu" }
+"ui.menu.selected" = { fg = "bg", bg = "accent" }
+"ui.menu.scroll" = { fg = "accent", bg = "bg_menu" }
+
+"ui.selection" = { bg = "bg_selection" }
+"ui.selection.primary" = { bg = "bg_selection" }
+"ui.highlight" = { bg = "bg_highlight" }
+"ui.highlight.frameline" = { bg = "bg_highlight" }
+
+"ui.cursor" = { fg = "bg", bg = "cursor" }
+"ui.cursor.normal" = { fg = "bg", bg = "cursor" }
+"ui.cursor.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.select" = { fg = "bg", bg = "purple" }
+"ui.cursor.match" = { fg = "bg", bg = "yellow" }
+"ui.cursor.primary" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "purple" }
+
+"ui.cursorline.primary" = { bg = "bg_highlight" }
+"ui.cursorline.secondary" = { bg = "bg_highlight" }
+"ui.cursorcolumn.primary" = { bg = "bg_highlight" }
+"ui.cursorcolumn.secondary" = { bg = "bg_highlight" }
+
+"ui.debug.breakpoint" = { fg = "red" }
+"ui.debug.active" = { fg = "yellow" }
+
+warning = "yellow"
+"warning.diagnostic.inline" = { fg = "fg", bg = "bg" }
+error = "red"
+"error.diagnostic.inline" = { fg = "fg", bg = "bg" }
+info = "blue"
+"info.diagnostic.inline" = { fg = "fg", bg = "bg" }
+hint = "fg_muted"
+"hint.diagnostic.inline" = { fg = "fg", bg = "bg" }
+
+diagnostic = { underline = { color = "fg_muted", style = "dotted" } }
+"diagnostic.hint" = { underline = { color = "fg_muted", style = "dotted" } }
+"diagnostic.info" = { underline = { color = "blue", style = "dotted" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.unnecessary" = { fg = "fg_muted" }
+"diagnostic.deprecated" = { fg = "fg_muted" }
+
+tabstop = { bg = "bg_highlight" }
+
+rainbow = ["blue", "purple", "green", "orange", "aqua", "yellow", "tag_color"]
+
+[palette]
+bg = "#1E1F21"
+bg_panel = "#17181A"
+bg_statusline = "#17181A"
+bg_tab_active = "#1C1D1F"
+bg_tab_inactive = "#17181A"
+bg_highlight = "#2B2D31"
+bg_selection = "#313439"
+bg_search = "#514835"
+bg_menu = "#17181A"
+indent_guide = "#87734B"
+fg = "#C5C8C6"
+fg_muted = "#969896"
+fg_gutter = "#969896"
+fg_linenr_active = "#FFFFFF"
+fg_disabled = "#565960"
+accent = "#F0C674"
+border = "#1C1D1F"
+border_focus = "#1C1D1F"
+cursor = "#8ABEB7"
+red = "#CC6666"
+orange = "#DE935F"
+yellow = "#F0C674"
+green = "#B5BD68"
+aqua = "#85B7B1"
+purple = "#B294BB"
+tag_color = "#92B2CA"
+blue = "#81A2BE"
+type_color = "#DE935F"
+string_color = "#B5BD68"
+const_builtin = "#DE935F"
+diff_add = "#B5BD68"
+diff_delete = "#CC6666"
+diff_change = "#F0C674"
+conflict = "#FF5B69"
