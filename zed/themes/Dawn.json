@@ -1,0 +1,111 @@
+{
+  "name": "Dawn",
+  "author": "tombaston",
+  "themes": [
+    {
+      "name": "Dawn Default",
+      "appearance": "dark",
+      "style": {
+        "background": "#080808",
+        "syntax": {
+          "editor.foreground": {
+            "color": null,
+            "font_style": null,
+            "font_weight": null
+          },
+          "boolean": {
+            "color": "#407cff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "comment": {
+            "color": "#4b9236",
+            "font_style": null,
+            "font_weight": null
+          },
+          "constant": {
+            "color": "#8d87ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string": {
+            "color": "#ca9762",
+            "font_style": null,
+            "font_weight": null
+          },
+          "type": {
+            "color": "#41d4b9",
+            "font_style": null,
+            "font_weight": null
+          },
+          "variable": {
+            "color": "#c0b8b2",
+            "font_style": null,
+            "font_weight": null
+          },
+          "keyword": {
+            "color": "#bf9abd",
+            "font_style": null,
+            "font_weight": null
+          },
+          "label": {
+            "color": null,
+            "font_style": null,
+            "font_weight": null
+          },
+          "function": {
+            "color": "#d8cfa0",
+            "font_style": null,
+            "font_weight": null
+          },
+          "number": {
+            "color": "#cb8f4c",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation": {
+            "color": "#ffffff92",
+            "font_style": null,
+            "font_weight": null
+          },
+          "punctuation.bracket": {
+            "color": null,
+            "font_style": null,
+            "font_weight": null
+          },
+          "property": {
+            "color": "#d8d8d8",
+            "font_style": null,
+            "font_weight": null
+          }
+        },
+        "players": [],
+        "background.appearance": "opaque",
+        "editor.active_line.background": "#242424",
+        "editor.active_line_number": "#b8b8b8",
+        "editor.invisible": null,
+        "editor.line_number": "#646464",
+        "panel.background": null,
+        "text": "#c9c9c9",
+        "title_bar.background": null,
+        "tab_bar.background": null,
+        "tab.inactive_background": null,
+        "border": "#40404088",
+        "tab.active_background": "#161616",
+        "status_bar.background": null,
+        "editor.background": "#161616",
+        "toolbar.background": "#161616",
+        "text.accent": "#f4f4f4",
+        "element.active": null,
+        "element.background": "#322834",
+        "element.selected": null,
+        "icon": null,
+        "error": "#bd3838",
+        "error.background": "#130000",
+        "warning": "#bd9f35",
+        "warning.background": "#110e00"
+      }
+    }
+  ],
+  "id": "GrhSBIBbGpfEtG03gTUy8"
+}

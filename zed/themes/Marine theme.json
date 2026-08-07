@@ -1,0 +1,124 @@
+{
+  "name": "Marine theme",
+  "author": "Manuel Sotelo",
+  "themes": [
+    {
+      "name": "Marine theme",
+      "appearance": "dark",
+      "style": {
+        "background": "#000000",
+        "syntax": {
+          "attribute": {
+            "color": "#e97c7c",
+            "font_style": null,
+            "font_weight": null
+          },
+          "editor.foreground": {
+            "color": null,
+            "font_style": null,
+            "font_weight": null
+          },
+          "boolean": {
+            "color": "#f09494",
+            "font_style": null,
+            "font_weight": null
+          },
+          "comment": {
+            "color": "#a68f8f",
+            "font_style": null,
+            "font_weight": null
+          },
+          "comment.doc": {
+            "color": "#bfa9a9",
+            "font_style": null,
+            "font_weight": null
+          },
+          "constant": {
+            "color": "#ade92a",
+            "font_style": null,
+            "font_weight": null
+          },
+          "constructor": {
+            "color": "#85c312",
+            "font_style": null,
+            "font_weight": null
+          },
+          "emphasis": {
+            "color": "#d39090",
+            "font_style": null,
+            "font_weight": null
+          },
+          "enum": {
+            "color": "#d1a5a5",
+            "font_style": null,
+            "font_weight": null
+          },
+          "function": {
+            "color": "#d1f8c7",
+            "font_style": null,
+            "font_weight": null
+          },
+          "function.method": {
+            "color": "#e6efb3",
+            "font_style": null,
+            "font_weight": null
+          },
+          "title": {
+            "color": null,
+            "font_style": null,
+            "font_weight": null
+          },
+          "property": {
+            "color": "#ffe817",
+            "font_style": null,
+            "font_weight": null
+          },
+          "operator": {
+            "color": "#e08b8b",
+            "font_style": null,
+            "font_weight": null
+          },
+          "number": {
+            "color": "#9ec7fd",
+            "font_style": null,
+            "font_weight": null
+          },
+          "string": {
+            "color": "#bfa94d",
+            "font_style": null,
+            "font_weight": null
+          },
+          "tag": {
+            "color": "#b46a6a",
+            "font_style": null,
+            "font_weight": null
+          },
+          "type": {
+            "color": "#6ce5ff",
+            "font_style": null,
+            "font_weight": null
+          }
+        },
+        "players": [],
+        "background.appearance": "opaque",
+        "editor.active_line_number": "#c1c50c",
+        "editor.active_line.background": "#525400",
+        "drop_target.background": "#000000",
+        "editor.active_wrap_guide": "#9b921c",
+        "editor.background": "#0f1000",
+        "panel.background": "#17143b",
+        "tab.active_background": "#03284e",
+        "title_bar.background": "#005a94",
+        "editor.document_highlight.read_background": "",
+        "editor.line_number": "#f1ff7e",
+        "text.accent": "#77ad93",
+        "text": "#d7dcf4",
+        "error": "#eda1a1",
+        "error.background": "#dc5050",
+        "hint": "#90b68f",
+        "border": "#000000"
+      }
+    }
+  ],
+  "id": "Gz_3BpmIexwi2MilMAZtm"
+}

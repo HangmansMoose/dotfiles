@@ -117,10 +117,10 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "CaskaydiaMono Nerd Font",
-  //"ui_font_family": "Segoe UI",
+  "buffer_font_family": "iMWritingDuo Nerd Font",
+  //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
-  "buffer_font_size": 17.0,
+  "buffer_font_size": 18.0,
   "vim_mode": true,
 
   "telemetry": {
@@ -139,85 +139,34 @@
   },
 
   // Current Set theme
-  "theme": "Kanso Zen (No italics)",
+  "theme": "haku-dark",
 
   // Theme Customizations
   // This section applies globally to all themes.
   "experimental.theme_overrides": {
-    //"editor.active_line.background": "#111155",
-    //"editor.highlighted_line.background": "#111155",
-    //"search.match_background": "#FFA717",
-    //"editor.document_highlight.bracket_background": "#404040",
-    //"editor.document_highlight.read_background": "#505050",
-    //"editor.document_highlight.write_background": "#505050",
     "syntax": {
-      "comment": { "font_style": "normal", "font_weight": 400 },
-      "punctuation.bracket": { "font_style": "normal", "font_weight": 400 },
-      "meta": { "font_style": "normal", "font_weight": 400 },
-      "meta.block": { "font_style": "normal", "font_weight": 400 },
-      "meta.cast": { "font_style": "normal", "font_weight": 400 },
-      "meta.class": { "font_style": "normal", "font_weight": 400 },
-      "meta.function": { "font_style": "normal", "font_weight": 400 },
-      "meta.function-call": { "font_style": "normal", "font_weight": 400 },
-      "meta.preprocessor": { "font_style": "normal", "font_weight": 400 },
-      "meta.return-type": { "font_style": "normal", "font_weight": 400 },
-      "meta.selector": { "font_style": "normal", "font_weight": 400 },
-      "meta.tag": { "font_style": "normal", "font_weight": 400 },
-      "meta.type.annotation": { "font_style": "normal", "font_weight": 400 },
-      "meta.type": { "font_style": "normal", "font_weight": 400 },
-      "punctuation.definition.string.begin": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "punctuation.definition.string.end": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "punctuation.definition.comment": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "punctuation.separator": { "font_style": "normal", "font_weight": 400 },
-      "punctuation.separator.continuation": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "punctuation.terminator": { "font_style": "normal", "font_weight": 400 },
-      "storage": { "font_style": "normal", "font_weight": 400 },
-      "storage.modifier": { "font_style": "normal", "font_weight": 400 },
-      "storage.type": { "font_style": "normal", "font_weight": 400 },
-      "storage.type.modifier": { "font_style": "normal", "font_weight": 400 },
-      "string": { "font_style": "normal", "font_weight": 400 },
-      "string.interpolated": { "font_style": "normal", "font_weight": 400 },
-      "string.other": { "font_style": "normal", "font_weight": 400 },
-      "string.quoted": { "font_style": "normal", "font_weight": 400 },
-      "string.quoted.double": { "font_style": "normal", "font_weight": 400 },
-      "string.quoted.other": { "font_style": "normal", "font_weight": 400 },
-      "string.quoted.single": { "font_style": "normal", "font_weight": 400 },
-      "string.quoted.triple": { "font_style": "normal", "font_weight": 400 },
-      "string.regexp": { "font_style": "normal", "font_weight": 400 },
-      "string.unquoted": { "font_style": "normal", "font_weight": 400 },
-      "strong": { "font_style": "normal", "font_weight": 400 },
-      "support": { "font_style": "normal", "font_weight": 400 },
-      "support.class": { "font_style": "normal", "font_weight": 400 },
-      "support.constant": { "font_style": "normal", "font_weight": 400 },
-      "support.function": { "font_style": "normal", "font_weight": 400 },
-      "support.other": { "font_style": "normal", "font_weight": 400 },
-      "support.type": { "font_style": "normal", "font_weight": 400 },
-      "support.type.property-name": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "support.variable": { "font_style": "normal", "font_weight": 400 },
+      "namespace": { "font_style": "normal", "font_weight": 400 },
+      "type": { "font_style": "normal", "font_weight": 400 },
+      "boolean": { "font_style": "normal", "font_weight": 400 },
+      "class": { "font_style": "normal", "font_weight": 400 },
+      "enum": { "font_style": "normal", "font_weight": 400 },
+      "interface": { "font_style": "normal", "font_weight": 400 },
+      "struct": { "font_style": "normal", "font_weight": 400 },
+      "typeParameter": { "font_style": "normal", "font_weight": 400 },
+      "parameter": { "font_style": "normal", "font_weight": 400 },
       "variable": { "font_style": "normal", "font_weight": 400 },
-      "variable.language": { "font_style": "normal", "font_weight": 400 },
-      "variable.name": { "font_style": "normal", "font_weight": 400 },
-      "variable.other": { "font_style": "normal", "font_weight": 400 },
-      "variable.other.readwrite": {
-        "font_style": "normal",
-        "font_weight": 400,
-      },
-      "variable.parameter": { "font_style": "normal", "font_weight": 400 },
+      "property": { "font_style": "normal", "font_weight": 400 },
+      "enumMember": { "font_style": "normal", "font_weight": 400 },
+      "function": { "font_style": "normal", "font_weight": 400 },
+      "method": { "font_style": "normal", "font_weight": 400 },
+      "macro": { "font_style": "normal", "font_weight": 400 },
+      "keyword": { "font_style": "normal", "font_weight": 400 },
+      "comment": { "font_style": "normal", "font_weight": 400 },
+      "string": { "font_style": "normal", "font_weight": 400 },
+      "number": { "font_style": "normal", "font_weight": 400 },
+      "operator": { "font_style": "normal", "font_weight": 400 },
+      "punctuation.bracket": { "font_style": "normal", "font_weight": 400 },
+      "text.literal": { "font_style": "normal", "font_weight": 400 },
     },
   },
   "theme_overrides": {
@@ -230,6 +179,19 @@
       },
     },
     "Kanso Ink (No italics)": {
+      //"editor.line_number": "#666666",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      "editor.gutter.background": "#050505",
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      "terminal.background": "#050505",
+      "syntax": {
+        //"comment": { "color": "#6f7b68" },
+        //"string": { "color": "#5FC385" },
+      },
+    },
+    "Kanso Zen (No italics)": {
       //"editor.line_number": "#666666",
       "panel.background": "#050505",
       "editor.background": "#050505",
@@ -273,6 +235,10 @@
         "meta.preprocessor": { "font_weight": 400 },
       },
     },
+    "Ultimate Dark Neo" : {
+      "syntax" : {
+      }
+    },
     "Sonder": {
       "title_bar.background": "#050505",
       "tab_bar.background": "#050505",
@@ -288,22 +254,6 @@
       "syntax": {
         "comment": { "color": "#6f7b68" },
         "meta.preprocessor": { "font_weight": 400 },
-      },
-    },
-    "Ultimate Dark Neo": {
-      "title_bar.background": "#050505",
-      "tab_bar.background": "#050505",
-      "tab.inactive_background": "#202020",
-      "tab.active_background": "#333333",
-      "toolbar.background": "#050505",
-      "status_bar.background": "#050505",
-      "panel.background": "#050505",
-      "editor.background": "#050505",
-      //"editor.active_line.background": "#111144",
-      "editor.gutter.background": "#050505",
-      "terminal.background": "#050505",
-      "syntax": {
-        "comment": { "color": "#6f7b68" },
       },
     },
     "Jellybeans": {
@@ -335,8 +285,11 @@
       "terminal.background": "#050505",
       "players": [{ "cursor": "#00ff33" }],
     },
-    "Haku Dark": {
-      "editor.active_line.background": "#0000FF33",
+    "haku-dark": {
+      "title_bar.background": "#181818",
+      "syntax": {
+        "punctuation.bracket" : {"color": "#9Cb8d1"},
+      }
     },
     "Melange Dark": {
       "title_bar.background": "#050505",
@@ -383,6 +336,11 @@
     },
   },
   "lsp": {
+    "ols": {
+      "binary": {
+        "path": "G:/Programs/ols/ols.exe"
+      }
+    },
     "clangd": {
       "binary": {
         "path": "G:/dev_tools/LLVM/bin/clangd.exe",
