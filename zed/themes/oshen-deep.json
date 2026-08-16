@@ -1,16 +1,16 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-  "name": "Oshen",
+  "name": "Oshen Deep",
   "author": "Original Nvim by 54L1M ported to Zed by HangmansMoose",
   "themes": [
     {
-      "name": "Oshen",
+      "name": "Oshen Deep",
       "appearance": "dark",
       "style": {
 
         //"background":                        "#050505",
         "background":                        "#050505",
-        "elevated_surface.background":       "#1d3567",
+        "elevated_surface.background":       "#131c2b",
         "surface.background":                "#050505",
         "panel.background":                  "#050505",
         "panel.focused_border":              "#457b9d",
