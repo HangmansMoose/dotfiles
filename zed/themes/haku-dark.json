@@ -7,8 +7,9 @@
       "name": "haku-dark",
       "appearance": "dark",
       "style": {
-        "surface.background": "#212121",
-        "elevated_surface.background": "#3e453e",
+        "surface.background": "#151515",
+        //"elevated_surface.background": "#3e453e",
+        "elevated_surface.background": "#212121",
         "editor.background": "#181818",
         "title_bar.background": "#172317",
         "panel.background": "#131313",
@@ -110,6 +111,16 @@
         "link_text.hover": "#8bc2ea",
         "version_control.deleted": "#c53131c0",
         "version_control.added": "#3ea741c0",
+        "vim.helix_normal.background": "#B5BD68B3",
+				"vim.helix_select.background": "#81A2BEB3",
+				"vim.insert.background": "#EBBD74",
+				"vim.insert.foreground": "#050505",
+				"vim.mode.text": "#1C1D1F",
+				"vim.normal.background": "#3E453E",
+				"vim.replace.background": "#DE935FB3",
+				"vim.visual.background": "#81A2BEB3",
+				"vim.visual_block.background": "#8ABEB7B3",
+				"vim.visual_line.background": "#8ABEB7B3",
         "players": [
           {
             "cursor": "#ffffffb3",
