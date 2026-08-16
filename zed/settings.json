@@ -403,7 +403,7 @@
 
   "dap": {
     "CodeLLDB": {
-      "binary": "G:/dev_tools/LLVM/bin/lldb.exe"
+      "binary": "G:/Programs/LLVM/bin/lldb.exe"
     }
   }
 }
