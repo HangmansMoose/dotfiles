@@ -36,14 +36,32 @@
 
   "profiles": {
     "macos": {
+      "base": "user",
       "settings": {
         "ui_font_size": 22.0,
         "buffer_font_size": 22.0,
+        "font_family": "MonaspiceNe Nerd Font",
         "terminal": {
+          "dock": "bottom",
+          "font_family": "MonaspiceNe Nerd Font",
+          "font_size": 14,
           "shell": {
-            "program": "/usr/bin/fish"
+            "program": "/bin/zsh"
           }
         }
+      }
+    },
+    "windows": {
+      "base": "user",
+      "settings": {
+        "terminal": {
+          "dock": "bottom",
+          "font_family": "MonaspiceNe Nerd Font",
+          "font_size": 14,
+          "shell": {
+            "program": "pwsh.exe",
+          },
+        },
       }
     }
   },
@@ -96,12 +114,7 @@
   "preview_tabs": {
     "enabled": false,
   },
-  "terminal": {
-    "dock": "bottom",
-    "shell": {
-        "program": "pwsh.exe",
-      },
-    },
+
   "journal": {
     "path": "C:/Users/glens/Documents",
     "hour_format": "hour24",
@@ -117,7 +130,7 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "iMWritingDuo Nerd Font",
+  "buffer_font_family": "MonaspiceNe Nerd Font",
   //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
@@ -139,12 +152,58 @@
   },
 
   // Current Set theme
-  "theme": "haku-dark",
+  "theme": "Kanso Zen (Borderless + No italics)",
 
   // Theme Customizations
   // This section applies globally to all themes.
   "experimental.theme_overrides": {
     "syntax": {
+        // todo encompasses TODO, WIP, MAYBE, ?
+        "constant.comment.todo": {
+          "color": "#ff0000ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.todo.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.todo.text": {
+          "color": "#87919d",
+        },
+        // info encompasses INFO, NOTE, XXX, DOCS, PERF, TEST, *
+        "string.comment.info": {
+          "color": "#00ff00ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.info.text": {
+          "color": "#87919d",
+        },
+        // 'warn' encompasses HACK, WARNING, WARN, SAFETY, IMPORTANT, #
+        "keyword.comment.warn": {
+          "color": "#FFA717FF",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.warn.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.warn.text": {
+          "color": "#87919d",
+        },
+        // 'error' encompasses ERROR, FIXME, FIX, BUG, DELETE, !
+        "property.comment.error": {
+          "color": "#8f1822ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
       "namespace": { "font_style": "normal", "font_weight": 400 },
       "type": { "font_style": "normal", "font_weight": 400 },
       "boolean": { "font_style": "normal", "font_weight": 400 },
@@ -204,10 +263,10 @@
         //"string": { "color": "#5FC385" },
       },
     },
-    "Kujukuju": {
-      "editor.background": "#080B14",
-      "editor.gutter.background": "#080B14",
-      "title_bar.background": "#080B14"
+    "Kujukuju Darker": {
+      "syntax": {
+
+      },
     },
     "Kanagawa Wave - No Italics": {
       "panel.background": "#121212",
@@ -235,9 +294,8 @@
         "meta.preprocessor": { "font_weight": 400 },
       },
     },
-    "Ultimate Dark Neo" : {
-      "syntax" : {
-      }
+    "Tomorrow at Midnight" : {
+      "players": [{ "cursor": "#7e7e7e" }],
     },
     "Sonder": {
       "title_bar.background": "#050505",
@@ -320,6 +378,7 @@
       },
     },
   },
+  "semantic_tokens": "combined",
   "languages": {
     "Zig": {
       // Formatting with ZLS matches `zig fmt`.
