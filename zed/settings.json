@@ -42,11 +42,22 @@
         "buffer_font_size": 22.0,
         "font_family": "MonaspiceNe Nerd Font",
         "terminal": {
+          "font_family":"MonaspiceNe Nerd Font",
+          "shell": {
+            "program": "/bin/zsh"
+          }
+        }
+      }
+    },
+    "windows": {
+      "settings": {
+        "terminal": {
+          "font_family":"MonaspiceNe Nerd Font",
           "dock": "bottom",
           "font_family": "MonaspiceNe Nerd Font",
           "font_size": 14,
           "shell": {
-            "program": "/bin/zsh"
+            "program": "/usr/bin/fish"
           }
         }
       }
@@ -114,7 +125,12 @@
   "preview_tabs": {
     "enabled": false,
   },
-
+  "terminal": {
+    "dock": "bottom",
+    "shell": {
+        "program": "pwsh.exe",
+      },
+    },
   "journal": {
     "path": "C:/Users/glens/Documents",
     "hour_format": "hour24",
@@ -130,7 +146,7 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "MonaspiceNe Nerd Font",
+  "buffer_font_family": "iMWritingDuo Nerd Font",
   //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
@@ -152,7 +168,7 @@
   },
 
   // Current Set theme
-  "theme": "Kanso Zen (Borderless + No italics)",
+  "theme": "haku-dark",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -294,8 +310,9 @@
         "meta.preprocessor": { "font_weight": 400 },
       },
     },
-    "Tomorrow at Midnight" : {
-      "players": [{ "cursor": "#7e7e7e" }],
+    "Ultimate Dark Neo" : {
+      "syntax" : {
+      }
     },
     "Sonder": {
       "title_bar.background": "#050505",
@@ -317,6 +334,7 @@
     "Jellybeans": {
       "editor.line_number": "#666666",
       "panel.background": "#151515",
+      "players": [{ "cursor": "#8e8e8e" }],
       "syntax": {
         "comment": {
           "color": "#6f7b68",
@@ -439,7 +457,7 @@
 
   "dap": {
     "CodeLLDB": {
-      "binary": "G:/dev_tools/LLVM/bin/lldb.exe"
+      "binary": "G:/Programs/LLVM/bin/lldb.exe"
     }
   }
 }
