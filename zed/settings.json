@@ -40,8 +40,19 @@
         "ui_font_size": 22.0,
         "buffer_font_size": 22.0,
         "terminal": {
+          "font_family":"MonaspiceNe Nerd Font",
           "shell": {
-            "program": "/usr/bin/fish"
+            "program": "/bin/zsh"
+          }
+        }
+      }
+    },
+    "windows": {
+      "settings": {
+        "terminal": {
+          "font_family":"MonaspiceNe Nerd Font",
+          "shell": {
+            "program": "pwsh.exe"
           }
         }
       }
@@ -98,10 +109,10 @@
   },
   "terminal": {
     "dock": "bottom",
-    "shell": {
-        "program": "pwsh.exe",
-      },
-    },
+    //"shell": {
+    //    "program": "pwsh.exe",
+    //  },
+  },
   "journal": {
     "path": "C:/Users/glens/Documents",
     "hour_format": "hour24",
@@ -117,7 +128,7 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "iMWritingDuo Nerd Font",
+  "buffer_font_family": "MonaspiceNe Nerd Font Mono",
   //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
@@ -139,7 +150,7 @@
   },
 
   // Current Set theme
-  "theme": "haku-dark",
+  "theme": "Ultimate Dark Neo",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -236,6 +247,17 @@
       },
     },
     "Ultimate Dark Neo" : {
+      "title_bar.background": "#101010",
+      "tab_bar.background": "#101010",
+      "tab.inactive_background": "#101010",
+      "tab.active_background": "#333333",
+      "toolbar.background": "#101010",
+      "status_bar.background": "#101010",
+      "panel.background": "#101010",
+      "editor.background": "#101010",
+      //"editor.active_line.background": "#111144",
+      "editor.gutter.background": "#101010",
+      "terminal.background": "#101010",
       "syntax" : {
       }
     },
@@ -259,6 +281,7 @@
     "Jellybeans": {
       "editor.line_number": "#666666",
       "panel.background": "#151515",
+      "players": [{ "cursor": "#8e8e8e" }],
       "syntax": {
         "comment": {
           "color": "#6f7b68",
