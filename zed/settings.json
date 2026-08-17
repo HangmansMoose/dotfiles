@@ -50,19 +50,6 @@
       }
     },
     "windows": {
-      "settings": {
-        "terminal": {
-          "font_family":"MonaspiceNe Nerd Font",
-          "dock": "bottom",
-          "font_family": "MonaspiceNe Nerd Font",
-          "font_size": 14,
-          "shell": {
-            "program": "/usr/bin/fish"
-          }
-        }
-      }
-    },
-    "windows": {
       "base": "user",
       "settings": {
         "terminal": {
@@ -146,7 +133,7 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "iMWritingDuo Nerd Font",
+  "buffer_font_family": "MonaspiceNe Nerd Font",
   //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
@@ -168,7 +155,7 @@
   },
 
   // Current Set theme
-  "theme": "haku-dark",
+  "theme": "Kanso Ink (No italics)",
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -262,9 +249,53 @@
       "tab_bar.background": "#050505",
       "terminal.background": "#050505",
       "syntax": {
-        //"comment": { "color": "#6f7b68" },
-        //"string": { "color": "#5FC385" },
-      },
+        // todo encompasses TODO, WIP, MAYBE, ?
+        "constant.comment.todo": {
+          "color": "#ff0000ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.todo.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.todo.text": {
+          "color": "#87919d",
+        },
+        // info encompasses INFO, NOTE, XXX, DOCS, PERF, TEST, *
+        "string.comment.info": {
+          "color": "#00ff00ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.info.text": {
+          "color": "#87919d",
+        },
+        // 'warn' encompasses HACK, WARNING, WARN, SAFETY, IMPORTANT, #
+        "keyword.comment.warn": {
+          "color": "#FFA717FF",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.warn.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.warn.text": {
+          "color": "#87919d",
+        },
+        // 'error' encompasses ERROR, FIXME, FIX, BUG, DELETE, !
+        "property.comment.error": {
+          "color": "#8f1822ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+      }
     },
     "Kanso Zen (No italics)": {
       //"editor.line_number": "#666666",
@@ -275,14 +306,115 @@
       "tab_bar.background": "#050505",
       "terminal.background": "#050505",
       "syntax": {
-        //"comment": { "color": "#6f7b68" },
-        //"string": { "color": "#5FC385" },
-      },
+        // todo encompasses TODO, WIP, MAYBE, ?
+        "constant.comment.todo": {
+          "color": "#ff0000ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.todo.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.todo.text": {
+          "color": "#87919d",
+        },
+        // info encompasses INFO, NOTE, XXX, DOCS, PERF, TEST, *
+        "string.comment.info": {
+          "color": "#00ff00ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.info.text": {
+          "color": "#87919d",
+        },
+        // 'warn' encompasses HACK, WARNING, WARN, SAFETY, IMPORTANT, #
+        "keyword.comment.warn": {
+          "color": "#FFA717FF",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.warn.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.warn.text": {
+          "color": "#87919d",
+        },
+        // 'error' encompasses ERROR, FIXME, FIX, BUG, DELETE, !
+        "property.comment.error": {
+          "color": "#8f1822ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+      }
     },
-    "Kujukuju Darker": {
+    "Koda Moss": {
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      //"tab.inactive_background": "#202020",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
+      "tab.inactive_background": "#101010",
+      "tab.active_background": "#182325",
+      "players": [{ "cursor": "#8e8e8e"}],
       "syntax": {
-
-      },
+        // todo encompasses TODO, WIP, MAYBE, ?
+        "constant.comment.todo": {
+          "color": "#ff0000ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.todo.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.todo.text": {
+          "color": "#87919d",
+        },
+        // info encompasses INFO, NOTE, XXX, DOCS, PERF, TEST, *
+        "string.comment.info": {
+          "color": "#00ff00ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.info.text": {
+          "color": "#87919d",
+        },
+        // 'warn' encompasses HACK, WARNING, WARN, SAFETY, IMPORTANT, #
+        "keyword.comment.warn": {
+          "color": "#FFA717FF",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.warn.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.warn.text": {
+          "color": "#87919d",
+        },
+        // 'error' encompasses ERROR, FIXME, FIX, BUG, DELETE, !
+        "property.comment.error": {
+          "color": "#8f1822ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+      }
     },
     "Kanagawa Wave - No Italics": {
       "panel.background": "#121212",
@@ -396,7 +528,7 @@
       },
     },
   },
-  "semantic_tokens": "combined",
+  //"semantic_tokens": "combined",
   "languages": {
     "Zig": {
       // Formatting with ZLS matches `zig fmt`.
