@@ -40,7 +40,6 @@
       "settings": {
         "ui_font_size": 22.0,
         "buffer_font_size": 22.0,
-        "font_family": "MonaspiceNe Nerd Font",
         "terminal": {
           "font_family":"MonaspiceNe Nerd Font",
           "shell": {
@@ -99,7 +98,7 @@
   "buffer_font_weight": 400.0,
   "ensure_final_newline_on_save": false,
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Colored Zed Icons Theme Dark",
     "dark": "Material Icon Theme",
   },
@@ -133,9 +132,9 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "MonaspiceNe Nerd Font",
-  //"ui_font_family": "OCR A",
-  "ui_font_size": 16.0,
+  "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
+  "ui_font_family": "Segoe UI",
+  "ui_font_size": 17.0,
   "buffer_font_size": 18.0,
   "vim_mode": true,
 
@@ -155,7 +154,11 @@
   },
 
   // Current Set theme
-  "theme": "Kanso Ink (No italics)",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Oshen"
+  },
 
   // Theme Customizations
   // This section applies globally to all themes.
@@ -493,6 +496,27 @@
       "terminal.background": "#050505",
       "players": [{ "cursor": "#00ff33" }],
     },
+    "Oshen": {
+      "title_bar.background": "#050505",
+      //"elevated_surface.background": "#252525",
+      "elevated_surface.background": "#131c2b",
+      "border": "#333333",
+      "tab_bar.background": "#050505",
+      "tab.inactive_background": "#101010",
+      "tab.active_background": "#333333",
+      "toolbar.background": "#050505",
+      "status_bar.background": "#050505",
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      "editor.foreground": "#666666",
+      "editor.line_number": "#e0ad82",
+      "editor.gutter.background": "#050505",
+      "terminal.background": "#050505",
+      "syntax": {
+        "comment": { "color": "#87919d"}
+      }
+      //"players": [{ "cursor": "#00ff33" }],
+    },
     "haku-dark": {
       "title_bar.background": "#181818",
       "syntax": {
@@ -552,7 +576,7 @@
     },
     "clangd": {
       "binary": {
-        "path": "G:/dev_tools/LLVM/bin/clangd.exe",
+        "path": "G:/Programs/LLVM/bin/clangd.exe",
         "arguments": [
           "--background-index",
           "--pch-storage=memory",
@@ -560,6 +584,11 @@
           "-j=4",
         ],
       },
+    },
+    "clice": {
+      "binary": {
+        "path": "G:/Programs/clice/bin/clice.exe"
+      }
     },
     "zls": {
       "binary": {
