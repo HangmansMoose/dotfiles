@@ -52,10 +52,12 @@
     "windows": {
       "base": "user",
       "settings": {
+        "buffer_font_family": "0xProto Nerd Font",
+        "buffer_font_size": 18,
         "terminal": {
           "dock": "bottom",
-          "font_family": "MonaspiceNe Nerd Font",
-          "font_size": 14,
+          "font_family": "0xProto Nerd Font",
+          "font_size": 18,
           "shell": {
             "program": "pwsh.exe",
           },
@@ -133,10 +135,10 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "MonaspiceNe Nerd Font",
+  //"buffer_font_family": "MonaspiceNe Nerd Font",
   //"ui_font_family": "OCR A",
   "ui_font_size": 16.0,
-  "buffer_font_size": 18.0,
+  //"buffer_font_size": 18.0,
   "vim_mode": true,
 
   "telemetry": {
@@ -155,7 +157,7 @@
   },
 
   // Current Set theme
-  "theme": "Kanso Ink (No italics)",
+  "theme": "Koda Moss",
 
   // Theme Customizations
   // This section applies globally to all themes.

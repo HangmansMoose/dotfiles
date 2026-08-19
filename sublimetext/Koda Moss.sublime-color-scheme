@@ -1,0 +1,1172 @@
+{
+    "name": "Koda Moss",
+    "author": "Sublime Text port of koda.nvim by oskarnurm (https://github.com/oskarnurm/koda.nvim)",
+    "variables": {
+        "bg": "#0e1415",
+        "fg": "#cecece",
+        "caret": "#cecece",
+        "line": "#182325",
+        "selection": "#182325",
+        "selection_border": "#30464a",
+        "inactive_selection": "#141c1e",
+        "gutter": "#0e1415",
+        "gutter_fg": "#707070",
+        "gutter_hl": "#dfdf8e",
+        "guide": "#30464a",
+        "active_guide": "#707070",
+        "stack_guide": "#182325",
+        "find_bg": "#3a2a15",
+        "find_fg": "#ec8013",
+        "highlight": "#cd974b",
+        "accent": "#cd974b",
+        "misspelling": "#d2322d",
+        "invisibles": "#30464a",
+        "bracket": "#dfdf8e",
+        "tag_outline": "#999999",
+        "shadow": "#00000060",
+        "popup_bg": "#0e1415",
+        "popup_border": "#cecece",
+        "popup_fg": "#cecece",
+        "comment": "#707070",
+        "doc_comment": "#707070",
+        "todo": "#8ebeec",
+        "string": "#95cb82",
+        "string_alt": "#dfdf8e",
+        "escape": "#cecece",
+        "regexp": "#95cb82",
+        "string_punct": "#95cb82",
+        "number": "#dfdf8e",
+        "boolean": "#dfdf8e",
+        "constant": "#dfdf8e",
+        "constant_builtin": "#dfdf8e",
+        "variable": "#cecece",
+        "parameter": "#cecece",
+        "member": "#cecece",
+        "property": "#cecece",
+        "self": "#dfdf8e",
+        "function": "#71ade7",
+        "function_builtin": "#71ade7",
+        "method": "#71ade7",
+        "macro": "#dfdf8e",
+        "namespace": "#cecece",
+        "label": "#999999",
+        "decorator": "#999999",
+        "keyword": "#999999",
+        "keyword_control": "#999999",
+        "keyword_import": "#999999",
+        "keyword_operator": "#708b8d",
+        "keyword_return": "#71ade7",
+        "operator": "#708b8d",
+        "storage": "#999999",
+        "type": "#708b8d",
+        "type_builtin": "#708b8d",
+        "klass": "#708b8d",
+        "interface": "#cecece",
+        "enum": "#708b8d",
+        "enum_member": "#dfdf8e",
+        "punctuation": "#999999",
+        "delimiter": "#708b8d",
+        "accessor": "#708b8d",
+        "brackets": "#cecece",
+        "tag": "#999999",
+        "tag_attribute": "#999999",
+        "tag_punct": "#999999",
+        "markup_heading": "#71ade7",
+        "markup_link": "#71ade7",
+        "markup_url": "#8ebeec",
+        "markup_raw": "#dfdf8e",
+        "markup_list": "#71ade7",
+        "markup_quote": "#707070",
+        "error": "#d2322d",
+        "warning": "#ec8013",
+        "info": "#cecece",
+        "hint": "#8ebeec",
+        "ok": "#6abf40",
+        "invalid_fg": "#d2322d",
+        "deprecated": "#707070",
+        "diff_add_fg": "#6abf40",
+        "diff_add_bg": "#20361e",
+        "diff_del_fg": "#d2322d",
+        "diff_del_bg": "#351a1a",
+        "diff_chg_fg": "#ec8013",
+        "diff_chg_bg": "#3a2a15",
+        "diff_text_bg": "#673f14",
+        "diff_header": "#707070",
+        "line_diff_add": "#6abf40",
+        "line_diff_mod": "#ec8013",
+        "line_diff_del": "#d2322d"
+    },
+    "globals": {
+        "background": "var(bg)",
+        "foreground": "var(fg)",
+        "caret": "var(caret)",
+        "block_caret": "var(caret)",
+        "line_highlight": "var(line)",
+        "selection": "var(selection)",
+        "selection_border": "var(selection_border)",
+        "selection_border_width": "1",
+        "selection_corner_style": "round",
+        "inactive_selection": "var(inactive_selection)",
+        "highlight": "var(highlight)",
+        "find_highlight": "var(find_bg)",
+        "find_highlight_foreground": "var(find_fg)",
+        "misspelling": "var(misspelling)",
+        "accent": "var(accent)",
+        "guide": "var(guide)",
+        "active_guide": "var(active_guide)",
+        "stack_guide": "var(stack_guide)",
+        "gutter": "var(gutter)",
+        "gutter_foreground": "var(gutter_fg)",
+        "gutter_foreground_highlight": "var(gutter_hl)",
+        "fold_marker": "var(accent)",
+        "minimap_border": "var(selection_border)",
+        "brackets_options": "underline",
+        "brackets_foreground": "var(bracket)",
+        "bracket_contents_options": "underline",
+        "bracket_contents_foreground": "var(bracket)",
+        "tags_options": "stippled_underline",
+        "tags_foreground": "var(tag_outline)",
+        "shadow": "#00000060",
+        "shadow_width": "8",
+        "line_diff_width": "3",
+        "line_diff_added": "var(line_diff_add)",
+        "line_diff_modified": "var(line_diff_mod)",
+        "line_diff_deleted": "var(line_diff_del)",
+        "popup_css": "html, body {\n    margin: 0;\n    padding: 0;\n    background-color: #0e1415;\n    color: #cecece;\n}\nbody {\n    padding: 0.5rem 0.6rem;\n}\na {\n    color: #cd974b;\n    text-decoration: none;\n}\ncode, .code {\n    background-color: #182325;\n    color: #cecece;\n    padding: 0 0.2rem;\n}\ndiv.error, div.warning, div.info, div.success {\n    padding: 0.4rem;\n    margin: 0;\n}\ndiv.error { background-color: #0e1415; color: #d2322d; }\ndiv.warning { background-color: #0e1415; color: #ec8013; }\ndiv.info { background-color: #0e1415; color: #cecece; }\ndiv.success { background-color: #0e1415; color: #6abf40; }\n"
+    },
+    "rules": [
+        {
+            "name": "Comment",
+            "scope": "comment, punctuation.definition.comment",
+            "foreground": "var(comment)"
+        },
+        {
+            "name": "Documentation comment",
+            "scope": "comment.block.documentation, comment.block.documentation punctuation.definition.comment",
+            "foreground": "var(doc_comment)"
+        },
+        {
+            "name": "Codetag / TODO",
+            "scope": "keyword.codetag.notation, comment keyword.codetag, meta.annotation.codetag",
+            "foreground": "var(todo)",
+            "font_style": "bold"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "var(string)"
+        },
+        {
+            "name": "String punctuation",
+            "scope": "punctuation.definition.string.begin, punctuation.definition.string.end",
+            "foreground": "var(string_punct)"
+        },
+        {
+            "name": "Character literal",
+            "scope": "constant.character, string.quoted.single.char, constant.other.character",
+            "foreground": "var(string_alt)"
+        },
+        {
+            "name": "Escape sequence",
+            "scope": "constant.character.escape, constant.other.placeholder, constant.other.escape",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Escape punctuation",
+            "scope": "constant.character.escape punctuation.definition.escape",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Regular expression",
+            "scope": "string.regexp",
+            "foreground": "var(regexp)"
+        },
+        {
+            "name": "Regex operator",
+            "scope": "string.regexp keyword.operator, string.regexp keyword.other",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Interpolation punctuation",
+            "scope": "punctuation.section.interpolation, punctuation.definition.interpolation",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Docstring",
+            "scope": "string.quoted.docstring, string.unquoted.documentation",
+            "foreground": "var(doc_comment)"
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "var(number)"
+        },
+        {
+            "name": "Number suffix",
+            "scope": "constant.numeric punctuation, constant.numeric.suffix",
+            "foreground": "var(number)"
+        },
+        {
+            "name": "Boolean / language constant",
+            "scope": "constant.language",
+            "foreground": "var(boolean)"
+        },
+        {
+            "name": "Other constant",
+            "scope": "constant.other",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Constant name",
+            "scope": "entity.name.constant",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Enum member",
+            "scope": "constant.other.enum, variable.other.enummember, meta.enum variable.other.constant",
+            "foreground": "var(enum_member)"
+        },
+        {
+            "name": "Variable",
+            "scope": "variable, variable.other, variable.other.readwrite",
+            "foreground": "var(variable)"
+        },
+        {
+            "name": "Member / property",
+            "scope": "variable.other.member, variable.other.property, meta.property-name, support.other.variable",
+            "foreground": "var(member)"
+        },
+        {
+            "name": "Object key",
+            "scope": "meta.mapping.key string, meta.object-literal.key, meta.mapping.key",
+            "foreground": "var(property)"
+        },
+        {
+            "name": "Constant variable",
+            "scope": "variable.other.constant",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Parameter",
+            "scope": "variable.parameter, meta.function.parameters variable",
+            "foreground": "var(parameter)"
+        },
+        {
+            "name": "Builtin variable (this/self)",
+            "scope": "variable.language, variable.other.self, variable.parameter.function.language.special.self",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Namespace / module",
+            "scope": "entity.name.namespace, entity.name.module, meta.namespace entity.name, support.other.namespace, variable.other.namespace",
+            "foreground": "var(namespace)"
+        },
+        {
+            "name": "Function definition",
+            "scope": "entity.name.function, meta.function entity.name.function",
+            "foreground": "var(function)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Function call",
+            "scope": "variable.function, meta.function-call variable.function, meta.function-call.identifier",
+            "foreground": "var(function)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Method",
+            "scope": "entity.name.function.member, variable.function.member, meta.method entity.name.function",
+            "foreground": "var(method)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Builtin function",
+            "scope": "support.function, support.function.builtin",
+            "foreground": "var(function_builtin)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Macro",
+            "scope": "variable.macro, entity.name.macro, support.macro, entity.name.function.macro, meta.macro entity.name.function",
+            "foreground": "var(macro)"
+        },
+        {
+            "name": "Constructor",
+            "scope": "entity.name.function.constructor, entity.name.function.new",
+            "foreground": "var(klass)"
+        },
+        {
+            "name": "Decorator / annotation",
+            "scope": "variable.annotation, meta.annotation variable.annotation, meta.annotation.identifier, punctuation.definition.annotation, meta.decorator",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Label",
+            "scope": "entity.name.label, constant.other.label",
+            "foreground": "var(label)"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword",
+            "foreground": "var(keyword)"
+        },
+        {
+            "name": "Control keyword",
+            "scope": "keyword.control",
+            "foreground": "var(keyword_control)"
+        },
+        {
+            "name": "Return / yield",
+            "scope": "keyword.control.flow.return, keyword.control.return, keyword.control.flow.yield",
+            "foreground": "var(keyword_return)"
+        },
+        {
+            "name": "Import / export",
+            "scope": "keyword.control.import, keyword.control.export, keyword.control.at-rule.import, keyword.other.import",
+            "foreground": "var(keyword_import)"
+        },
+        {
+            "name": "Keyword operator",
+            "scope": "keyword.operator.word, keyword.operator.logical, keyword.operator.new, keyword.operator.expression, keyword.operator.alignas",
+            "foreground": "var(keyword_operator)"
+        },
+        {
+            "name": "Operator",
+            "scope": "keyword.operator, punctuation.separator.key-value",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Storage / declaration",
+            "scope": "storage, storage.type, keyword.declaration",
+            "foreground": "var(storage)"
+        },
+        {
+            "name": "Storage modifier",
+            "scope": "storage.modifier, keyword.other.modifier",
+            "foreground": "var(storage)"
+        },
+        {
+            "name": "Preprocessor",
+            "scope": "keyword.control.directive, meta.preprocessor, keyword.control.import.define, keyword.other.preprocessor",
+            "foreground": "var(keyword_import)"
+        },
+        {
+            "name": "Type",
+            "scope": "entity.name.type, entity.name.struct, entity.name.union, storage.type.class, meta.type entity.name",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Class",
+            "scope": "entity.name.class, support.class, meta.class entity.name.class",
+            "foreground": "var(klass)"
+        },
+        {
+            "name": "Interface / trait",
+            "scope": "entity.name.interface, entity.name.trait, entity.other.inherited-class",
+            "foreground": "var(interface)"
+        },
+        {
+            "name": "Enum",
+            "scope": "entity.name.enum, variable.other.enum",
+            "foreground": "var(enum)"
+        },
+        {
+            "name": "Builtin type",
+            "scope": "support.type, storage.type.primitive, support.type.builtin, storage.type.builtin",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Type parameter",
+            "scope": "variable.parameter.type, entity.name.type.parameter, meta.generic variable.parameter",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Type definition",
+            "scope": "entity.name.type.typedef, entity.name.type.alias",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Punctuation",
+            "scope": "punctuation",
+            "foreground": "var(punctuation)"
+        },
+        {
+            "name": "Separator / terminator",
+            "scope": "punctuation.separator, punctuation.terminator",
+            "foreground": "var(delimiter)"
+        },
+        {
+            "name": "Accessor",
+            "scope": "punctuation.accessor",
+            "foreground": "var(accessor)"
+        },
+        {
+            "name": "Brackets",
+            "scope": "punctuation.section.block, punctuation.section.braces, punctuation.section.brackets, punctuation.section.parens, punctuation.section.group, punctuation.section.arguments, punctuation.section.sequence, punctuation.section.mapping, meta.brace",
+            "foreground": "var(brackets)"
+        },
+        {
+            "name": "Section keys",
+            "scope": "punctuation.definition.keyword, punctuation.definition.variable",
+            "foreground": "var(punctuation)"
+        },
+        {
+            "name": "Tag name",
+            "scope": "entity.name.tag",
+            "foreground": "var(tag)"
+        },
+        {
+            "name": "Tag punctuation",
+            "scope": "punctuation.definition.tag, punctuation.definition.tag.begin, punctuation.definition.tag.end",
+            "foreground": "var(tag_punct)"
+        },
+        {
+            "name": "Tag attribute",
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(tag_attribute)"
+        },
+        {
+            "name": "Attribute value",
+            "scope": "meta.tag string.quoted, meta.attribute-with-value string",
+            "foreground": "var(string)"
+        },
+        {
+            "name": "CSS selector",
+            "scope": "entity.other.pseudo-class, entity.other.pseudo-element",
+            "foreground": "var(keyword)"
+        },
+        {
+            "name": "CSS property",
+            "scope": "support.type.property-name, meta.property-name support.type",
+            "foreground": "var(property)"
+        },
+        {
+            "name": "CSS value",
+            "scope": "support.constant.property-value, meta.property-value support.constant",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "CSS unit",
+            "scope": "keyword.other.unit",
+            "foreground": "var(number)"
+        },
+        {
+            "name": "YAML anchor",
+            "scope": "entity.name.other.anchor, variable.other.alias, punctuation.definition.anchor, punctuation.definition.alias",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "JSON key",
+            "scope": "source.json meta.mapping.key string",
+            "foreground": "var(property)"
+        },
+        {
+            "name": "Markup heading",
+            "scope": "markup.heading, markup.heading entity.name, entity.name.section",
+            "foreground": "var(markup_heading)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup heading punctuation",
+            "scope": "punctuation.definition.heading",
+            "foreground": "var(markup_heading)"
+        },
+        {
+            "name": "Markup bold",
+            "scope": "markup.bold, markup.bold punctuation.definition",
+            "foreground": "var(markup_list)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markup italic",
+            "scope": "markup.italic, markup.italic punctuation.definition",
+            "foreground": "var(markup_list)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup underline",
+            "scope": "markup.underline",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markup strikethrough",
+            "scope": "markup.strikethrough",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Markup link",
+            "scope": "markup.underline.link, markup.link, meta.link",
+            "foreground": "var(markup_url)",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markup link text",
+            "scope": "meta.link.inline string.other.link, string.other.link.title, markup.link.text",
+            "foreground": "var(markup_link)"
+        },
+        {
+            "name": "Markup raw / code",
+            "scope": "markup.raw, markup.raw.inline, markup.raw.block, markup.raw.code-fence",
+            "foreground": "var(markup_raw)"
+        },
+        {
+            "name": "Markup list bullet",
+            "scope": "markup.list punctuation.definition, punctuation.definition.list_item, markup.list.numbered.bullet",
+            "foreground": "var(markup_list)"
+        },
+        {
+            "name": "Markup quote",
+            "scope": "markup.quote, markup.quote punctuation.definition",
+            "foreground": "var(markup_quote)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markup separator",
+            "scope": "meta.separator, punctuation.definition.thematic-break",
+            "foreground": "var(markup_quote)"
+        },
+        {
+            "name": "Diff header",
+            "scope": "meta.diff, meta.diff.header, meta.diff.index, meta.diff.range",
+            "foreground": "var(diff_header)"
+        },
+        {
+            "name": "Diff inserted",
+            "scope": "markup.inserted, meta.diff.header.to-file",
+            "background": "var(diff_add_bg)",
+            "foreground": "var(diff_add_fg)"
+        },
+        {
+            "name": "Diff deleted",
+            "scope": "markup.deleted, meta.diff.header.from-file",
+            "background": "var(diff_del_bg)",
+            "foreground": "var(diff_del_fg)"
+        },
+        {
+            "name": "Diff changed",
+            "scope": "markup.changed",
+            "background": "var(diff_chg_bg)",
+            "foreground": "var(diff_chg_fg)"
+        },
+        {
+            "name": "Git conflict marker",
+            "scope": "meta.conflict, punctuation.section.block.conflict",
+            "background": "var(diff_text_bg)",
+            "foreground": "var(diff_chg_fg)"
+        },
+        {
+            "name": "Invalid",
+            "scope": "invalid, invalid.illegal",
+            "foreground": "var(invalid_fg)"
+        },
+        {
+            "name": "Deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "var(deprecated)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Shell built-in",
+            "scope": "support.function.builtin.shell, meta.function-call.identifier.shell",
+            "foreground": "var(function_builtin)"
+        },
+        {
+            "name": "LSP diagnostic error",
+            "scope": "markup.error, markup.error.lsp",
+            "foreground": "var(error)",
+            "font_style": "squiggly_underline"
+        },
+        {
+            "name": "LSP diagnostic warning",
+            "scope": "markup.warning, markup.warning.lsp",
+            "foreground": "var(warning)",
+            "font_style": "squiggly_underline"
+        },
+        {
+            "name": "LSP diagnostic info",
+            "scope": "markup.info, markup.info.lsp",
+            "foreground": "var(info)",
+            "font_style": "stippled_underline"
+        },
+        {
+            "name": "LSP diagnostic hint",
+            "scope": "markup.info.hint, markup.info.hint.lsp",
+            "foreground": "var(hint)",
+            "font_style": "stippled_underline"
+        },
+        {
+            "name": "LSP unnecessary code",
+            "scope": "markup.unnecessary",
+            "background": "color(var(bg) alpha(0.98))",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "LSP deprecated code",
+            "scope": "markup.deprecated",
+            "foreground": "var(deprecated)",
+            "font_style": "stippled_underline"
+        },
+        {
+            "name": "LSP document highlight (text)",
+            "scope": "markup.highlight.text",
+            "background": "var(selection)"
+        },
+        {
+            "name": "LSP document highlight (read)",
+            "scope": "markup.highlight.read",
+            "background": "var(selection)"
+        },
+        {
+            "name": "LSP document highlight (write)",
+            "scope": "markup.highlight.write",
+            "background": "var(diff_chg_bg)"
+        },
+        {
+            "name": "LSP hover highlight",
+            "scope": "markup.highlight.hover",
+            "background": "var(selection)"
+        },
+        {
+            "name": "LSP signature help",
+            "scope": "meta.signature-help",
+            "background": "var(popup_bg)",
+            "foreground": "var(fg)"
+        },
+        {
+            "name": "LSP signature help parameter",
+            "scope": "meta.signature-help.parameter, meta.signature-help meta.function.parameters",
+            "foreground": "var(parameter)"
+        },
+        {
+            "name": "LSP active parameter",
+            "scope": "variable.parameter.sighelp.active",
+            "foreground": "var(accent)",
+            "font_style": "bold"
+        },
+        {
+            "name": "LSP code action accent",
+            "scope": "markup.accent.codeaction",
+            "foreground": "var(hint)"
+        },
+        {
+            "name": "LSP code lens accent",
+            "scope": "markup.accent.codelens",
+            "foreground": "var(ok)"
+        },
+        {
+            "name": "LSP inlay hint",
+            "scope": "markup.inlayhint, meta.inlay-hint",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Semantic token (enables LSP semantic highlighting)",
+            "scope": "meta.semantic-token",
+            "background": "color(var(bg) alpha(0.98))"
+        },
+        {
+            "name": "Semantic: namespace",
+            "scope": "meta.semantic-token.namespace",
+            "foreground": "var(namespace)"
+        },
+        {
+            "name": "Semantic: type",
+            "scope": "meta.semantic-token.type",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: class",
+            "scope": "meta.semantic-token.class",
+            "foreground": "var(klass)"
+        },
+        {
+            "name": "Semantic: enum",
+            "scope": "meta.semantic-token.enum",
+            "foreground": "var(enum)"
+        },
+        {
+            "name": "Semantic: interface",
+            "scope": "meta.semantic-token.interface",
+            "foreground": "var(interface)"
+        },
+        {
+            "name": "Semantic: struct",
+            "scope": "meta.semantic-token.struct",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: typeparameter",
+            "scope": "meta.semantic-token.typeparameter",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: parameter",
+            "scope": "meta.semantic-token.parameter",
+            "foreground": "var(parameter)"
+        },
+        {
+            "name": "Semantic: variable",
+            "scope": "meta.semantic-token.variable",
+            "foreground": "var(variable)"
+        },
+        {
+            "name": "Semantic: property",
+            "scope": "meta.semantic-token.property",
+            "foreground": "var(property)"
+        },
+        {
+            "name": "Semantic: enummember",
+            "scope": "meta.semantic-token.enummember",
+            "foreground": "var(enum_member)"
+        },
+        {
+            "name": "Semantic: event",
+            "scope": "meta.semantic-token.event",
+            "foreground": "var(function)"
+        },
+        {
+            "name": "Semantic: function",
+            "scope": "meta.semantic-token.function",
+            "foreground": "var(function)"
+        },
+        {
+            "name": "Semantic: method",
+            "scope": "meta.semantic-token.method",
+            "foreground": "var(method)"
+        },
+        {
+            "name": "Semantic: macro",
+            "scope": "meta.semantic-token.macro",
+            "foreground": "var(macro)"
+        },
+        {
+            "name": "Semantic: keyword",
+            "scope": "meta.semantic-token.keyword",
+            "foreground": "var(keyword)"
+        },
+        {
+            "name": "Semantic: modifier",
+            "scope": "meta.semantic-token.modifier",
+            "foreground": "var(storage)"
+        },
+        {
+            "name": "Semantic: comment",
+            "scope": "meta.semantic-token.comment",
+            "foreground": "var(comment)"
+        },
+        {
+            "name": "Semantic: string",
+            "scope": "meta.semantic-token.string",
+            "foreground": "var(string)"
+        },
+        {
+            "name": "Semantic: number",
+            "scope": "meta.semantic-token.number",
+            "foreground": "var(number)"
+        },
+        {
+            "name": "Semantic: regexp",
+            "scope": "meta.semantic-token.regexp",
+            "foreground": "var(regexp)"
+        },
+        {
+            "name": "Semantic: operator",
+            "scope": "meta.semantic-token.operator",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Semantic: decorator",
+            "scope": "meta.semantic-token.decorator",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: label",
+            "scope": "meta.semantic-token.label",
+            "foreground": "var(label)"
+        },
+        {
+            "name": "Semantic: type.defaultlibrary",
+            "scope": "meta.semantic-token.type.defaultlibrary",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: class.defaultlibrary",
+            "scope": "meta.semantic-token.class.defaultlibrary",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: struct.defaultlibrary",
+            "scope": "meta.semantic-token.struct.defaultlibrary",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: enum.defaultlibrary",
+            "scope": "meta.semantic-token.enum.defaultlibrary",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: interface.defaultlibrary",
+            "scope": "meta.semantic-token.interface.defaultlibrary",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: function.defaultlibrary",
+            "scope": "meta.semantic-token.function.defaultlibrary",
+            "foreground": "var(function_builtin)"
+        },
+        {
+            "name": "Semantic: method.defaultlibrary",
+            "scope": "meta.semantic-token.method.defaultlibrary",
+            "foreground": "var(function_builtin)"
+        },
+        {
+            "name": "Semantic: macro.defaultlibrary",
+            "scope": "meta.semantic-token.macro.defaultlibrary",
+            "foreground": "var(macro)"
+        },
+        {
+            "name": "Semantic: variable.defaultlibrary",
+            "scope": "meta.semantic-token.variable.defaultlibrary",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Semantic: enummember.defaultlibrary",
+            "scope": "meta.semantic-token.enummember.defaultlibrary",
+            "foreground": "var(constant_builtin)"
+        },
+        {
+            "name": "Semantic: variable.readonly",
+            "scope": "meta.semantic-token.variable.readonly",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: variable.static",
+            "scope": "meta.semantic-token.variable.static",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: variable.constant",
+            "scope": "meta.semantic-token.variable.constant",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: property.readonly",
+            "scope": "meta.semantic-token.property.readonly",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: parameter.declaration",
+            "scope": "meta.semantic-token.parameter.declaration",
+            "foreground": "var(parameter)"
+        },
+        {
+            "name": "Semantic: function.declaration",
+            "scope": "meta.semantic-token.function.declaration",
+            "foreground": "var(function)"
+        },
+        {
+            "name": "Semantic: method.declaration",
+            "scope": "meta.semantic-token.method.declaration",
+            "foreground": "var(method)"
+        },
+        {
+            "name": "Semantic: class.declaration",
+            "scope": "meta.semantic-token.class.declaration",
+            "foreground": "var(klass)"
+        },
+        {
+            "name": "Semantic: struct.declaration",
+            "scope": "meta.semantic-token.struct.declaration",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: interface.declaration",
+            "scope": "meta.semantic-token.interface.declaration",
+            "foreground": "var(interface)"
+        },
+        {
+            "name": "Semantic: enum.declaration",
+            "scope": "meta.semantic-token.enum.declaration",
+            "foreground": "var(enum)"
+        },
+        {
+            "name": "Semantic: type.declaration",
+            "scope": "meta.semantic-token.type.declaration",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: keyword.controlflow",
+            "scope": "meta.semantic-token.keyword.controlflow",
+            "foreground": "var(keyword_control)"
+        },
+        {
+            "name": "Semantic: keyword.async",
+            "scope": "meta.semantic-token.keyword.async",
+            "foreground": "var(keyword_control)"
+        },
+        {
+            "name": "Semantic: keyword.documentation",
+            "scope": "meta.semantic-token.keyword.documentation",
+            "foreground": "var(keyword)"
+        },
+        {
+            "name": "Semantic: comment.documentation",
+            "scope": "meta.semantic-token.comment.documentation",
+            "foreground": "var(doc_comment)"
+        },
+        {
+            "name": "Semantic: string.documentation",
+            "scope": "meta.semantic-token.string.documentation",
+            "foreground": "var(doc_comment)"
+        },
+        {
+            "name": "Semantic: variable.deprecated",
+            "scope": "meta.semantic-token.variable.deprecated",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Semantic: function.deprecated",
+            "scope": "meta.semantic-token.function.deprecated",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Semantic: method.deprecated",
+            "scope": "meta.semantic-token.method.deprecated",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Semantic: class.deprecated",
+            "scope": "meta.semantic-token.class.deprecated",
+            "foreground": "var(deprecated)"
+        },
+        {
+            "name": "Semantic: namespace.declaration",
+            "scope": "meta.semantic-token.namespace.declaration",
+            "foreground": "var(namespace)"
+        },
+        {
+            "name": "Semantic: variable.definition",
+            "scope": "meta.semantic-token.variable.definition",
+            "foreground": "var(variable)"
+        },
+        {
+            "name": "Semantic: selfkeyword (server-specific)",
+            "scope": "meta.semantic-token.selfkeyword",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Semantic: selftypekeyword (server-specific)",
+            "scope": "meta.semantic-token.selftypekeyword",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Semantic: builtintype (server-specific)",
+            "scope": "meta.semantic-token.builtintype",
+            "foreground": "var(type_builtin)"
+        },
+        {
+            "name": "Semantic: builtinattribute (server-specific)",
+            "scope": "meta.semantic-token.builtinattribute",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: attribute (server-specific)",
+            "scope": "meta.semantic-token.attribute",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: attributebracket (server-specific)",
+            "scope": "meta.semantic-token.attributebracket",
+            "foreground": "var(punctuation)"
+        },
+        {
+            "name": "Semantic: derive (server-specific)",
+            "scope": "meta.semantic-token.derive",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: derivehelper (server-specific)",
+            "scope": "meta.semantic-token.derivehelper",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: lifetime (server-specific)",
+            "scope": "meta.semantic-token.lifetime",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: typealias (server-specific)",
+            "scope": "meta.semantic-token.typealias",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: union (server-specific)",
+            "scope": "meta.semantic-token.union",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: generic (server-specific)",
+            "scope": "meta.semantic-token.generic",
+            "foreground": "var(variable)"
+        },
+        {
+            "name": "Semantic: constparameter (server-specific)",
+            "scope": "meta.semantic-token.constparameter",
+            "foreground": "var(constant)"
+        },
+        {
+            "name": "Semantic: escapesequence (server-specific)",
+            "scope": "meta.semantic-token.escapesequence",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Semantic: invalidescapesequence (server-specific)",
+            "scope": "meta.semantic-token.invalidescapesequence",
+            "foreground": "var(invalid_fg)"
+        },
+        {
+            "name": "Semantic: formatspecifier (server-specific)",
+            "scope": "meta.semantic-token.formatspecifier",
+            "foreground": "var(escape)"
+        },
+        {
+            "name": "Semantic: character (server-specific)",
+            "scope": "meta.semantic-token.character",
+            "foreground": "var(string_alt)"
+        },
+        {
+            "name": "Semantic: boolean (server-specific)",
+            "scope": "meta.semantic-token.boolean",
+            "foreground": "var(boolean)"
+        },
+        {
+            "name": "Semantic: magicfunction (server-specific)",
+            "scope": "meta.semantic-token.magicfunction",
+            "foreground": "var(function_builtin)"
+        },
+        {
+            "name": "Semantic: selfparameter (server-specific)",
+            "scope": "meta.semantic-token.selfparameter",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Semantic: clsparameter (server-specific)",
+            "scope": "meta.semantic-token.clsparameter",
+            "foreground": "var(self)"
+        },
+        {
+            "name": "Semantic: annotation (server-specific)",
+            "scope": "meta.semantic-token.annotation",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: annotationmember (server-specific)",
+            "scope": "meta.semantic-token.annotationmember",
+            "foreground": "var(decorator)"
+        },
+        {
+            "name": "Semantic: modulereference (server-specific)",
+            "scope": "meta.semantic-token.modulereference",
+            "foreground": "var(namespace)"
+        },
+        {
+            "name": "Semantic: packagename (server-specific)",
+            "scope": "meta.semantic-token.packagename",
+            "foreground": "var(namespace)"
+        },
+        {
+            "name": "Semantic: recordcomponent (server-specific)",
+            "scope": "meta.semantic-token.recordcomponent",
+            "foreground": "var(member)"
+        },
+        {
+            "name": "Semantic: typeparametername (server-specific)",
+            "scope": "meta.semantic-token.typeparametername",
+            "foreground": "var(type)"
+        },
+        {
+            "name": "Semantic: bitwise (server-specific)",
+            "scope": "meta.semantic-token.bitwise",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Semantic: logical (server-specific)",
+            "scope": "meta.semantic-token.logical",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Semantic: comparison (server-specific)",
+            "scope": "meta.semantic-token.comparison",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Semantic: arithmetic (server-specific)",
+            "scope": "meta.semantic-token.arithmetic",
+            "foreground": "var(operator)"
+        },
+        {
+            "name": "Semantic: punctuation (server-specific)",
+            "scope": "meta.semantic-token.punctuation",
+            "foreground": "var(punctuation)"
+        },
+        {
+            "name": "Semantic: brace (server-specific)",
+            "scope": "meta.semantic-token.brace",
+            "foreground": "var(brackets)"
+        },
+        {
+            "name": "Semantic: bracket (server-specific)",
+            "scope": "meta.semantic-token.bracket",
+            "foreground": "var(brackets)"
+        },
+        {
+            "name": "Semantic: parenthesis (server-specific)",
+            "scope": "meta.semantic-token.parenthesis",
+            "foreground": "var(brackets)"
+        },
+        {
+            "name": "Semantic: angle (server-specific)",
+            "scope": "meta.semantic-token.angle",
+            "foreground": "var(brackets)"
+        },
+        {
+            "name": "Semantic: colon (server-specific)",
+            "scope": "meta.semantic-token.colon",
+            "foreground": "var(delimiter)"
+        },
+        {
+            "name": "Semantic: comma (server-specific)",
+            "scope": "meta.semantic-token.comma",
+            "foreground": "var(delimiter)"
+        },
+        {
+            "name": "Semantic: semicolon (server-specific)",
+            "scope": "meta.semantic-token.semicolon",
+            "foreground": "var(delimiter)"
+        },
+        {
+            "name": "Semantic: dot (server-specific)",
+            "scope": "meta.semantic-token.dot",
+            "foreground": "var(accessor)"
+        },
+        {
+            "name": "Semantic: macrobang (server-specific)",
+            "scope": "meta.semantic-token.macrobang",
+            "foreground": "var(macro)"
+        },
+        {
+            "name": "Semantic: unresolvedreference (server-specific)",
+            "scope": "meta.semantic-token.unresolvedreference",
+            "foreground": "var(invalid_fg)"
+        },
+        {
+            "name": "Semantic: tomltablekey (server-specific)",
+            "scope": "meta.semantic-token.tomltablekey",
+            "foreground": "var(property)"
+        },
+        {
+            "name": "Semantic: toolmodule (server-specific)",
+            "scope": "meta.semantic-token.toolmodule",
+            "foreground": "var(namespace)"
+        }
+    ]
+}
