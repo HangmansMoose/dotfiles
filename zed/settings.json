@@ -9,7 +9,6 @@
 {
   // Extensions to install automatically on a new install
   "auto_install_extensions": {
-      "clice": true,
       "colored-zed-icons-theme": true,
       "comment": true,
       "gdscript": true,
@@ -159,7 +158,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Oshen"
+    "dark": "Luna"
   },
 
   // Theme Customizations

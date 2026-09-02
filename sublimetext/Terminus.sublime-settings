@@ -4,4 +4,5 @@
 	//{
 	//	"windows": "Powershell Core"
 	//}
+	"theme": "adaptive",
 }

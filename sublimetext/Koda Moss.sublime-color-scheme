@@ -4,7 +4,7 @@
     "variables": {
         "bg": "#0e1415",
         "fg": "#cecece",
-        "caret": "#cecece",
+        "caret": "#cecece55",
         "line": "#182325",
         "selection": "#182325",
         "selection_border": "#30464a",
@@ -120,11 +120,11 @@
         "gutter_foreground_highlight": "var(gutter_hl)",
         "fold_marker": "var(accent)",
         "minimap_border": "var(selection_border)",
-        "brackets_options": "underline",
+        "brackets_options": "",
         "brackets_foreground": "var(bracket)",
-        "bracket_contents_options": "underline",
+        "bracket_contents_options": "",
         "bracket_contents_foreground": "var(bracket)",
-        "tags_options": "stippled_underline",
+        "tags_options": "",
         "tags_foreground": "var(tag_outline)",
         "shadow": "#00000060",
         "shadow_width": "8",
@@ -518,7 +518,6 @@
             "name": "Markup quote",
             "scope": "markup.quote, markup.quote punctuation.definition",
             "foreground": "var(markup_quote)",
-            "font_style": "italic"
         },
         {
             "name": "Markup separator",
@@ -563,7 +562,6 @@
             "name": "Deprecated",
             "scope": "invalid.deprecated",
             "foreground": "var(deprecated)",
-            "font_style": "italic"
         },
         {
             "name": "Shell built-in",
@@ -574,25 +572,21 @@
             "name": "LSP diagnostic error",
             "scope": "markup.error, markup.error.lsp",
             "foreground": "var(error)",
-            "font_style": "squiggly_underline"
         },
         {
             "name": "LSP diagnostic warning",
             "scope": "markup.warning, markup.warning.lsp",
             "foreground": "var(warning)",
-            "font_style": "squiggly_underline"
         },
         {
             "name": "LSP diagnostic info",
             "scope": "markup.info, markup.info.lsp",
             "foreground": "var(info)",
-            "font_style": "stippled_underline"
         },
         {
             "name": "LSP diagnostic hint",
             "scope": "markup.info.hint, markup.info.hint.lsp",
             "foreground": "var(hint)",
-            "font_style": "stippled_underline"
         },
         {
             "name": "LSP unnecessary code",
@@ -604,7 +598,6 @@
             "name": "LSP deprecated code",
             "scope": "markup.deprecated",
             "foreground": "var(deprecated)",
-            "font_style": "stippled_underline"
         },
         {
             "name": "LSP document highlight (text)",

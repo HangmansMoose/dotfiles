@@ -16,12 +16,42 @@
     "caret_extra_bottom": 0,
     "caret_extra_top": 0,
     "caret_extra_width": 2,
+	"gutter": true,
+	"relative_line_numbers": true,
+	"mini_diff": false,
+	/*"highlight_line": true,*/
+	"inactive_sheet_dimming" : false,
+	"preview_on_click" : false,
+	"auto_hide_menu": false,
+	"reveal_menu": true,
+	"remember_full_screen": true,
+	"remember_layout": true,
+	"always_prompt_for_file_reload": true,
+	"show_full_path": false,
+	"show_git_status": false,
+	"neovintageous_build_version": 13200,
+    "adaptive_dividers": true,
+    //"file_tab_style": "angled",
+    //"ui_scale": 1.15,
+	"color_scheme": "Luna.sublime-color-scheme",
+	"theme": "Kujukuju.sublime-theme",
+	"font_face": "MonaspiceXe Nerd Font",
+	"font_size": 14.5,
+	"font_options": [
+		//"no_bold",
+		"no_italic"	
+	],	
+	"match_brackets": false,
+	"indent_guide_options": [
+		"draw_active"
+	],
 
     // Editing
     "translate_tabs_to_spaces": false,
     "tab_size": 4,
     "ensure_newline_at_eof_on_save": true,
     "word_wrap": false,
+    "show_spelling_errors": false,
     //"rulers": [100],
 
     // Sidebar & file tree
@@ -41,18 +71,10 @@
 	"syntax_detection_size_limit": 67108864,
 
 	/*         Theme and Font        */
-	"color_scheme": "Kanso Deep.sublime-color-scheme",
-	"theme": "GitHub Dark Colorblind.sublime-theme",
-	"font_face": "CaskaydiaMono NF",
-	"font_size": 13,
-	"font_options": [
-		"no_bold",
-		"no_italic"	
-	],	
-	"match_brackets": false,
+	
 	
 	/*           Vintage            */
-	"vintage_start_in_command_mode": true,
+	"vintage_start_in_command_mode": false,
 	"vintage_use_clipboard": true,
 	"vintageous_enable_surround": true,
 
@@ -60,20 +82,7 @@
 	"vintageous_use_sys_clipboard": true,
 	
 	/*			UI 							*/
-	"gutter": true,
-	"relative_line_numbers": true,
-	"mini_diff": false,
-	/*"highlight_line": true,*/
-	"inactive_sheet_dimming" : false,
-	"preview_on_click" : false,
-	"auto_hide_menu": true,
-	"reveal_menu": true,
-	"remember_full_screen": true,
-	"remember_layout": true,
-	"always_prompt_for_file_reload": true,
-	"show_full_path": false,
-	"show_git_status": false,
-	"neovintageous_build_version": 13200,
+	
 	"auto_complete_triggers":
 	[
 		{
