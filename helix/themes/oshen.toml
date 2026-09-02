@@ -28,10 +28,10 @@
 "string.special.url" = { fg = "sky", modifiers = ["underlined"] }
 "string.special.symbol" = { fg = "amber" }
 
-"comment" = { fg = "overlay1", modifiers = ["italic"] }
-"comment.line" = { fg = "overlay1", modifiers = ["italic"] }
-"comment.block" = { fg = "overlay1", modifiers = ["italic"] }
-"comment.block.documentation" = { fg = "overlay1", modifiers = ["italic"] }
+"comment" = { fg = "overlay1", modifiers = [""] }
+"comment.line" = { fg = "overlay1", modifiers = [""] }
+"comment.block" = { fg = "overlay1", modifiers = [""] }
+"comment.block.documentation" = { fg = "overlay1", modifiers = [""] }
 
 "variable" = { fg = "text" }
 "variable.builtin" = { fg = "amber" }
@@ -82,7 +82,7 @@
 "markup.heading.6" = { fg = "lavender", modifiers = ["bold"] }
 "markup.list" = { fg = "amber" }
 "markup.bold" = { fg = "peach", modifiers = ["bold"] }
-"markup.italic" = { fg = "text", modifiers = ["italic"] }
+"markup." = { fg = "text", modifiers = [""] }
 "markup.strikethrough" = { fg = "overlay1", modifiers = ["crossed_out"] }
 "markup.link.url" = { fg = "sky", modifiers = ["underlined"] }
 "markup.link.text" = { fg = "lavender" }

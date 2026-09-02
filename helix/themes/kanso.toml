@@ -27,13 +27,13 @@
 "string.special.symbol" = "violet2"
 "string.special.url" = { fg = "yellow3", underline = { style = "curl" } }
 
-"comment" = { fg = "gray4", modifiers = ["italic"] }
-"comment.line" = { fg = "gray4", modifiers = ["italic"] }
-"comment.block" = { fg = "gray4", modifiers = ["italic"] }
-"comment.block.documentation" = { fg = "gray4", modifiers = ["italic"] }
+"comment" = { fg = "gray4", modifiers = [""] }
+"comment.line" = { fg = "gray4", modifiers = [""] }
+"comment.block" = { fg = "gray4", modifiers = [""] }
+"comment.block.documentation" = { fg = "gray4", modifiers = [""] }
 
 "variable" = "fg"
-"variable.builtin" = { fg = "violet2", modifiers = ["italic"] }
+"variable.builtin" = { fg = "violet2", modifiers = [""] }
 "variable.parameter" = "gray3"
 "variable.other.member" = "violet2"
 
@@ -44,19 +44,19 @@
 "punctuation.bracket" = "gray3"
 "punctuation.special" = "yellow3"
 
-"keyword" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.control" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.control.conditional" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.control.repeat" = { fg = "violet2", modifiers = ["italic"] }
+"keyword" = { fg = "violet2", modifiers = [""] }
+"keyword.control" = { fg = "violet2", modifiers = [""] }
+"keyword.control.conditional" = { fg = "violet2", modifiers = [""] }
+"keyword.control.repeat" = { fg = "violet2", modifiers = [""] }
 "keyword.control.import" = { fg = "gray3" }
-"keyword.control.return" = { fg = "violet2", modifiers = ["italic"] }
+"keyword.control.return" = { fg = "violet2", modifiers = [""] }
 "keyword.control.exception" = "violet2"
 "keyword.operator" = "gray3"
 "keyword.directive" = "gray3"
-"keyword.function" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.storage" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.storage.type" = { fg = "violet2", modifiers = ["italic"] }
-"keyword.storage.modifier" = { fg = "violet2", modifiers = ["italic"] }
+"keyword.function" = { fg = "violet2", modifiers = [""] }
+"keyword.storage" = { fg = "violet2", modifiers = [""] }
+"keyword.storage.type" = { fg = "violet2", modifiers = [""] }
+"keyword.storage.modifier" = { fg = "violet2", modifiers = [""] }
 
 "operator" = "gray3"
 
@@ -75,7 +75,7 @@
 "markup.heading" = { fg = "blue3", modifiers = ["bold"] }
 "markup.list" = "violet2"
 "markup.bold" = { modifiers = ["bold"] }
-"markup.italic" = { modifiers = ["italic"] }
+"markup." = { modifiers = [""] }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 "markup.link.url" = { fg = "yellow3", underline = { style = "curl" } }
 "markup.link.text" = "blue3"

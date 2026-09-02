@@ -1,8 +1,13 @@
-theme = "kujukuju"
+theme = "luna"
 
 [editor]
+true-color = true
+cursorline = true
+bufferline = "multiple"
+color-modes = true
 line-number = "relative"
 gutters = ["diagnostics", "spacer" , "line-numbers", "spacer"]
+auto-format = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,5 +17,5 @@ normal = "block"
 hidden = false
 
 [keys.normal.space]
-"m" = ":run-shell-command just run"
-"M" = ":run-shell-command just debug"
+"m" = ":run-shell-command build.bat"
+"M" = ":run-shell-command debug.bat"

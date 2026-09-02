@@ -1,0 +1,220 @@
+# Luna — a near-black Helix theme built on greys, with four accent hues.
+# Ported from the Neovim colorscheme luna.nvim (https://github.com/WTFox/luna.nvim)
+# by WTFox. Palette and semantics carried over 1:1 where Helix has an
+# equivalent concept.
+#
+# Install: copy to ~/.config/helix/themes/luna.toml, then set
+#   theme = "luna"
+# in ~/.config/helix/config.toml
+
+# ------------------------------------------------------------------------
+# Syntax highlighting
+# ------------------------------------------------------------------------
+"attribute"       = "signal"
+"namespace"       = "grey_light"
+
+"type"            = "type"
+"type.builtin"    = "keyword"
+"type.parameter"  = "type"
+"constructor"     = "type"
+
+"constant"                    = "type"
+"constant.builtin"            = "keyword"
+"constant.builtin.boolean"    = "keyword"
+"constant.character"          = "keyword"
+"constant.character.escape"   = "signal"
+"constant.numeric"            = "keyword"
+"constant.numeric.integer"    = "keyword"
+"constant.numeric.float"      = "keyword"
+
+"string"                = "string"
+"string.regexp"         = "string"
+"string.special"        = "signal"
+"string.special.path"   = "signal"
+"string.special.url"    = { fg = "func", underline = { style = "line" } }
+"string.special.symbol" = "type"
+
+"comment"                        = { fg = "comment"}
+"comment.line"                   = { fg = "comment"}
+"comment.block"                  = { fg = "comment"}
+"comment.block.documentation"    = { fg = "grey"}
+
+"variable"              = "fg"
+"variable.builtin"      = "keyword"
+"variable.parameter"    = "fg"
+"variable.other.member" = "grey_pale"
+"variable.function"     = "func"
+
+"label" = "keyword"
+
+"punctuation"             = "grey_light"
+"punctuation.delimiter"   = "grey_mid"
+"punctuation.bracket"     = "grey_light"
+"punctuation.special"     = "grey_light"
+
+"keyword"                    = "keyword"
+"keyword.control"            = "keyword"
+"keyword.control.conditional"= "keyword"
+"keyword.control.repeat"     = "keyword"
+"keyword.control.import"     = { fg = "keyword"}
+"keyword.control.return"     = "keyword"
+"keyword.control.exception"  = "keyword"
+"keyword.operator"           = "keyword"
+"keyword.directive"          = { fg = "keyword", modifiers = ["bold"] }
+"keyword.function"           = "keyword"
+"keyword.storage"            = "keyword"
+"keyword.storage.type"       = "keyword"
+"keyword.storage.modifier"   = "keyword"
+
+"operator" = "grey_light"
+
+"function"          = "func"
+"function.builtin"  = "func"
+"function.method"   = "func"
+"function.macro"    = { fg = "keyword", modifiers = ["bold"] }
+"function.special"  = "func"
+
+"tag" = "type"
+
+"special" = "signal"
+
+"markup.heading"            = { fg = "keyword", modifiers = ["bold"] }
+"markup.heading.marker"     = "comment"
+"markup.list"               = "info"
+"markup.list.numbered"      = "info"
+"markup.list.unnumbered"    = "info"
+"markup.bold"               = { fg = "cream", modifiers = ["bold"] }
+"markup.italic"             = { fg = "cream"}
+"markup.strikethrough"      = { modifiers = ["crossed_out"] }
+"markup.link.url"           = { fg = "func", underline = { style = "line" } }
+"markup.link.text"          = "info"
+"markup.link.label"         = "func"
+"markup.quote"              = { fg = "grey_light"}
+"markup.raw"                = "signal"
+"markup.raw.inline"         = "signal"
+"markup.raw.block"          = "signal"
+
+"diff.plus"  = "ok"
+"diff.minus" = "error"
+"diff.delta" = "signal"
+
+# ------------------------------------------------------------------------
+# Diagnostics
+# ------------------------------------------------------------------------
+"diagnostic.error"   = { underline = { color = "error", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "warning", style = "curl" } }
+"diagnostic.info"    = { underline = { color = "info", style = "curl" } }
+"diagnostic.hint"    = { underline = { color = "hint", style = "curl" } }
+
+"error"   = "error"
+"warning" = "warning"
+"info"    = "info"
+"hint"    = "hint"
+
+# ------------------------------------------------------------------------
+# UI
+# ------------------------------------------------------------------------
+"ui.background"           = { fg = "fg", bg = "bg" }
+"ui.background.separator" = { fg = "border" }
+
+"ui.cursor"                = { fg = "bg", bg = "#00ff33" }
+"ui.cursor.primary"        = { fg = "bg", bg = "#00ff33" }
+"ui.cursor.match"          = { fg = "signal", modifiers = ["bold"] }
+"ui.cursor.insert"         = { fg = "bg", bg = "func" }
+"ui.cursor.select"         = { fg = "bg", bg = "type" }
+
+"ui.linenr"          = { fg = "line_nr" }
+"ui.linenr.selected" = { fg = "silver", modifiers = ["bold"] }
+
+"ui.statusline"          = { fg = "grey_light", bg = "bg_alt" }
+"ui.statusline.inactive" = { fg = "comment", bg = "bg_alt" }
+"ui.statusline.normal"   = { fg = "bg", bg = "func", modifiers = ["bold"] }
+"ui.statusline.insert"   = { fg = "bg", bg = "ok", modifiers = ["bold"] }
+"ui.statusline.select"   = { fg = "bg", bg = "type", modifiers = ["bold"] }
+"ui.statusline.separator"= { fg = "border" }
+
+"ui.popup"       = { fg = "fg", bg = "bg_soft" }
+"ui.popup.info"  = { fg = "fg", bg = "bg_soft" }
+"ui.window"      = { fg = "border" }
+"ui.help"        = { fg = "fg", bg = "float_bg" }
+
+"ui.text"          = "fg"
+"ui.text.focus"    = { fg = "fg_bright", modifiers = ["bold"] }
+"ui.text.inactive" = "comment"
+"ui.text.directory"= "func"
+
+"ui.virtual"                 = { fg = "grey_warm" }
+"ui.virtual.ruler"           = { bg = "bg_soft" }
+"ui.virtual.whitespace"      = { fg = "surface" }
+"ui.virtual.indent-guide"    = { fg = "bg_soft" }
+"ui.virtual.inlay-hint"      = { fg = "comment", bg = "bg_alt" }
+"ui.virtual.jump-label"      = { fg = "signal", modifiers = ["bold"] }
+
+"ui.menu"          = { fg = "fg", bg = "bg_soft" }
+"ui.menu.selected" = { fg = "fg_bright", bg = "surface" }
+
+"ui.selection"         = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+
+"ui.highlight" = { bg = "bg_soft" }
+
+"ui.cursorline.primary"   = { bg = "cursor_line_bg" }
+"ui.cursorline.secondary" = { bg = "bg_soft" }
+"ui.cursorcolumn.primary" = { bg = "bg_soft" }
+
+"ui.bufferline"            = { fg = "comment", bg = "bg_alt" }
+"ui.bufferline.active"     = { fg = "fg", bg = "bg", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "bg_alt" }
+
+"ui.gutter"          = { bg = "bg" }
+"ui.gutter.selected" = { bg = "cursor_line_bg" }
+
+"ui.debug.breakpoint" = { fg = "error" }
+"ui.debug.active"     = { fg = "warning" }
+
+# ------------------------------------------------------------------------
+# Palette
+# ------------------------------------------------------------------------
+[palette]
+bg          = "#060606"
+bg_alt      = "#1c1c1c"
+bg_soft     = "#1f1f1f"
+bg_plum     = "#302028"
+bg_delete   = "#40000a"
+surface     = "#333333"
+selection   = "#384048"
+border      = "#404040"
+float_bg    = "#403c41"
+
+grey_warm   = "#605958"
+comment     = "#7c7c7c"
+grey        = "#888888"
+grey_mid    = "#989898"
+grey_light  = "#a8a8a8"
+grey_pale   = "#b8b8b8"
+silver      = "#c7c7c7"
+fg          = "#e4e4e8"
+fg_bright   = "#f0f0f0"
+cream       = "#f0e0d6"
+
+black       = "#000000"
+white       = "#ffffff"
+
+keyword     = "#e19067"
+func        = "#75a1c7"
+type        = "#c4a8d6"
+string      = "#9eb38e"
+signal      = "#c2916a"
+
+error       = "#e08585"
+warning     = "#d9a35a"
+info        = "#8c9cb8"
+hint        = "#b09080"
+ok          = "#6fbe80"
+
+line_nr        = "#2f2b2b"
+cursor_line_bg = "#212121"
+diff_add_bg    = "#152017"
+diff_delete_bg = "#40000a"
+diff_change_bg = "#191410"
+

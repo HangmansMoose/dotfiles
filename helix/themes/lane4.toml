@@ -9,7 +9,7 @@
 "ui.virtual.ruler" = { bg = "statusbg" }
 
 # Wow, what a comment
-"comment" = { fg = "comment", bg = "statusbg", modifiers = ["italic"] }
+"comment" = { fg = "comment", bg = "statusbg", modifiers = [""] }
 "keyword" = { fg = "keyword", modifiers = ["bold"] }
 "string" = { fg = "string" }
 "type" = { fg = "type" }
