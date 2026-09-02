@@ -9,8 +9,8 @@
     "show_definitions": false,
 
     // UI
-    "line_padding_top": 1,
-    "line_padding_bottom": 1,
+    "line_padding_top": 0,
+    "line_padding_bottom": 0,
     "highlight_line": true,
     "caret_style": "solid",
     "caret_extra_bottom": 0,
@@ -35,11 +35,15 @@
     //"ui_scale": 1.15,
 	"color_scheme": "Luna.sublime-color-scheme",
 	"theme": "Kujukuju.sublime-theme",
-	"font_face": "MonaspiceXe Nerd Font",
-	"font_size": 14.5,
+	"font_face": "CaskaydiaMono NF",
+	"font_size": 15,
 	"font_options": [
 		//"no_bold",
-		"no_italic"	
+		"no_italic",
+		"subpixel_antialias",
+		"no_liga",
+		"no_calt",
+		"no_clig"	
 	],	
 	"match_brackets": false,
 	"indent_guide_options": [

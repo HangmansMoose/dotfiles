@@ -61,16 +61,16 @@
         "fold_marker": "var(signal)",
         "gutter": "var(bg)",
         "gutter_foreground": "var(line_nr)",
-        "line_number": "var(line_nr)",
+        //"line_number": "var(line_nr)",
         "selection_corner_style": "round",
         "highlight": "var(signal)",
         "find_highlight": "var(bg_plum)",
         "find_highlight_foreground": "var(fg_bright)",
-        "brackets_options": "underline",
+        "brackets_options": "bold",
         "brackets_foreground": "var(grey_light)",
-        "bracket_contents_options": "underline",
+        "bracket_contents_options": "foreground",
         "bracket_contents_foreground": "var(grey_light)",
-        "tags_options": "stippled_underline",
+        "tags_options": "forground",
         "shadow": "color(black alpha(0.4))",
         "popup_css": "background-color: color(var(bg_soft));",
         "phantom_css": "background-color: color(var(bg_soft));"
@@ -81,7 +81,7 @@
             "name": "Comment",
             "scope": "comment, punctuation.definition.comment",
             "foreground": "var(comment)",
-            "font_style": "italic"
+            //"font_style": "italic"
         },
         {
             "name": "String",
@@ -117,7 +117,7 @@
             "name": "Import / include",
             "scope": "keyword.control.import, keyword.control.import.include, meta.import, keyword.other.import",
             "foreground": "var(keyword)",
-            "font_style": "italic"
+            //"font_style": "italic"
         },
         {
             "name": "Function / method",
@@ -186,7 +186,7 @@
             "name": "Markup italic",
             "scope": "markup.italic",
             "foreground": "var(cream)",
-            "font_style": "italic"
+            //"font_style": "italic"
         },
         {
             "name": "Markup link",
@@ -198,7 +198,7 @@
             "name": "Markup quote",
             "scope": "markup.quote",
             "foreground": "var(grey_light)",
-            "font_style": "italic"
+            //"font_style": "italic"
         },
         {
             "name": "Markup list",
@@ -243,14 +243,14 @@
         {
             "name": "Invalid",
             "scope": "invalid, invalid.illegal",
-            "foreground": "var(fg)",
-            "background": "var(error)"
+            //"foreground": "var(fg)",
+            //"background": "var(error)"
         },
         {
             "name": "Invalid deprecated",
             "scope": "invalid.deprecated",
-            "foreground": "var(bg)",
-            "background": "var(signal)"
+            // "foreground": "var(bg)",
+            // "background": "var(signal)"
         }
     ]
 }
