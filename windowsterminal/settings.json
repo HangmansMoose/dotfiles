@@ -86,47 +86,6 @@
                 "name": "w64devkit"
             },
             {
-                "guid": "{44a0b46b-c2d7-51fb-becd-d4a19686e9fa}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "colorScheme": "Dark Pastel",
-                "font": 
-                {
-                    "face": "SauceCodePro Nerd Font",
-                    "size": 13
-                },
-                "guid": "{c017fe7c-8651-5591-88df-ca143307a342}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{2bd7675b-83a4-5fde-af12-52d2b46e2318}",
-                "hidden": false,
-                "name": "archlinux",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "colorScheme": "Tomorrow Night Bright",
-                "font": 
-                {
-                    "face": "DejaVuSansM Nerd Font"
-                },
-                "guid": "{74d95d43-f97a-580a-9216-02e92e91beaf}",
-                "hidden": false,
-                "name": "Ubuntu-26.04",
-                "source": "Microsoft.WSL"
-            },
-            {
-                "guid": "{8592836e-af7f-542d-b1d5-7c04bac47662}",
-                "hidden": false,
-                "name": "FedoraLinux-44",
-                "source": "Microsoft.WSL"
-            },
-            {
                 "colorScheme": "Tomorrow Night Bright",
                 "commandline": "C:\\Users\\glens\\.cargo\\bin\\nu.exe",
                 "font": 
@@ -146,6 +105,21 @@
         ]
     },
     "rendering.graphicsAPI": "direct3d11",
+	"themes": [
+		{
+			"name": "Custom",
+			"tab" : {
+				"background": "#050505",
+				"unfocusedBackground": "#1a1a1a"
+			},
+			"tabRow": {
+				"background": "#0b0b0b",
+				"unfocusedBackground": "#1a1a1a"
+			}
+		}
+	],
+	"theme": "Custom",
+    "useAcrylicInTabRow": true,
     "schemes": 
     [
         {
@@ -8475,8 +8449,6 @@
             "yellow": "#944927"
         }
     ],
-    "showTerminalTitleInTitlebar": false,
-    "theme": "dark",
-    "themes": [],
-    "useAcrylicInTabRow": true
+    "showTerminalTitleInTitlebar": false,  
+	
 }
