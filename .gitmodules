@@ -4,3 +4,6 @@
 [submodule "vscode/kujukuju-darker.vscode"]
 	path = vscode/kujukuju-darker.vscode
 	url = git@github.com:HangmansMoose/kujukuju-darker.vscode
+[submodule "fred/plugins/fred-plugins"]
+	path = fred/plugins/fred-plugins
+	url = https://github.com/cdacamar/fred-plugins.git
