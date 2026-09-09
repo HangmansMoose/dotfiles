@@ -5,8 +5,8 @@
 
 	// Performance — disable redundant built-in indexer
     // when LSP is handling completions
-    "index_files": false,
-    "show_definitions": false,
+    "index_files": true,
+    "show_definitions": true,
 
     // UI
     "line_padding_top": 0,
@@ -33,10 +33,10 @@
     "adaptive_dividers": true,
     //"file_tab_style": "angled",
     //"ui_scale": 1.15,
-	"color_scheme": "Luna.sublime-color-scheme",
+	"color_scheme": "Kintsugi Dark.sublime-color-scheme",
 	"theme": "Kujukuju.sublime-theme",
 	"font_face": "CaskaydiaMono NF",
-	"font_size": 15,
+	"font_size": 13,
 	"font_options": [
 		//"no_bold",
 		"no_italic",

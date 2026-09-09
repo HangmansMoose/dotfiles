@@ -2,14 +2,15 @@
     "name": "Kintsugi Dark",
     "author": "Sublime Text port of kintsugi-nvim by metalelf0 (https://github.com/metalelf0/kintsugi-nvim)",
     "variables": {
-        "bg": "#161618",
+        "bg": "#050505",
         "fg": "#dddddd",
-        "caret": "#d4a943",
+        //"caret": "#d4a943",
+        "caret": "#40ff40aa",
         "line": "#1d1d1c",
         "selection": "#32332b",
         "selection_border": "#3a3a37",
         "inactive_selection": "#20201f",
-        "gutter": "#161618",
+        "gutter": "#050505",
         "gutter_fg": "#444444",
         "gutter_hl": "#b4aa60",
         "guide": "#2a2a28",
@@ -27,9 +28,10 @@
         "popup_bg": "#151515",
         "popup_border": "#2a2a28",
         "popup_fg": "#c9c4b8",
-        "comment": "#af9661",
-        "doc_comment": "#af9661",
-        "todo": "#dbad49",
+        //"comment": "#af9661",
+        "comment": "#6f7b68",
+        "doc_comment": "#6f7b68",
+        "todo": "#FF0000",
         "string": "#98c379",
         "string_alt": "#98c379",
         "escape": "#678E87",
@@ -44,8 +46,8 @@
         "member": "#dddddd",
         "property": "#dddddd",
         "self": "#DBAD49",
-        "function": "#dddddd",
-        "function_builtin": "#939799",
+        "function": "#71ade7",
+        "function_builtin": "#708b8d",
         "method": "#dddddd",
         "macro": "#dddddd",
         "namespace": "#939799",
@@ -56,14 +58,14 @@
         "keyword_import": "#DBAD49",
         "keyword_operator": "#dddddd",
         "keyword_return": "#DBAD49",
-        "operator": "#dddddd",
+        "operator": "#708b8d",
         "storage": "#DBAD49",
-        "type": "#939799",
-        "type_builtin": "#939799",
+        "type": "#708b8d",
+        "type_builtin": "#708b8d",
         "klass": "#939799",
         "interface": "#939799",
-        "enum": "#939799",
-        "enum_member": "#939799",
+        "enum": "#708b8d",
+        "enum_member": "#dfdf8e",
         "punctuation": "#868165",
         "delimiter": "#868165",
         "accessor": "#868165",
@@ -134,7 +136,17 @@
         "line_diff_deleted": "var(line_diff_del)",
         "popup_css": "html, body {\n    margin: 0;\n    padding: 0;\n    background-color: #151515;\n    color: #c9c4b8;\n}\nbody {\n    padding: 0.5rem 0.6rem;\n}\na {\n    color: #dbad49;\n    text-decoration: none;\n}\ncode, .code {\n    background-color: #1d1d1c;\n    color: #c9c4b8;\n    padding: 0 0.2rem;\n}\ndiv.error, div.warning, div.info, div.success {\n    padding: 0.4rem;\n    margin: 0;\n}\ndiv.error { background-color: #151515; color: #b38f8f; }\ndiv.warning { background-color: #151515; color: #ebcb8b; }\ndiv.info { background-color: #151515; color: #8fa3b3; }\ndiv.success { background-color: #151515; color: #a3be8c; }\n"
     },
-    "rules": [
+    "rules": [ 
+        {
+            "name": "SublimeLinter TODO Annotation",
+            "scope": "annotation.todo",
+            "foreground": "#FF0000",
+        },
+        {
+            "name": "SublimeLinter NOTE Annotation",
+            "scope": "annotation.info",
+            "foreground": "#55aa00",
+        },
         {
             "name": "Comment",
             "scope": "comment, punctuation.definition.comment",
@@ -255,7 +267,7 @@
             "name": "Builtin variable (this/self)",
             "scope": "variable.language, variable.other.self, variable.parameter.function.language.special.self",
             "foreground": "var(self)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Namespace / module",
@@ -306,31 +318,31 @@
             "name": "Keyword",
             "scope": "keyword",
             "foreground": "var(keyword)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Control keyword",
             "scope": "keyword.control",
             "foreground": "var(keyword_control)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Return / yield",
             "scope": "keyword.control.flow.return, keyword.control.return, keyword.control.flow.yield",
             "foreground": "var(keyword_return)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Import / export",
             "scope": "keyword.control.import, keyword.control.export, keyword.control.at-rule.import, keyword.other.import",
             "foreground": "var(keyword_import)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Keyword operator",
             "scope": "keyword.operator.word, keyword.operator.logical, keyword.operator.new, keyword.operator.expression, keyword.operator.alignas",
             "foreground": "var(keyword_operator)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Operator",
@@ -341,18 +353,18 @@
             "name": "Storage / declaration",
             "scope": "storage, storage.type, keyword.declaration",
             "foreground": "var(storage)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Storage modifier",
             "scope": "storage.modifier, keyword.other.modifier",
             "foreground": "var(storage)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Preprocessor",
             "scope": "keyword.control.directive, meta.preprocessor, keyword.control.import.define, keyword.other.preprocessor",
-            "foreground": "var(keyword_import)"
+            //"foreground": "var(keyword_import)"
         },
         {
             "name": "Type",
@@ -522,7 +534,7 @@
             "name": "Markup quote",
             "scope": "markup.quote, markup.quote punctuation.definition",
             "foreground": "var(markup_quote)",
-            "font_style": "italic"
+            //"font_style": "italic"
         },
         {
             "name": "Markup separator",
@@ -645,7 +657,7 @@
             "name": "LSP active parameter",
             "scope": "variable.parameter.sighelp.active",
             "foreground": "var(accent)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "LSP code action accent",

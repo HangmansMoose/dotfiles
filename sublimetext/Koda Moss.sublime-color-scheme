@@ -4,7 +4,8 @@
     "variables": {
         "bg": "#0e1415",
         "fg": "#cecece",
-        "caret": "#cecece55",
+        //"caret": "#cecece55",
+        "caret": "#40ff4099",
         "line": "#182325",
         "selection": "#182325",
         "selection_border": "#30464a",
@@ -149,7 +150,7 @@
             "name": "Codetag / TODO",
             "scope": "keyword.codetag.notation, comment keyword.codetag, meta.annotation.codetag",
             "foreground": "var(todo)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "String",
@@ -265,25 +266,25 @@
             "name": "Function definition",
             "scope": "entity.name.function, meta.function entity.name.function",
             "foreground": "var(function)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Function call",
             "scope": "variable.function, meta.function-call variable.function, meta.function-call.identifier",
             "foreground": "var(function)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Method",
             "scope": "entity.name.function.member, variable.function.member, meta.method entity.name.function",
             "foreground": "var(method)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Builtin function",
             "scope": "support.function, support.function.builtin",
             "foreground": "var(function_builtin)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Macro",
@@ -464,7 +465,7 @@
             "name": "Markup heading",
             "scope": "markup.heading, markup.heading entity.name, entity.name.section",
             "foreground": "var(markup_heading)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "Markup heading punctuation",
@@ -634,7 +635,7 @@
             "name": "LSP active parameter",
             "scope": "variable.parameter.sighelp.active",
             "foreground": "var(accent)",
-            "font_style": "bold"
+            //"font_style": "bold"
         },
         {
             "name": "LSP code action accent",
