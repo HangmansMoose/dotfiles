@@ -13,7 +13,7 @@ cursor = 0xffffffff
 prim_cursor = 0xff0000ff
 tray = 0xffffffff
 need_save = 0xff0000ff
-background = 0x1f1f1fff
+background = 0xff
 warning = 0xe3811cff
 error = 0xff0000ff
 auto_line_ending = 0xff00ff
@@ -36,7 +36,7 @@ tabs_as_spaces = true
 spellcheck_by_default = false
 disable_line_highlight = false
 html_copy_background = true
-vim_mode = true
+vim_mode = false
 suppress_async_search = false
 suppress_threaded_search = false
 suppress_suggestions = false
@@ -56,7 +56,7 @@ noisy_events = false
 noisy_flattened_events = false
 noisy_find_all = false
 font_size_px = 24
-tray_font_size = 18
+tray_font_size = 24
 tabstop = 4
 line_number_style = 'LineNumberStyle_Classic'
 line_rulers = []
@@ -157,7 +157,7 @@ last_save_node_color = 0xff00ff
 external_change_node_color = 0xb11be3ff
 
 [diff.state]
-diff_font_size = 16
+diff_font_size = 20
 
 [file_explorer.colors]
 default_font_color = 0xffffffff
@@ -177,7 +177,7 @@ PB_color = 0xff0a00ff
 EB_color = 0xffffffff
 
 [file_explorer.state]
-font_size = 16
+font_size = 22
 noisy_dir_root = false
 rooted_filters = ""
 
@@ -187,7 +187,7 @@ warning = 0xe3811cff
 error = 0xff0000ff
 
 [feed.state]
-feed_font_size = 16
+feed_font_size = 20
 
 [widget.colors]
 window_border = 0xadd6ff26
@@ -204,6 +204,7 @@ drag_drop_zone = 0xadd6ffff
 outline_selection = 0x9fffff
 warning = 0xe3811cff
 error = 0xff0000ff
+good = 0xff00ff
 active_button = 0x98ffff
 loading_bar_progress = 0x98ff80
 loading_bar_complete = 0x9a0280
@@ -211,30 +212,31 @@ active_tab_highlight = 0x98ff80
 active_selection = 0x98ffff
 
 [widget.state]
-window_title_font_size = 20
+window_title_font_size = 18
 scrollbar_width = 10
 scrollbar_min_size = 20
 
 [system.core]
-preferred_file_explorer = ''
-core_window_rect = [204, 190, 1366, 768]
+preferred_file_explorer = 'C:\Program Files\Voidstar\FilePilot\FPilot.exe'
+core_window_rect = [190, 190, 1366, 768]
 async_update_frequency_ms = 1000
 editor_theme = 'ColorTheme_Fred'
 fullscreen = false
 maximized = true
-disable_sessions = false
+disable_sessions = true
+disable_plugins = false
 noisy_session_info = false
 
 [system.fonts]
 fallback_fonts_folder = 'C:\Windows\Fonts'
-current_font = 'C:\Windows\Fonts\CaskaydiaMonoNerdFont-Regular.ttf'
+current_font = './fonts/CaskaydiaMonoNerdFont-Regular.ttf'
 
 [system.effects]
 audio_keystroke = []
 audio_return = []
 postprocessing_enabled = true
 screen_warp = true
-multipass_crt = false
+multipass_crt = true
 mute_audio = false
 suppress_audio_startup = true
 crt_mode = false
@@ -243,11 +245,11 @@ light_mode = false
 smooth_scroll = true
 highlight_line_copy = true
 highlight_line_edit = true
-subpixel_font_aa = true
+subpixel_font_aa = false
 
 [hotkey.state]
 hotkeys = 'C:\Users\glens\AppData\Roaming\cadacama\fred\hotkeys.toml'
 
 [plugins.core]
-plugins_source_file = ''
+plugins_source_file = 'G:\Programs\fred\plugins\plugin.c'
 gen_base_template_only = false

@@ -261,12 +261,12 @@ mods = ['Alt','Shift']
 [[binding]]
 name = 'ED_MoveLineUp'
 key = 'Up'
-mods = ['Alt']
+mods = ['Alt','Shift']
 
 [[binding]]
 name = 'ED_MoveLineDown'
 key = 'Down'
-mods = ['Alt']
+mods = ['Alt','Shift']
 
 [[binding]]
 name = 'ED_SelectionToCursor'
@@ -295,13 +295,13 @@ mods = ['Ctrl','Shift']
 
 [[binding]]
 name = 'ED_CyclePanelForward'
-key = 'PgDn'
-mods = ['Ctrl']
+key = 'Right'
+mods = ['Alt']
 
 [[binding]]
 name = 'ED_CyclePanelBack'
-key = 'PgUp'
-mods = ['Ctrl']
+key = 'Left'
+mods = ['Alt']
 
 [[binding]]
 name = 'ED_CycleOnlyPanelForward'
