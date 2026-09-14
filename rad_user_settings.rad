@@ -1,0 +1,656 @@
+// raddbg 0.9.29 user file
+
+recent_project:
+{
+  path: "../game_dev/game_projects/project_threepwood/.raddbg_project"
+  name: ""
+}
+recent_project:
+{
+  path: "../game_dev/Engine_projects/Arachnid/arachnid.rdi"
+  name: ""
+}
+window:
+{
+  size: 2176 1670
+  split_x
+  pos: 832 209
+  monitor: "\\\\.\\DISPLAY1"
+  font_size: 16
+  panels:
+  {
+    0.813079:
+    {
+      0.759744:
+      {
+        0.297954:
+        {
+          0.50:
+          {
+            disasm:
+            {
+              expression: ""
+              query: input: ""
+            }
+            memory:
+            {
+              selected
+              expression: ""
+              zoom: 1.000000f
+            }
+          }
+          0.50:
+          {
+            watch: selected expression: "query:breakpoints"
+            watch: expression: "query:watch_pins"
+          }
+        }
+        0.702046:
+        {
+          selected
+          text:
+          {
+            expression: "file:\"G:/game_dev/game_projects/project_threepwood/code/main.odin\".data"
+            project: ""
+            query: input: ""
+            cursor: 0x52f
+            mark: 0x52f
+          }
+          text:
+          {
+            selected
+            expression: "file:\"G:/game_dev/game_projects/project_threepwood/code/renderer.odin\".data"
+            auto: 1
+            project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+            query: input: ""
+            cursor: 0x3ca
+            mark: 0x3ca
+            cursor_line: 1
+            cursor_column: 1
+            mark_line: 1
+            mark_column: 1
+          }
+        }
+      }
+      0.240256:
+      {
+        0.521399:
+        {
+          watch: selected expression: ""
+          watch: expression: "query:locals"
+          watch: expression: "query:registers"
+          watch: expression: "query:globals"
+          watch: expression: "query:thread_locals"
+          watch: expression: "query:types"
+          watch: expression: "query:procedures"
+          tabs_on_bottom
+        }
+        0.478601:
+        {
+          watch:
+          {
+            selected
+            expression: "query:call_stack"
+            call_stack_frame: 0.050000 0.708440 0.241560
+          }
+          watch: expression: "query:modules"
+          tabs_on_bottom
+          text:
+          {
+            expression: "query:output"
+            query: input: ""
+            cursor: 0xdd
+            mark: 0xdd
+          }
+        }
+      }
+    }
+    0.186921:
+    {
+      0.50: watch:
+      {
+        expression: "query:targets"
+        selected
+      }
+      0.50:
+      {
+        watch:
+        {
+          expression: "query:threads"
+          selected
+        }
+        watch: expression: "query:processes"
+        watch: expression: "query:machines"
+      }
+    }
+  }
+  maximized
+}
+keybindings:
+{
+  { kill_all f5 shift }
+  { step_into_inst f11 alt }
+  { step_over_inst f10 alt }
+  { step_out f11 shift }
+  { halt x ctrl shift }
+  { halt pause }
+  { run f5 }
+  { restart f5 ctrl shift }
+  { step_into f11 }
+  { step_over f10 }
+  { run_to_line f10 ctrl }
+  { set_next_statement f10 ctrl shift }
+  { inc_window_font_size equal alt }
+  { dec_window_font_size minus alt }
+  { toggle_fullscreen return ctrl }
+  { new_panel_right p ctrl }
+  { new_panel_down minus ctrl }
+  { rotate_panel_columns 2 ctrl }
+  { next_panel comma ctrl }
+  { prev_panel comma ctrl shift }
+  { focus_panel_right right ctrl alt }
+  { focus_panel_left left ctrl alt }
+  { focus_panel_up up ctrl alt }
+  { focus_panel_down down ctrl alt }
+  { undo z ctrl }
+  { redo y ctrl }
+  { go_back left alt }
+  { go_forward right alt }
+  { close_panel p ctrl shift alt }
+  { next_tab page_down ctrl }
+  { prev_tab page_up ctrl }
+  { next_tab tab ctrl }
+  { prev_tab tab ctrl shift }
+  { move_tab_right page_down ctrl shift }
+  { move_tab_left page_up ctrl shift }
+  { close_tab w ctrl }
+  { tab_bar_top up ctrl shift alt }
+  { tab_bar_bottom down ctrl shift alt }
+  { open_tab t ctrl }
+  { tab_settings t ctrl alt }
+  { open o ctrl }
+  { open_source_file_from_debug_info i ctrl }
+  { switch_to_partner_file o alt }
+  { new_project n ctrl shift }
+  { open_project o ctrl shift }
+  { save_project s ctrl shift }
+  { edit f2 }
+  { accept return }
+  { accept space }
+  { cancel esc }
+  { focus_menu d alt }
+  { move_left left }
+  { move_right right }
+  { move_up up }
+  { move_down down }
+  { move_left_select left shift }
+  { move_right_select right shift }
+  { move_up_select up shift }
+  { move_down_select down shift }
+  { move_left_chunk left ctrl }
+  { move_right_chunk right ctrl }
+  { move_up_chunk up ctrl }
+  { move_down_chunk down ctrl }
+  { move_up_page page_up }
+  { move_down_page page_down }
+  { move_up_whole home ctrl }
+  { move_down_whole end ctrl }
+  { move_left_chunk_select left ctrl shift }
+  { move_right_chunk_select right ctrl shift }
+  { move_up_chunk_select up ctrl shift }
+  { move_down_chunk_select down ctrl shift }
+  { move_up_page_select page_up shift }
+  { move_down_page_select page_down shift }
+  { move_up_whole_select home ctrl shift }
+  { move_down_whole_select end ctrl shift }
+  { move_up_reorder up alt }
+  { move_down_reorder down alt }
+  { move_home home }
+  { move_end end }
+  { move_home_select home shift }
+  { move_end_select end shift }
+  { select_all a ctrl }
+  { delete_single delete }
+  { delete_chunk delete ctrl }
+  { backspace_single backspace }
+  { backspace_chunk backspace ctrl }
+  { copy c ctrl }
+  { copy insert ctrl }
+  { cut x ctrl }
+  { paste v ctrl }
+  { paste insert shift }
+  { insert_text null }
+  { move_next tab }
+  { move_prev tab shift }
+  { goto_line g ctrl }
+  { goto_address g alt }
+  { search f ctrl }
+  { search slash }
+  { search_backwards r ctrl }
+  { search_backwards slash ctrl }
+  { find_next f3 }
+  { find_prev f3 ctrl }
+  { find_selected_thread f4 }
+  { goto_name j ctrl }
+  { goto_name_at_cursor f12 }
+  { toggle_watch_expr_at_cursor w alt }
+  { toggle_watch_expr_at_mouse d ctrl }
+  { toggle_watch_pin f9 ctrl }
+  { toggle_breakpoint f9 }
+  { add_address_breakpoint f9 shift }
+  { add_function_breakpoint f9 ctrl shift }
+  { attach f6 shift }
+  { open_palette f1 }
+  { open_palette p ctrl shift }
+  { log_marker m ctrl shift alt }
+  { toggle_dev_menu d ctrl shift alt }
+}
+code_font: "BlexMono Nerd Font"
+current_path: "G:/game_dev/game_projects/project_threepwood"
+theme_color:
+{
+  tags: background
+  value: 0x050505ff
+}
+theme_color:
+{
+  tags: "alt background"
+  value: 0x232929ff
+}
+theme_color:
+{
+  tags: "pop background"
+  value: 0x2f4838ff
+}
+theme_color:
+{
+  tags: "fresh background"
+  value: 0x31393dff
+}
+theme_color:
+{
+  tags: "match background"
+  value: 0x31393dff
+}
+theme_color:
+{
+  tags: border
+  value: 0x485347ff
+}
+theme_color:
+{
+  tags: text
+  value: 0xffffffff
+}
+theme_color:
+{
+  tags: "weak text"
+  value: 0xa2a2a2ff
+}
+theme_color:
+{
+  tags: "good text"
+  value: 0x32a852ff
+}
+theme_color:
+{
+  tags: "neutral text"
+  value: 0x3a90bbff
+}
+theme_color:
+{
+  tags: "bad text"
+  value: 0xcf5242ff
+}
+theme_color:
+{
+  tags: hover
+  value: 0xffffffff
+}
+theme_color:
+{
+  tags: "focus overlay"
+  value: 0xfda20012
+}
+theme_color:
+{
+  tags: "focus border"
+  value: 0xfda200ff
+}
+theme_color:
+{
+  tags: cursor
+  value: 0x8aff00ff
+}
+theme_color:
+{
+  tags: selection
+  value: 0x99ccff0f
+}
+theme_color:
+{
+  tags: "inactive background"
+  value: 0x0
+}
+theme_color:
+{
+  tags: drop_shadow
+  value: 0x0000007f
+}
+theme_color:
+{
+  tags: "good_pop background"
+  value: 0x2c5b36ff
+}
+theme_color:
+{
+  tags: "good_pop border"
+  value: 0x568761ff
+}
+theme_color:
+{
+  tags: "good_pop hover"
+  value: 0xe3f5d3ff
+}
+theme_color:
+{
+  tags: "good_pop weak text"
+  value: 0xe3f5d3ff
+}
+theme_color:
+{
+  tags: "bad_pop background"
+  value: 0x803425ff
+}
+theme_color:
+{
+  tags: "bad_pop hover"
+  value: 0xff825cff
+}
+theme_color:
+{
+  tags: code_default
+  value: 0xddddddff
+}
+theme_color:
+{
+  tags: code_symbol
+  value: 0x71ade7ff
+}
+theme_color:
+{
+  tags: code_type
+  value: 0x708b8dff
+}
+theme_color:
+{
+  tags: code_local
+  value: 0xe9bf95ff
+}
+theme_color:
+{
+  tags: code_register
+  value: 0xa688b2ff
+}
+theme_color:
+{
+  tags: code_keyword
+  value: 0xdbad49ff
+}
+theme_color:
+{
+  tags: code_delimiter_or_operator
+  value: 0x708b8dff
+}
+theme_color:
+{
+  tags: code_numeric
+  value: 0x819affff
+}
+theme_color:
+{
+  tags: code_numeric_alt_digit_group
+  value: 0x819affff
+}
+theme_color:
+{
+  tags: code_string
+  value: 0x98c379ff
+}
+theme_color:
+{
+  tags: code_meta
+  value: 0x939799ff
+}
+theme_color:
+{
+  tags: code_comment
+  value: 0x52675dff
+}
+theme_color:
+{
+  tags: line_info_0
+  value: 0x4f3022ff
+}
+theme_color:
+{
+  tags: line_info_1
+  value: 0x4f3e15ff
+}
+theme_color:
+{
+  tags: line_info_2
+  value: 0x434e2aff
+}
+theme_color:
+{
+  tags: line_info_3
+  value: 0x36241fff
+}
+theme_color:
+{
+  tags: line_info_4
+  value: 0x4f3022ff
+}
+theme_color:
+{
+  tags: line_info_5
+  value: 0x4f3e15ff
+}
+theme_color:
+{
+  tags: line_info_6
+  value: 0x434e2aff
+}
+theme_color:
+{
+  tags: line_info_7
+  value: 0x36241fff
+}
+theme_color:
+{
+  tags: thread_0
+  value: 0xffc258ff
+}
+theme_color:
+{
+  tags: thread_1
+  value: 0x82d331ff
+}
+theme_color:
+{
+  tags: thread_2
+  value: 0xff99e5ff
+}
+theme_color:
+{
+  tags: thread_3
+  value: 0x6598ffff
+}
+theme_color:
+{
+  tags: thread_4
+  value: 0x65ffcbff
+}
+theme_color:
+{
+  tags: thread_5
+  value: 0xff9819ff
+}
+theme_color:
+{
+  tags: thread_6
+  value: 0x9932ffff
+}
+theme_color:
+{
+  tags: thread_7
+  value: 0x65ff4cff
+}
+theme_color:
+{
+  tags: thread_unwound
+  value: 0xb2ccd8ff
+}
+theme_color:
+{
+  tags: thread_error
+  value: 0xb23219ff
+}
+theme_color:
+{
+  tags: breakpoint
+  value: 0xa72911ff
+}
+theme_color:
+{
+  tags: "floating background"
+  value: 0x1b1f2276
+}
+theme_color:
+{
+  tags: "floating background alt"
+  value: 0x0000005f
+}
+theme_color:
+{
+  tags: "floating background fresh"
+  value: 0x31393d5f
+}
+theme_color:
+{
+  tags: "floating border"
+  value: 0xbfbfbf1f
+}
+theme_color:
+{
+  tags: "floating scroll_bar background"
+  value: 0x3b3b3b5f
+}
+theme_color:
+{
+  tags: "floating scroll_bar border"
+  value: 0x5f5f5f5f
+}
+theme_color:
+{
+  tags: "menu_bar background"
+  value: 0x30383eff
+}
+theme_color:
+{
+  tags: "menu_bar border"
+  value: 0x6b7680ff
+}
+theme_color:
+{
+  tags: "scroll_bar background"
+  value: 0x232929ff
+}
+theme_color:
+{
+  tags: "scroll_bar border"
+  value: 0x3c4a3fff
+}
+theme_color:
+{
+  tags: "implicit background"
+  value: 0x00000000
+}
+theme_color:
+{
+  tags: "implicit border"
+  value: 0x00000000
+}
+theme_color:
+{
+  tags: "hollow background"
+  value: 0x00000000
+}
+theme_color:
+{
+  tags: "hollow border"
+  value: 0xffffff1f
+}
+theme_color:
+{
+  tags: "tab background"
+  value: 0x243d32ff
+}
+theme_color:
+{
+  tags: "tab border"
+  value: 0x597b63ff
+}
+theme_color:
+{
+  tags: "tab inactive background"
+  value: 0x30383eff
+}
+theme_color:
+{
+  tags: "tab inactive border"
+  value: 0x6b7680ff
+}
+theme_color:
+{
+  tags: "tab auto background"
+  value: 0x30636dff
+}
+theme_color:
+{
+  tags: "tab auto border"
+  value: 0x768f94ff
+}
+theme_color:
+{
+  tags: "tab auto inactive background"
+  value: 0x2f2633ff
+}
+theme_color:
+{
+  tags: "tab auto inactive border"
+  value: 0x685073ff
+}
+theme_color:
+{
+  tags: "drop_site background"
+  value: 0xffffff05
+}
+theme_color:
+{
+  tags: "drop_site border"
+  value: 0xffffff0f
+}
+debug_info:
+{
+  path: "G:/game_dev/game_projects/project_threepwood/build/hexfiles.pdb"
+  timestamp: 66225595614266
+  project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+}
+debug_info:
+{
+  path: "C:/VulkanSDK/1.4.341.1/Bin/SDL3.pdb"
+  timestamp: 66205251324520
+  project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+}
