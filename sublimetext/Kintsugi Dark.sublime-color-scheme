@@ -4,6 +4,7 @@
     "variables": {
         "bg": "#050505",
         "fg": "#dddddd",
+        //"fg": "#bcac8f",
         //"caret": "#d4a943",
         "caret": "#40ff40aa",
         "line": "#1d1d1c",
@@ -32,7 +33,7 @@
         "comment": "#6f7b68",
         "doc_comment": "#6f7b68",
         "todo": "#FF0000",
-        "string": "#98c379",
+        "string": "#6b8e23",
         "string_alt": "#98c379",
         "escape": "#678E87",
         "regexp": "#678E87",
@@ -40,16 +41,18 @@
         "number": "#819aff",
         "boolean": "#819aff",
         "constant": "#939799",
-        "constant_builtin": "#939799",
+        //"constant_builtin": "#939799",
+        "constant_builtin": "#478980",
         "variable": "#dddddd",
-        "parameter": "#dddddd",
+        "parameter": "#dddddd", 
         "member": "#dddddd",
         "property": "#dddddd",
         "self": "#DBAD49",
         "function": "#71ade7",
+        //"function": "#478980",
         "function_builtin": "#708b8d",
         "method": "#dddddd",
-        "macro": "#dddddd",
+        "macro": "#478980",
         "namespace": "#939799",
         "label": "#DBAD49",
         "decorator": "#678E87",
@@ -62,7 +65,7 @@
         "storage": "#DBAD49",
         "type": "#708b8d",
         "type_builtin": "#708b8d",
-        "klass": "#939799",
+        "constructor": "#939799",
         "interface": "#939799",
         "enum": "#708b8d",
         "enum_member": "#dfdf8e",
@@ -302,7 +305,7 @@
         {
             "name": "Constructor",
             "scope": "entity.name.function.constructor, entity.name.function.new",
-            "foreground": "var(klass)"
+            "foreground": "var(constructor)"
         },
         {
             "name": "Decorator / annotation",
@@ -374,7 +377,7 @@
         {
             "name": "Class",
             "scope": "entity.name.class, support.class, meta.class entity.name.class",
-            "foreground": "var(klass)"
+            "foreground": "var(constructor)"
         },
         {
             "name": "Interface / trait",
@@ -692,7 +695,7 @@
         {
             "name": "Semantic: class",
             "scope": "meta.semantic-token.class",
-            "foreground": "var(klass)"
+            "foreground": "var(constructor)"
         },
         {
             "name": "Semantic: enum",
@@ -887,7 +890,7 @@
         {
             "name": "Semantic: class.declaration",
             "scope": "meta.semantic-token.class.declaration",
-            "foreground": "var(klass)"
+            "foreground": "var(constructor)"
         },
         {
             "name": "Semantic: struct.declaration",

@@ -14,9 +14,9 @@ window:
 {
   size: 2176 1670
   split_x
-  pos: 832 209
+  pos: 832 197
   monitor: "\\\\.\\DISPLAY1"
-  font_size: 16
+  font_size: 23
   panels:
   {
     0.813079:
@@ -41,13 +41,13 @@ window:
           }
           0.50:
           {
+            selected
             watch: selected expression: "query:breakpoints"
             watch: expression: "query:watch_pins"
           }
         }
         0.702046:
         {
-          selected
           text:
           {
             expression: "file:\"G:/game_dev/game_projects/project_threepwood/code/main.odin\".data"
@@ -125,6 +125,8 @@ window:
     }
   }
   maximized
+  row_height: 2.3
+  tab_height: 2.5
 }
 keybindings:
 {
@@ -645,12 +647,12 @@ theme_color:
 debug_info:
 {
   path: "G:/game_dev/game_projects/project_threepwood/build/hexfiles.pdb"
-  timestamp: 66225595614266
+  timestamp: 66225644153183
   project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
 }
 debug_info:
 {
-  path: "C:/VulkanSDK/1.4.341.1/Bin/SDL3.pdb"
-  timestamp: 66205251324520
+  path: "C:/VulkanSDK/1.4.350.0/Bin/SDL3.pdb"
+  timestamp: 66214462492614
   project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
 }
