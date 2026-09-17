@@ -33,7 +33,7 @@ end
 local host_os = get_os()
 
 -- For example, changing the color scheme:
---config.color_scheme = "Tomorrow Night Bright"
+config.color_scheme = "Tomorrow Night Bright"
 if host_os == 'Windows' then
     config.default_cwd = "G:/"
 else
@@ -73,8 +73,8 @@ wezterm.on('format-tab-title', function(tab)
   return ' ' .. name .. ' '
 end)
 
-config.font = wezterm.font("CaskaydiaMono Nerd Font")
-config.font_size = 14
+config.font = wezterm.font("CaskaydiaMono NF")
+config.font_size = 13
 config.animation_fps = 144
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
@@ -82,18 +82,18 @@ config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_rate = 500
 config.scrollback_lines = 20000
 config.automatically_reload_config = true
-config.max_fps = 120
+config.max_fps = 60
 --config.term = "xterm-256"
 -- WebGpu allows for the use of DirectX in windows
-config.webgpu_preferred_adapter = {
-        backend = "Dx12",
-        device = 9373,
-        device_type = "DiscreteGpu",
-        driver = "32.0.16.1074",
-        name = "NVIDIA GeForce RTX 3070 Laptop GPU",
-        vendor = 4318,
-}
-config.front_end = "WebGpu"
+--config.webgpu_preferred_adapter = {
+--        backend = "Dx12",
+--        device = 9373,
+--        device_type = "DiscreteGpu",
+--        driver = "32.0.16.1074",
+--        name = "NVIDIA GeForce RTX 3070 Laptop GPU",
+--        vendor = 4318,
+--}
+config.front_end = "Software"
 
 config.default_prog = { "pwsh.exe" }
 
@@ -130,10 +130,10 @@ config.window_frame = {
 }
 config.colors = {
 	background = '#000000',
-	cursor_bg = "#7e7e7e",
+	cursor_bg = "#40ff40",
 	cursor_fg = "#1a1a1a",
 }
-
+config.win32_system_backdrop = 'Acrylic'
 config.leader = { key = "a", mods = "CTRL" }
 config.keys = {
     --	Using the ShowLauncherArgs command with the LAUNCH_MENU_ITEMS flag is what allows you to show only what you have defined

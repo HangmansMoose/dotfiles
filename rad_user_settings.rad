@@ -15,7 +15,7 @@ window:
   size: 2176 1670
   split_x
   pos: 832 209
-  monitor: "\\\\.\\DISPLAY1"
+  monitor: "\\\\.\\DISPLAY6"
   font_size: 16
   panels:
   {
@@ -47,28 +47,22 @@ window:
         }
         0.702046:
         {
-          selected
           text:
           {
-            expression: "file:\"G:/game_dev/game_projects/project_threepwood/code/main.odin\".data"
+            expression: "file:\"G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics/basics.odin\".data"
             project: ""
             query: input: ""
-            cursor: 0x52f
-            mark: 0x52f
+            cursor: 0x0
+            mark: 0x0
           }
           text:
           {
             selected
-            expression: "file:\"G:/game_dev/game_projects/project_threepwood/code/renderer.odin\".data"
-            auto: 1
-            project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+            expression: "file:\"G:/external_repos/OdinResources/karl-zylinski/Karl2D/karl2d.odin\".data"
+            project: ""
             query: input: ""
-            cursor: 0x3ca
-            mark: 0x3ca
-            cursor_line: 1
-            cursor_column: 1
-            mark_line: 1
-            mark_column: 1
+            cursor: 0xf07
+            mark: 0xf07
           }
         }
       }
@@ -76,7 +70,27 @@ window:
       {
         0.521399:
         {
-          watch: selected expression: ""
+          selected
+          watch:
+          {
+            selected
+            expression: ""
+            watch_expression:
+            {
+              project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+              expression: "game_state.camera.position_top_left"
+            }
+            watch_expression:
+            {
+              project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+              expression: "game_state.movement"
+            }
+            watch_expression:
+            {
+              project: ""
+              expression: window_render_glue
+            }
+          }
           watch: expression: "query:locals"
           watch: expression: "query:registers"
           watch: expression: "query:globals"
@@ -246,7 +260,7 @@ keybindings:
   { toggle_dev_menu d ctrl shift alt }
 }
 code_font: "BlexMono Nerd Font"
-current_path: "G:/game_dev/game_projects/project_threepwood"
+current_path: "G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics"
 theme_color:
 {
   tags: background
@@ -645,7 +659,7 @@ theme_color:
 debug_info:
 {
   path: "G:/game_dev/game_projects/project_threepwood/build/hexfiles.pdb"
-  timestamp: 66225595614266
+  timestamp: 66225663497345
   project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
 }
 debug_info:
@@ -653,4 +667,16 @@ debug_info:
   path: "C:/VulkanSDK/1.4.341.1/Bin/SDL3.pdb"
   timestamp: 66205251324520
   project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
+}
+breakpoint:
+{
+  project: ""
+  source_location: "../external_repos/OdinResources/karl-zylinski/Karl2D/karl2d.odin:98:1"
+  hit_count: 1
+}
+debug_info:
+{
+  path: "G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics/basics.pdb"
+  timestamp: 66225828035678
+  project: ""
 }
