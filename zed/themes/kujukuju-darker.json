@@ -62,7 +62,7 @@
         "editor.subheader.background": "#050505ff",
         "editor.active_line.background": "#191C25ff",
         "editor.highlighted_line.background": "#1c2748ff",
-        "editor.line_number": "#E0AD82ff",
+        "editor.line_number": "#87919DFF",
         "editor.active_line_number": "#87919Dff",
         "editor.invisible": "#4C4C4Cff",
         "editor.wrap_guide": "#21333Fff",
@@ -136,7 +136,7 @@
         "warning.border": "#E4D97Dff",
         "players": [
           {
-            "cursor": "#FFA717ff",
+            "cursor": "#40FF40ff",
             "background": "#599999ff",
             "selection": "#1a3c49ff"
           }

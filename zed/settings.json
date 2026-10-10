@@ -50,7 +50,7 @@
     "windows": {
       "base": "user",
       "settings": {
-        "buffer_font_family": "0xProto Nerd Font",
+        "buffer_font_family": "CaskaydiaMono Nerd Font",
         "buffer_font_size": 18,
         "terminal": {
           "dock": "bottom",
@@ -100,7 +100,7 @@
   "ensure_final_newline_on_save": false,
   "icon_theme": {
     "mode": "light",
-    "light": "Colored Zed Icons Theme Dark",
+    "light": "Material Icon Theme",
     "dark": "Material Icon Theme",
   },
   "disable_ai": true,
@@ -133,9 +133,9 @@
   },
 
   "format_on_save": "off",
-  "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
-  "ui_font_family": "Segoe UI",
-  "ui_font_size": 17.0,
+  "buffer_font_family": "CaskaydiaMono Nerd Font",
+  "ui_font_family": "CaskaydiaMono Nerd Font",
+  "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
   "vim_mode": true,
 
@@ -153,12 +153,11 @@
     "code_actions": false,
     "quick_actions": false,
   },
-
   // Current Set theme
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Koda Moss"
+    "dark": "Kujukuju Darker"
   },
 
   // Theme Customizations
@@ -243,6 +242,65 @@
         "comment": { "color": "#6f7b68" },
         "string": { "color": "#5FC385" },
       },
+    },
+    "Kanagawa Muted": {
+      "panel.background": "#050505",
+      "editor.background": "#050505",
+      "editor.gutter.background": "#050505",
+      "title_bar.background": "#050505",
+      "tab_bar.background": "#050505",
+      "tab.inactive_background": "#101010",
+      "terminal.background": "#050505",
+      "editor.active_line.background": "#1f1f28",
+      "players": [{ "cursor": "#40FF40"}],
+      "syntax": {
+        // todo encompasses TODO, WIP, MAYBE, ?
+        "constant.comment.todo": {
+          "color": "#ff0000ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.todo.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.todo.text": {
+          "color": "#87919d",
+        },
+        // info encompasses INFO, NOTE, XXX, DOCS, PERF, TEST, *
+        "string.comment.info": {
+          "color": "#00ff00ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.info.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.info.text": {
+          "color": "#87919d",
+        },
+        // 'warn' encompasses HACK, WARNING, WARN, SAFETY, IMPORTANT, #
+        "keyword.comment.warn": {
+          "color": "#FFA717FF",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+        "string.comment.warn.prefix": {
+          "color": "#87919d",
+        },
+        "string.comment.warn.text": {
+          "color": "#87919d",
+        },
+        // 'error' encompasses ERROR, FIXME, FIX, BUG, DELETE, !
+        "property.comment.error": {
+          "color": "#8f1822ff",
+          // "background_color": "#00000000",
+           "font_weight": "bold",
+          // "font_style": "italic"
+        },
+      }
     },
     "Kanso Ink (No italics)": {
       //"editor.line_number": "#666666",
@@ -420,15 +478,6 @@
         },
       }
     },
-    "Kanagawa Wave - No Italics": {
-      "panel.background": "#121212",
-      "editor.background": "#121212",
-      "editor.gutter.background": "#121212",
-      "syntax": {
-        "comment": { "color": "#6f7b68" },
-        "string": { "color": "#5FC385" },
-      },
-    },
     "Gruber Darker": {
       "title_bar.background": "#050505",
       "tab_bar.background": "#050505",
@@ -444,38 +493,6 @@
       "syntax": {
         "comment": { "color": "#6f7b68" },
         "meta.preprocessor": { "font_weight": 400 },
-      },
-    },
-    "Ultimate Dark Neo" : {
-      "syntax" : {
-      }
-    },
-    "Sonder": {
-      "title_bar.background": "#050505",
-      "tab_bar.background": "#050505",
-      "tab.inactive_background": "#202020",
-      "tab.active_background": "#333333",
-      "toolbar.background": "#050505",
-      "status_bar.background": "#050505",
-      "panel.background": "#050505",
-      "editor.background": "#050505",
-      //"editor.active_line.background": "#111144",
-      "editor.gutter.background": "#050505",
-      "terminal.background": "#050505",
-      "syntax": {
-        "comment": { "color": "#6f7b68" },
-        "meta.preprocessor": { "font_weight": 400 },
-      },
-    },
-    "Jellybeans": {
-      "editor.line_number": "#666666",
-      "panel.background": "#151515",
-      "players": [{ "cursor": "#8e8e8e" }],
-      "syntax": {
-        "comment": {
-          "color": "#6f7b68",
-          "font_style": "normal",
-        },
       },
     },
     "Sublime Mariana": {
@@ -496,61 +513,6 @@
       "editor.gutter.background": "#050505",
       "terminal.background": "#050505",
       "players": [{ "cursor": "#00ff33" }],
-    },
-    "Oshen": {
-      "title_bar.background": "#050505",
-      //"elevated_surface.background": "#252525",
-      "elevated_surface.background": "#131c2b",
-      "border": "#333333",
-      "tab_bar.background": "#050505",
-      "tab.inactive_background": "#101010",
-      "tab.active_background": "#333333",
-      "toolbar.background": "#050505",
-      "status_bar.background": "#050505",
-      "panel.background": "#050505",
-      "editor.background": "#050505",
-      "editor.foreground": "#666666",
-      "editor.line_number": "#e0ad82",
-      "editor.gutter.background": "#050505",
-      "terminal.background": "#050505",
-      "syntax": {
-        "comment": { "color": "#87919d"}
-      }
-      //"players": [{ "cursor": "#00ff33" }],
-    },
-    "haku-dark": {
-      "title_bar.background": "#181818",
-      "syntax": {
-        "punctuation.bracket" : {"color": "#9Cb8d1"},
-      }
-    },
-    "Melange Dark": {
-      "title_bar.background": "#050505",
-      "elevated_surface.background": "#252525",
-      "text": "#ece1d7ff",
-      "text.muted": "#ece1d7ff",
-      "text.placeholder": "#ece1d7ff",
-      "text.disabled": "#ece1d7ff",
-      "text.accent": "#ece1d7ff",
-      "border": "#333333",
-      "tab_bar.background": "#050505",
-      "tab.inactive_background": "#202020",
-      "tab.active_background": "#333333",
-      "toolbar.background": "#050505",
-      "status_bar.background": "#050505",
-      "panel.background": "#050505",
-      "panel.focused_border": "#666666",
-      "pane.focused_border": "#666666",
-      "editor.background": "#050505",
-      "editor.foreground": "#666666",
-      "editor.active_line.background": "#111144",
-      "editor.gutter.background": "#050505",
-      "terminal.background": "#050505",
-      "players": [{ "cursor": "#00ff33" }],
-      "syntax": {
-        "comment": { "color": "#6f7b68" },
-        "punctuation.bracket": { "color": "#666666" },
-      },
     },
   },
   //"semantic_tokens": "combined",
@@ -586,22 +548,11 @@
         ],
       },
     },
-    "clice": {
-      "binary": {
-        "path": "G:/Programs/clice/bin/clice.exe"
-      }
-    },
     "zls": {
       "binary": {
         // omit the following line if `zls` is in your PATH
         "path": "C:\\Users\\glens\\.zvm\\bin\\zls.exe",
       },
-      // There are two ways to set config options:
-      //   - edit your `zls.json` that applies to any editor that uses ZLS
-      //   - set in-editor config options with the `settings` field below.
-      //
-      // Further information on how to configure ZLS:
-      // https://zigtools.org/zls/configure/
       "settings": {
         "zls": {
           // Whether to enable build-on-save diagnostics
@@ -616,7 +567,6 @@
       },
     },
   },
-
   "dap": {
     "CodeLLDB": {
       "binary": "G:/Programs/LLVM/bin/lldb.exe"
