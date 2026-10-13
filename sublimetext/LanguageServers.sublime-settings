@@ -1,23 +1,26 @@
 {
+	"clangd": {
+		"enabled": false
+	},
+	"odin": {
+		"enabled": true,
+		"command": [
+			"ols.exe"
+		],
+		"selector": "source.odin",
+		"initialization_options": {
+			"enable_semantic_tokens": true,
+			"enable_document_symbols": true,
+			"enable_hover": true,
+			"enable_snippets": true,
+			"enable_format": true,
+		}
+	},
 	"zls": {
 		"enabled": true,
 		"command": [
-			"~/.zvm/bin/zls.exe"
+			"zls.exe"
 		],
 		"selector": "source.zig"
 	},
-	//"odin": {
-		//"enabled": true,
-		//"command": [
-			//"G:/dev_tools/ols/ols.exe"
-		//],
-		//"selector": "source.odin",
-		//"initialization_options": {
-			//"enable_semantic_tokens": true,
-			//"enable_document_symbols": true,
-			//"enable_hover": true,
-			//"enable_snippets": true,
-			//"enable_format": true,
-		//}
-	//}
 }

@@ -1,6 +1,5 @@
 {
     "name": "Kujukuju",
-    "author": "focus-editor (https://github.com/focus-editor/focus), Sublime Text port",
     "globals": {
         "background": "#000000",
         "foreground": "#CBCEBC",
@@ -20,7 +19,7 @@
         "find_highlight_foreground": "#101010",
         "misspelling": "#FF0000",
         "gutter": "#000000",
-        "gutter_foreground": "#E0AD82",
+        "gutter_foreground": "#196666FF",
         "gutter_foreground_highlight": "#CBCEBC",
         "rulers": "#1966667F",
         "guide": "#080B14",

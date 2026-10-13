@@ -1,13 +1,13 @@
 // Settings in here override those in "LSP/LSP.sublime-settings"
 {
 	// Format on save (applies to all LSP-capable languages)
-	"lsp_format_on_save": true,
+	"lsp_format_on_save": false,
 	//"lsp_code_actions_on_format": {
 		//"source.fixAll": true,
 		//"source.organizeImports": true
 	//},
 	// Inlay hints — show variable types and param names inline
-	"show_inlay_hints": true,
+	"show_inlay_hints": false,
 	// Diagnostics
 	"show_diagnostics_count_in_view_status": true,
 	"show_diagnostics_panel_on_save": 0,

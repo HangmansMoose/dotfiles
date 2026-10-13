@@ -1,3 +1,18 @@
 {
-  "python_path": "G:\\Programs\\Python38"
+  "python_path": "G:\\Programs\\Python38",
+  "installed_languages":
+  [
+		"python",
+		"json",
+		"javascript",
+		"typescript",
+		"tsx",
+		"go",
+		"rust",
+		"markdown",
+		"odin",
+		"zig",
+		"c",
+		"cpp",
+	],
 }

@@ -1,0 +1,32 @@
+// SublimeLinter Settings - User
+{
+	// "debug": true,
+	
+	"linters": {
+		"annotations": {
+			"warnings": ["TODO", "HACK", "FIXME"],
+			"infos": ["NOTE"]
+		}	
+
+	},
+	"styles":
+	[
+		{
+			"scope": "",
+			"types":
+			[
+				"warnings"
+			]
+		},
+		{
+			//"annotation": "warnings",
+			"icon": "none",
+			"mark_style": "none",
+			"phantom": "",
+			"priority": 1,
+			"scope": "annotation.todo"
+		}
+	],
+	
+
+}

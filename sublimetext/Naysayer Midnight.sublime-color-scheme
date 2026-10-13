@@ -37,7 +37,8 @@
     "globals": {
         "background": "var(bg)",
         "foreground": "var(text)",
-        "caret": "var(white)",
+        "caret": "#40ff40",
+        "block_caret": "#40ff40aa",
         "invisibles": "color(var(line_fg) alpha(0.6))",
         "line_highlight": "var(highlight)",
         "selection": "var(selection)",

@@ -7,6 +7,7 @@
 		"clangd.number-workers": "4",
 		"fallbackFlags": [
 			"-Wno-unused-includes"
-		]
-	}
+		],
+	},
+	"enabled": false,
 }

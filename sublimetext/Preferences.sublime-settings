@@ -9,7 +9,7 @@
     "show_definitions": true,
 
     // UI
-    "line_padding_top": 0,
+    "line_padding_top": -1,
     "line_padding_bottom": 0,
     "highlight_line": true,
     "caret_style": "solid",
@@ -19,7 +19,6 @@
 	"gutter": true,
 	"relative_line_numbers": true,
 	"mini_diff": false,
-	/*"highlight_line": true,*/
 	"inactive_sheet_dimming" : false,
 	"preview_on_click" : false,
 	"auto_hide_menu": false,
@@ -29,21 +28,24 @@
 	"always_prompt_for_file_reload": true,
 	"show_full_path": false,
 	"show_git_status": false,
+	"show_errors_inline": false,
 	"neovintageous_build_version": 13200,
     "adaptive_dividers": true,
     //"file_tab_style": "angled",
     //"ui_scale": 1.15,
-	"color_scheme": "Kintsugi Dark.sublime-color-scheme",
+	"color_scheme": "Modus Vivendi Deuteranopia.sublime-color-scheme",
 	"theme": "Kujukuju.sublime-theme",
-	"font_face": "CaskaydiaMono NF",
-	"font_size": 13,
+	//"font_face": "GoogleSansCode NF Medium",
+	"font_face": "CaskaydiaMono NF Regular",
+	"font_size": 14,
 	"font_options": [
 		//"no_bold",
 		"no_italic",
-		"subpixel_antialias",
-		"no_liga",
-		"no_calt",
-		"no_clig"	
+		//"gdi",
+		//"subpixel_antialias",
+		//"no_liga",
+		//"no_calt",
+		//"no_clig"	
 	],	
 	"match_brackets": false,
 	"indent_guide_options": [
@@ -67,14 +69,12 @@
 	],
 
     // Build 4200+ — migrate off legacy Python 3.3 plugin host
-    "disable_plugin_host_3.3": true,
+    //"disable_plugin_host_3.3": true,
 
 	"hardware_acceleration": "opengl",
 	"hot_exit": false,
-	"console_max_history_lines": 10000,
-	"syntax_detection_size_limit": 67108864,
-
-	/*         Theme and Font        */
+	"console_max_history_lines": 5000,
+	//"syntax_detection_size_limit": 67108864,
 	
 	
 	/*           Vintage            */
@@ -102,4 +102,5 @@
 			"selector": "text.tex.latex",
 		}
 	],
+	"file_icon_theme": "A File Icon.sublime-file-icons",
 }
