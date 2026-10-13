@@ -64,6 +64,15 @@ window:
             cursor: 0xf07
             mark: 0xf07
           }
+          text:
+          {
+            selected
+            expression: "file:\"G:/game_dev/courses/raylib_software_renderer_odin/code/main.odin\".data"
+            project: ""
+            query: input: ""
+            cursor: 0x452
+            mark: 0x452
+          }
         }
       }
       0.240256:
@@ -138,6 +147,8 @@ window:
       }
     }
   }
+  row_height: 2.3
+  tab_height: 2.5
   maximized
 }
 keybindings:
@@ -664,8 +675,8 @@ debug_info:
 }
 debug_info:
 {
-  path: "C:/VulkanSDK/1.4.341.1/Bin/SDL3.pdb"
-  timestamp: 66205251324520
+  path: "C:/VulkanSDK/1.4.350.0/Bin/SDL3.pdb"
+  timestamp: 66214462492614
   project: "G:/game_dev/game_projects/project_threepwood/.raddbg_project"
 }
 breakpoint:

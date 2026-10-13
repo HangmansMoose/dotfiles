@@ -8,5 +8,6 @@ if not defined VSINSTALL (
     exit /b 1
 )
 
+echo %VSINSTALL%
 set "VSCMD_START_DIR=%CD%"
-"%VSINSTALL%\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64 -no_logo
+"%VSINSTALL%\Common7\Tools\vsdevcmd\ext\vcvars.bat" -arch=x64 -host_arch=x86_64 
