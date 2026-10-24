@@ -14,9 +14,9 @@ window:
 {
   size: 2176 1670
   split_x
-  pos: 832 209
-  monitor: "\\\\.\\DISPLAY6"
-  font_size: 16
+  pos: 880 245
+  monitor: "\\\\.\\DISPLAY1"
+  font_size: 20
   panels:
   {
     0.813079:
@@ -45,41 +45,20 @@ window:
             watch: expression: "query:watch_pins"
           }
         }
-        0.702046:
+        0.702046: selected text:
         {
-          text:
-          {
-            expression: "file:\"G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics/basics.odin\".data"
-            project: ""
-            query: input: ""
-            cursor: 0x0
-            mark: 0x0
-          }
-          text:
-          {
-            selected
-            expression: "file:\"G:/external_repos/OdinResources/karl-zylinski/Karl2D/karl2d.odin\".data"
-            project: ""
-            query: input: ""
-            cursor: 0xf07
-            mark: 0xf07
-          }
-          text:
-          {
-            selected
-            expression: "file:\"G:/game_dev/courses/raylib_software_renderer_odin/code/main.odin\".data"
-            project: ""
-            query: input: ""
-            cursor: 0x452
-            mark: 0x452
-          }
+          selected
+          expression: "file:\"G:/game_dev/game_projects/fhtagn/code/main.odin\".data"
+          project: ""
+          query: input: ""
+          cursor: 0x1b1
+          mark: 0x1b1
         }
       }
       0.240256:
       {
         0.521399:
         {
-          selected
           watch:
           {
             selected
@@ -271,7 +250,7 @@ keybindings:
   { toggle_dev_menu d ctrl shift alt }
 }
 code_font: "BlexMono Nerd Font"
-current_path: "G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics"
+current_path: "G:/game_dev/game_projects/fhtagn/build"
 theme_color:
 {
   tags: background
@@ -683,11 +662,17 @@ breakpoint:
 {
   project: ""
   source_location: "../external_repos/OdinResources/karl-zylinski/Karl2D/karl2d.odin:98:1"
-  hit_count: 1
+  hit_count: 0
 }
 debug_info:
 {
-  path: "G:/external_repos/OdinResources/karl-zylinski/Karl2D/examples/basics/basics.pdb"
-  timestamp: 66225828035678
+  path: "G:/game_dev/game_projects/fhtagn/build/fhtagn.pdb"
+  timestamp: 66228492838126
+  project: ""
+}
+debug_info:
+{
+  path: "G:/game_dev/game_projects/fhtagn/build/game_pdbs/fhtagn_1.pdb"
+  timestamp: 66228492837819
   project: ""
 }

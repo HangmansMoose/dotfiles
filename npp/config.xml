@@ -2,36 +2,37 @@
 <NotepadPlus>
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" fifProjectPanel1="no" fifProjectPanel2="no" fifProjectPanel3="no" fifFilterFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" bookmarkLine="no" purge="no">
         <Filter name="" />
+        <Find name="texture" />
+        <Find name="player_anim_attack" />
+        <Find name="8. " />
+        <Find name="triangle3_vertex" />
         <Find name="dape" />
         <Find name="tab" />
         <Find name="define-key" />
         <Find name="&quot;italic&quot;" />
         <Find name="normal" />
         <Find name="&quot;font_weight&quot;: 300" />
-        <Find name="&quot;font_weight&quot;: 600" />
-        <Find name="&quot;font_weight&quot;" />
-        <Find name="&quot;font_weight&quot;: 200" />
-        <Find name="&quot;font_weight&quot;: 700" />
+        <Replace name="triangle3D_vertex" />
         <Replace name="&quot;normal&quot;" />
         <Replace name="&quot;font_weight&quot;: null" />
         <Replace name="&quot;font_style&quot;: normal" />
     </FindHistory>
-    <FileBrowser latestSelectedItem="G:\external_repos\HandmadeHero\handmade_hero_legacy_source\handmade_hero_day_027_source\code\win32_handmade.h">
-        <root foldername="G:\external_repos\HandmadeHero\handmade_hero_legacy_source\handmade_hero_day_027_source\code">
-            <expanded path="G:\external_repos\HandmadeHero\handmade_hero_legacy_source\handmade_hero_day_027_source\code" />
+    <FileBrowser latestSelectedItem="C:\Users\glens\Dropbox\Obsidian\Programming\Courses And Tutorials\PVG\Animation System.md">
+        <root foldername="C:\Users\glens\Dropbox\Obsidian\Programming\Courses And Tutorials\PVG">
+            <expanded path="C:\Users\glens\Dropbox\Obsidian\Programming\Courses And Tutorials\PVG" />
         </root>
     </FileBrowser>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\glens\Downloads\renderer2d.odin" />
-        <File filename="G:\dev_tools\Qsetup\qsetup.bat" />
-        <File filename="G:\dotfiles\config_notes.md" />
-        <File filename="C:\Users\glens\.config\emacs\init.el" />
-        <File filename="C:\Users\glens\Downloads\files(7)\init.el" />
-        <File filename="G:\external_repos\HandmadeHero\handmade_hero_664_source\handmade_hero_day_664_source\misc\.emacs" />
-        <File filename="C:\Users\glens\Downloads\files(7)\early-init.el" />
-        <File filename="C:\Users\glens\Downloads\files(7)\config.org" />
-        <File filename="C:\Users\glens\Dropbox\Docs\render_pipeline.md" />
-        <File filename="C:\Users\glens\Desktop\st4_reg.bat" />
+        <File filename="G:\Programs\fred\plugins\fred-plugins\error-matchers\odin.c" />
+        <File filename="G:\Programs\fred\plugins\fred-plugins\error-matchers\lex-helpers.h" />
+        <File filename="C:\Users\glens\Downloads\files(6)\README.md" />
+        <File filename="C:\Users\glens\Downloads\sourceCode5LoadingShaders(1)\sourceCode\pixy\src\pixy.cpp" />
+        <File filename="C:\Users\glens\Downloads\files(9)\main.odin" />
+        <File filename="C:\Users\glens\Downloads\files(9)\platform_win32.odin" />
+        <File filename="C:\Users\glens\Downloads\files(9)\renderer.odin" />
+        <File filename="C:\Users\glens\Downloads\files(9)\resources.odin" />
+        <File filename="C:\Program Files\Notepad++\change.log" />
+        <File filename="C:\Users\glens\Dropbox\Obsidian\Programming\Courses And Tutorials\PVG\Assets Managment.md" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
@@ -45,14 +46,14 @@
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="no" fluentColor="0" fluentCustomColor="16229943" fluentMono="no">small</GUIConfig>
         <GUIConfig name="StatusBar">show</GUIConfig>
-        <GUIConfig name="TabBar" dragAndDrop="yes" drawTopBar="yes" drawInactiveTab="yes" reduce="yes" closeButton="yes" pinButton="yes" showOnlyPinnedButton="no" buttonsOninactiveTabs="no" doubleClick2Close="no" vertical="no" multiLine="no" hide="no" quitOnEmpty="no" tabCompactLabelLen="0" />
+        <GUIConfig name="TabBar" dragAndDrop="yes" drawTopBar="no" drawInactiveTab="yes" reduce="yes" closeButton="yes" pinButton="yes" showOnlyPinnedButton="no" buttonsOninactiveTabs="no" doubleClick2Close="no" vertical="no" multiLine="no" hide="no" quitOnEmpty="no" tabCompactLabelLen="0" />
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" backspaceUnindent="no" />
-        <GUIConfig name="AppPosition" x="285" y="43" width="3396" height="1912" isMaximized="no" />
-        <GUIConfig name="FindWindowPosition" left="2042" top="249" right="3615" bottom="935" isLessModeOn="no" />
+        <GUIConfig name="AppPosition" x="285" y="43" width="3396" height="1912" isMaximized="yes" />
+        <GUIConfig name="FindWindowPosition" left="1946" top="249" right="3519" bottom="935" isLessModeOn="no" />
         <GUIConfig name="FinderConfig" wrappedLines="no" purgeBeforeEverySearch="no" showOnlyOneEntryPerFoundLine="yes" FiF_ignoreunsavedChangesInOpenedFiles="no" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20261011" autoUpdateMode="1">no</GUIConfig>
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20261026" autoUpdateMode="1">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">0</GUIConfig>
@@ -72,11 +73,11 @@
         <GUIConfig name="uriCustomizedSchemes">svn:// cvs:// git:// imap:// irc:// irc6:// ircs:// ldap:// ldaps:// news: telnet:// gopher:// ssh:// sftp:// smb:// skype: snmp:// spotify: steam:// sms: slack:// chrome:// bitcoin:</GUIConfig>
         <GUIConfig name="globalOverride" fg="no" bg="no" font="yes" fontSize="yes" bold="yes" italic="yes" underline="no" />
         <GUIConfig name="auto-completion" autoCAction="3" triggerFromNbChar="1" autoCIgnoreNumbers="yes" insertSelectedItemUseENTER="yes" insertSelectedItemUseTAB="yes" autoCBrief="no" funcParams="yes" />
-        <GUIConfig name="auto-insert" parentheses="no" brackets="no" curlyBrackets="no" quotes="no" doubleQuotes="no" htmlXmlTag="no" />
+        <GUIConfig name="auto-insert" parentheses="yes" brackets="yes" curlyBrackets="yes" quotes="yes" doubleQuotes="yes" htmlXmlTag="no" />
         <GUIConfig name="sessionExt" />
         <GUIConfig name="workspaceExt" />
         <GUIConfig name="MenuBar">show</GUIConfig>
-        <GUIConfig name="Caret" width="1" blinkRate="600" />
+        <GUIConfig name="Caret" width="4" blinkRate="600" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" lastUsedDirPath="" />
         <GUIConfig name="titleBar" short="no" />
         <GUIConfig name="insertDateTime" customizedFormat="yyyy-MM-dd HH:mm:ss" reverseDefaultOrder="no" />
@@ -89,12 +90,14 @@
         <GUIConfig name="searchEngine" searchEngineChoice="2" searchEngineCustom="" />
         <GUIConfig name="MarkAll" matchCase="no" wholeWordOnly="yes" />
         <GUIConfig name="SmartHighLight" matchCase="no" wholeWordOnly="yes" useFindSettings="no" onAnotherView="no">yes</GUIConfig>
-        <GUIConfig name="DarkMode" enable="yes" colorTone="0" customColorTop="2105376" customColorMenuHotTrack="4539717" customColorActive="3684408" customColorMain="2105376" customColorError="176" customColorText="14737632" customColorDarkText="12632256" customColorDisabledText="8421504" customColorLinkText="65535" customColorEdge="6579300" customColorHotEdge="10197915" customColorDisabledEdge="4737096" enableWindowsMode="no" darkThemeName="inferno.xml" darkToolBarIconSet="0" darkTbFluentColor="0" darkTbFluentCustomColor="16229943" darkTbFluentMono="no" darkTabIconSet="2" darkTabUseTheme="no" lightThemeName="" lightToolBarIconSet="4" lightTbFluentColor="0" lightTbFluentCustomColor="13070080" lightTbFluentMono="no" lightTabIconSet="0" lightTabUseTheme="yes" />
+        <GUIConfig name="DarkMode" enable="yes" colorTone="0" customColorTop="0" customColorMenuHotTrack="4539717" customColorActive="3684408" customColorMain="0" customColorError="176" customColorText="14737632" customColorDarkText="12632256" customColorDisabledText="8421504" customColorLinkText="65535" customColorEdge="0" customColorHotEdge="10197915" customColorDisabledEdge="4737096" enableWindowsMode="no" darkThemeName="Koda Moss.xml" darkToolBarIconSet="0" darkTbFluentColor="0" darkTbFluentCustomColor="16229943" darkTbFluentMono="no" darkTabIconSet="2" darkTabUseTheme="no" lightThemeName="" lightToolBarIconSet="4" lightTbFluentColor="0" lightTbFluentCustomColor="13070080" lightTbFluentMono="no" lightTabIconSet="0" lightTabUseTheme="yes" />
         <GUIConfig name="ColorPickerCustomColors" color0="16777215" color1="16777215" color2="16777215" color3="16777215" color4="16777215" color5="16777215" color6="16777215" color7="16777215" color8="16777215" color9="16777215" color10="16777215" color11="16777215" color12="16777215" color13="16777215" color14="16777215" color15="16777215" />
-        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" lineNumberDynamicWidth="yes" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" isChangeHistoryEnabled="1" lineWrapMethod="aligned" currentLineIndicator="1" currentLineFrameWidth="1" virtualSpace="no" scrollBeyondLastLine="yes" rightClickKeepsSelection="no" selectedTextForegroundSingleColor="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" isEdgeBgMode="no" edgeMultiColumnPos="" zoom="2" zoom2="0" zoomSync="no" whiteSpaceShow="hide" eolShow="hide" eolMode="1" npcShow="hide" npcMode="1" npcCustomColor="no" npcIncludeCcUniEOL="no" npcNoInputC0="yes" ccShow="no" borderWidth="2" smoothFont="no" paddingLeft="0" paddingRight="0" distractionFreeDivPart="4" lineCopyCutWithoutSelection="yes" disableSelectedTextDragDrop="no" multiSelection="yes" columnSel2MultiEdit="yes" />
-        <GUIConfig name="DockingManager" leftWidth="427" rightWidth="200" topHeight="200" bottomHeight="397">
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" lineNumberDynamicWidth="no" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="none" isChangeHistoryEnabled="0" lineWrapMethod="aligned" currentLineIndicator="1" currentLineFrameWidth="1" virtualSpace="no" scrollBeyondLastLine="yes" rightClickKeepsSelection="no" selectedTextForegroundSingleColor="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="no" borderEdge="yes" isEdgeBgMode="no" edgeMultiColumnPos="" zoom="-2" zoom2="0" zoomSync="no" whiteSpaceShow="hide" eolShow="hide" eolMode="1" npcShow="hide" npcMode="1" npcCustomColor="no" npcIncludeCcUniEOL="no" npcNoInputC0="yes" ccShow="no" borderWidth="2" smoothFont="yes" paddingLeft="0" paddingRight="0" distractionFreeDivPart="4" lineCopyCutWithoutSelection="yes" disableSelectedTextDragDrop="no" multiSelection="yes" columnSel2MultiEdit="yes" />
+        <GUIConfig name="DockingManager" leftWidth="241" rightWidth="1783" topHeight="200" bottomHeight="397">
+            <PluginDlg pluginName="MarkdownViewer++" id="0" curr="1" prev="-1" isVisible="no" />
             <PluginDlg pluginName="Notepad++::InternalFunction" id="44085" curr="0" prev="-1" isVisible="no" />
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="0" curr="3" prev="-1" isVisible="yes" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="0" curr="3" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="AnotherMarkdown.dll" id="0" curr="1" prev="-1" isVisible="yes" />
             <ActiveTabs cont="0" activeTab="-1" />
             <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />

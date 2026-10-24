@@ -1,0 +1,718 @@
+# Karl2D rendering pipeline: assets, batching and the Direct3D 11 backend
+
+## Contents
+
+1. [The three layers](#1-the-three-layers)
+2. [Start-up](#2-start-up)
+3. [The render backend interface](#3-the-render-backend-interface)
+4. [Assets: loading, storing, retrieving](#4-assets-loading-storing-retrieving)
+5. [Recording draws](#5-recording-draws)
+6. [Flushing a batch](#6-flushing-a-batch)
+7. [Inside the D3D11 backend: resources](#7-inside-the-d3d11-backend-resources)
+8. [Inside the D3D11 backend: `d3d11_draw`](#8-inside-the-d3d11-backend-d3d11_draw)
+9. [End-to-end trace of one textured quad](#9-end-to-end-trace-of-one-textured-quad)
+10. [Things worth checking](#10-things-worth-checking)
+11. [Where to find things](#11-where-to-find-things)
+
+---
+
+## 1. The three layers
+
+```
+ Your game
+    |   k2.draw_texture(...), k2.load_texture_from_file(...), k2.set_shader(...)
+    v
+ karl2d.odin  (backend-independent)
+    - owns State: CPU vertex buffer, list of Draw_Calls, "current" settings
+    - owns CPU-side asset data: Shader reflection info, font glyph tables, font atlas pixels
+    - hands out small value types (Texture, Shader, Font, Render_Texture) that wrap handles
+    |
+    |   rb.load_texture / rb.load_shader / rb.draw / rb.clear / rb.present ...
+    v
+ Render_Backend_Interface  (render_backend_interface.odin, a struct of proc pointers)
+    |
+    v
+ render_backend_d3d11.odin
+    - owns D3D11_State: device, context, swapchain, one dynamic vertex buffer
+    - owns GPU objects in three handle maps: textures, render_targets, shaders
+```
+
+Two design decisions shape everything else:
+
+- **The core never touches a GPU object.** It holds opaque handles (`Texture_Handle`, `Shader_Handle`, `Render_Target_Handle`, 
+    all `distinct hm.Handle64`). The backend resolves a handle to a real object with `hm.get` at the moment it needs it.
+- **Drawing is deferred.** 
+	- Draw procs only append bytes to a CPU buffer and bookkeeping to a `Draw_Call`. 
+	- The backend sees nothing until a flush, when it receives the whole buffer and the whole draw call list in a single `rb.draw` call.
+
+The backend is picked at compile time in `render_backend_chooser.odin`. On Windows the default is `"d3d11"`, overridable with `-define:KARL2D_RENDER_BACKEND=gl`.
+
+---
+
+## 2. Start-up
+
+`init` (`karl2d.odin:60`) does the following, in this order:
+
+1. Allocates `State` and sets up the frame arena (`s.frame_allocator`), which holds one-frame allocations.
+2. Initialises the platform layer and gets a `^Window_Render_Glue`. 
+   - On Windows + D3D11 this is just the `HWND` cast to that pointer type (`platform_windows.odin:139`), and the backend casts it back.
+3. Copies `RENDER_BACKEND` into `s.rb` and the file-global `rb`, then allocates a zeroed block of `rb.state_type` 
+   size for the backend's state (`s.rb_state`).
+4. Sets up depth range and the first projection matrix (`_update_projection_matrix`).
+5. Calls `rb.init`.
+6. Allocates `s.vertex_buffer_cpu` (`VERTEX_BUFFER_MAX` = 1,000,000 bytes), `s.batch_draw_calls`, and the batch arena (64 KB blocks) that holds per-draw-call snapshots.
+7. Creates the **shape drawing texture**: a 16×16 all-white RGBA8 texture via `rb.load_texture`. 
+   Shapes sample this so that rectangles, circles and textured quads can all use the same shader.
+8. Loads the **default shader**
+9. Sets `s.draw_call_changes = DRAW_CALL_CHANGE_ALL`, so the first draw sets up all GPU state.
+10. Creates the font list with a dummy entry at index 0 (`FONT_NONE`), initialises the dynamic font cache, 
+    and loads the embedded Roboto TTF as a dynamic font, which must land at index 1 (`FONT_DEFAULT`).
+
+`shutdown` (`karl2d.odin:333`) releases these in roughly reverse order.
+
+---
+
+## 3. The render backend interface
+
+`Render_Backend_Interface` (`render_backend_interface.odin`) is a `#all_or_none` struct of proc pointers, so a backend must fill in every field.
+
+|   Group 			| 			Procs 										| 					Called from 				|
+|-------------------|---------------------------------------------------	|-----------------------------------------------|
+| Lifetime 			| `init`, `shutdown`        							| `init`, `shutdown` 							|
+| Frame 			| `clear`, `draw`, `present` 							| `clear`, `draw_current_batch`, `present` 		|
+| Swapchain 		| `resize_swapchain`, `get_swapchain_width/height` 		| resize events, `set_screen_size` |
+| Textures 			| `create_texture`, `load_texture`, `update_texture`,   |
+|                   | `destroy_texture`, `set_texture_filter`,              | texture and font procs, `draw_texture_fit`    | 
+|					| `texture_needs_vertical_flip`                         |
+| Render textures 	| `create_render_texture`, `destroy_render_target`      |    render texture procs                       |
+| Shaders 			| `load_shader`, `destroy_shader`,                      | shader procs, `init`                          | 
+|                   |  `default_shader_vertex_source`,                      | 
+|					|  `default_shader_fragment_source`                     |
+| Misc 				| `get_depth_clip_range`                                | `_update_projection_matrix`                   |
+
+The data that crosses the interface on the hot path is small:
+
+```odin
+draw: proc(s: ^Render_Backend_State, vertex_buffer: []u8, draw_calls: []Draw_Call)
+```
+
+```odin
+Draw_Call :: struct {
+    vertex_offset: int,          // BYTE offset into vertex_buffer
+    vertex_count:  int,
+    shader:        Shader_Handle,
+    vertex_size:   int,          // bytes per vertex for this shader
+    constants:     []Shader_Constant_Location,   // offset+size of each constant in constants_data
+    constants_data: []u8,        // snapshot of the shader's constants at the time of the draw call
+    textures:      []Texture_Handle,             // one per shader texture bindpoint
+    render_target: Render_Target_Handle,
+    scissor:       Maybe(Rect),
+    blend_mode:    Blend_Mode,
+    changed:       bit_set[Draw_Call_Change],    // which of the above differ from the previous call
+}
+```
+
+`changed` is what lets the backend skip redundant state setting. The interface comment also places a 
+ duty on the backend: if it has to skip a draw call, it must carry that call's `changed` bits over to 
+ the next one.
+
+---
+
+## 4. Assets: loading, storing, retrieving
+
+### 4.1 The ownership model
+
+Karl2D has no asset manager. There is no cache keyed by filename, no reference counting, and no registry 
+of loaded textures or shaders in the core. Loading the same file twice gives two independent GPU textures.
+
+| Asset | What you hold | CPU-side storage | GPU-side storage (D3D11) | Retrieved by |
+|---|---|---|---|---|
+| Texture | `Texture {handle, width, height}` by value | none; pixels are not kept after upload | `D3D11_Texture` in `s.textures` | handle, via `hm.get` in the backend |
+| Image | `Image {pixels, width, height}` by value | `pixels` in `s.allocator`; you own it | none | direct slice access |
+| Render texture | `Render_Texture {texture, render_target}` by value | none | `D3D11_Texture` + `D3D11_Render_Target` | two handles |
+| Shader | `Shader` struct by value | reflection data, constants buffer, lookup maps, all in `s.allocator`, referenced by slices/maps inside the struct | `D3D11_Shader` in `s.shaders` | handle for GPU side; struct fields for CPU side |
+| Static font | `Font` (an `int` index) | `Font_Data` in `s.fonts`: glyph table and ranges | its own atlas texture | index into `s.fonts` |
+| Dynamic font | `Font` (an `int` index) | `Font_Data` in `s.fonts`: a copy of the TTF bytes, kerning cache; glyph pixels in the shared `s.font_cache` | one shared atlas texture, `s.font_atlas_texture` | index into `s.fonts`, then glyph key into `font_cache.glyphs` |
+
+Because `Texture`, `Shader` and `Render_Texture` are plain values, copying them is cheap and all copies refer to the same underlying object. A `Shader` copy shares its slices and maps with the original, which is why `set_shader_constant(shd, ...)` on your copy is visible through `s.current_shader`.
+
+Fonts are the exception to "the core stores nothing": they live in `s.fonts`, a dynamic array that only grows. `destroy_font` frees a slot's contents but does not remove or reuse the slot.
+
+### 4.2 Textures
+
+All four public loaders converge on `rb.load_texture`:
+
+```odin
+load_texture_from_file(filename, options)          // karl2d.odin:1941
+read_entire_file(filename, frame_allocator)        // file bytes -> frame arena
+image.load_from_bytes(..., frame_allocator)        // decoded pixels -> frame arena
+load_texture_from_bytes_raw(pixels, w, h, .RGBA_8_Norm)
+rb.load_texture(s.rb_state, bytes, w, h, format)  -> Texture_Handle
+    return Texture { handle, width, height }
+load_texture_from_bytes(bytes, options)              // karl2d.odin:1978   (same, minus the file read)
+load_texture_from_bytes_raw(bytes, w, h, format)     // karl2d.odin:2007   (no decoding; you state the format)
+load_texture_from_image(image)                       // karl2d.odin:2045   (validates size, uploads as RGBA8)
+create_texture(w, h, format)                         // karl2d.odin:1908   (empty texture via rb.create_texture)
+```
+
+Details:
+
+- Decoding uses Odin's `core:image` with the PNG, JPEG, BMP and TGA loaders registered (see the `_ :: jpeg` etc. imports at `karl2d.odin:7729`).
+- `.alpha_add_if_missing` is always set. `.Premultiply_Alpha` in `Load_Texture_Options` adds `.alpha_premultiply`, for use with `set_blend_mode(.Premultiplied_Alpha)`.
+- Both the file bytes and the decoded pixels go into the **frame allocator**. They are not freed explicitly; they disappear at the next `reset_frame_allocator` (called by `update`). The GPU copy is the only lasting one.
+- On failure the loaders log and return a zero `Texture`. `draw_texture_fit` returns early for `TEXTURE_NONE` or zero size, so a failed texture draws nothing.
+
+Mutating and destroying:
+
+- `update_texture(tex, bytes, rect, pitch)` (`:2159`) forwards to `rb.update_texture`.
+- `set_texture_filter` / `set_texture_filter_ex` (`:2183`) forward to `rb.set_texture_filter`.
+- `destroy_texture` (`:2166`) forwards to `rb.destroy_texture`.
+
+All three first call `_flush_if_batch_uses_texture(handle)` (`:7467`). Since drawing is deferred, pending draw calls may still refer to the texture, so they must reach the GPU before the texture changes or disappears. The helper scans `s.current_draw_call.textures` and every recorded draw call's `textures`, and flushes only if it finds the handle.
+
+### 4.3 Images
+
+`Image` is the CPU-only counterpart: `[]Color` plus dimensions. `load_image_from_bytes` (`:2103`) decodes into the frame allocator, checks for 8-bit, 4-channel data, then copies the pixels into `s.allocator` so they outlive the frame. You free them with `destroy_image`. Images are used for window icons, custom cursors and as input to `load_texture_from_image`. They never reach the renderer directly.
+
+### 4.4 Render textures
+
+`create_render_texture(w, h)` (`:4355`) calls `rb.create_render_texture`, which returns two handles. They are packaged as:
+
+```odin
+Render_Texture :: struct {
+    texture:       Texture,               // sample it like any other texture
+    render_target: Render_Target_Handle,  // draw into it
+}
+```
+
+`set_render_texture` (`:4396`) does not touch the GPU. It stores the target handle and size in `s.current_render_target*`, sets the `.Render_Target` and `.Scissor` change bits, and rebuilds the projection matrix for the new size (which also sets `.Constants`).
+
+`destroy_render_texture` (`:4378`) flushes if any pending draw call renders into the target or samples its texture, then destroys both backend objects.
+
+### 4.5 Shaders
+
+`load_shader_from_file` (`:5143`) reads the vertex and fragment files into the frame allocator (reading once if both names are equal) and calls `load_shader_from_bytes` (`:5178`), which is where the two halves of a shader are assembled.
+
+**Step 1: the backend compiles and reflects.**
+
+```odin
+handle, desc, ok := rb.load_shader(s.rb_state, vs_bytes, fs_bytes, s.frame_allocator, layout_formats)
+```
+
+The backend returns a handle plus a `Shader_Desc`, allocated in the frame allocator:
+
+```odin
+Shader_Desc :: struct {
+    constants:          []Shader_Constant_Desc,          // name + size in bytes
+    texture_bindpoints: []Shader_Texture_Bindpoint_Desc, // name
+    inputs:             []Shader_Input,                  // name, register, type, format
+}
+```
+
+**Step 2: the core builds its own bookkeeping from the description**, in `s.allocator`:
+
+| `Shader` field | Built from | Purpose |
+|---|---|---|
+| `constants_data: []u8` | sum of all constant sizes | one flat CPU buffer holding every constant's current value |
+| `constants: []Shader_Constant_Location` | running offset over `desc.constants` | offset + size of constant *i* in `constants_data`; index *i* matches the backend's constant *i* |
+| `constant_lookup: map[string]...` | constant names | `shader.constant_lookup["name"]` gives a location for `set_shader_constant` |
+| `constant_builtin_locations` | a constant named `view_projection` | where the core writes its view-projection matrix |
+| `texture_bindpoints: []Texture_Handle` | one slot per reflected texture | textures set with `set_shader_texture` |
+| `texture_lookup: map[string]int` | texture names | name to bindpoint index |
+| `default_texture_index` | a texture named `tex` | the slot that receives the texture passed to `draw_texture*` |
+| `inputs` | cloned from `desc.inputs` | vertex layout |
+| `default_input_offsets` | inputs named `position`, `texcoord`, `color` with matching types | byte offsets `batch_vertex` writes to; `-1` if absent |
+| `input_overrides` | one per input | values set with `override_shader_input` |
+| `vertex_size` | sum of `pixel_format_size(input.format)` | bytes per vertex |
+
+The contract between a shader and the core is therefore entirely by **name**: `view_projection`, `tex`, `position`, `texcoord`, `color`. A custom shader that uses those names gets the built-in behaviour for free.
+
+The input formats come from `get_shader_input_format` (`:7555`) unless you pass `layout_formats`:
+
+| Input | CPU format | Bytes |
+|---|---|---|
+| `position` (Vec2 or Vec3) | `.RG_32_Float`, or `.RGB_32_Float` when `depth_test` is on | 8 or 12 |
+| `texcoord` (Vec2) | `.RG_32_Float` | 8 |
+| `color` (Vec4) | `.RGBA_8_Norm` | 4 |
+| anything else | float format matching the component count | 4 per component |
+
+So the default vertex is **20 bytes** (24 with depth testing), which gives about 50,000 vertices or 8,300 quads per batch.
+
+Setting shader state:
+
+- `set_shader` (`:5312`) copies the struct into `s.current_shader` and sets `.Shader`, `.Constants` and `.Textures`.
+- `set_shader_constant` (`:5334`) validates size and copies the value into `shd.constants_data`, then sets `.Constants`.
+- `set_shader_texture` (`:5368`) stores a handle in `shd.texture_bindpoints` and sets `.Textures`.
+- `override_shader_input` (`:5396`) stores bytes in `shader.input_overrides`. It sets no change bit, because the value is written into each vertex.
+
+None of these call the backend. The values only reach the GPU as part of a `Draw_Call`.
+
+`destroy_shader` (`:5268`) flushes if a pending draw call uses the shader, calls `rb.destroy_shader`, then frees all the CPU-side slices, maps and cloned names.
+
+### 4.6 Fonts
+
+`Font` is `distinct int`, an index into `s.fonts: [dynamic]Font_Data`. There are two kinds.
+
+**Static fonts** (`load_static_font_from_bytes`, `:4698`) are baked once at load time:
+
+1. `stbtt.InitFont` parses the TTF. Codepoints default to ASCII 32 to 126.
+2. Each glyph is rasterised with `stbtt.GetGlyphBitmap` at the requested pixel size.
+3. `stb_rect_pack` packs the glyphs, starting with a 128×128 atlas and doubling up to 4096×4096 until they fit.
+4. The coverage bitmaps are copied into an RGBA atlas as `{255, 255, 255, a}`, or `{a, a, a, a}` with `premultiply_alpha`.
+5. The atlas is uploaded with `load_texture_from_image`, so a static font is an ordinary texture as far as the backend is concerned.
+6. The glyph table (sorted by codepoint) and the list of contiguous codepoint ranges are cloned into `s.allocator`. All the working memory was in the frame allocator.
+
+At draw time, `draw_text_static` finds the glyph by scanning the ranges, then calls `draw_texture_fit` with the font's atlas and the glyph's source rect. A missing glyph draws a small red rectangle.
+
+**Dynamic fonts** (`load_dynamic_font_from_bytes`, `:4991`) rasterise on demand. Loading only clones the TTF bytes and parses the header (`fc.init_font`). The pixels live in the shared `s.font_cache` (`font_cache/font_cache.odin`):
+
+- One CPU atlas, `cache.pixels: [][4]u8`, starting at 256×256, shared by all dynamic fonts.
+- `cache.glyphs: map[Glyph_Key]Glyph`, where the key packs `font id << 48 | size << 32 | codepoint`. Every size of every glyph is a separate entry.
+- A skyline packer (ported from Fontstash) that places new glyphs.
+- A dirty rectangle (`dirty_min`, `dirty_max`) covering everything written since the last upload.
+
+The GPU copy of the atlas is `s.font_atlas_texture`. The flow in `draw_text_dynamic` (`:1789`):
+
+1. `_font_render_size` multiplies the font size by the camera zoom and rounds, so glyphs are rasterised at the size they will appear on screen.
+2. `_sync_font_atlas_texture` (`:7663`) recreates the GPU texture if its size no longer matches the CPU atlas.
+3. `fc.place_text_iterate` walks the text. For each codepoint, `fc.get_glyph` returns the cached glyph or rasterises it into the CPU atlas with `stbtt.MakeGlyphBitmap` and grows the dirty rectangle.
+4. Each placed glyph becomes a `draw_texture_fit` call that samples `s.font_atlas_texture`.
+
+At this point the quads are recorded but the new glyph pixels exist only on the CPU. The upload is deferred to the flush: `draw_current_batch` calls `_update_font_atlas` (`:7684`) immediately before `rb.draw`, which sends just the dirty rectangle through `rb.update_texture` using the `pitch` parameter to skip the rest of each row.
+
+When the packer has no room, the iterator returns `.No_Room` and the caller:
+
+1. Flushes the batch, because pending quads refer to current atlas positions.
+2. Calls `fc.make_room`, which doubles the atlas (up to 4096×4096) or, at maximum size, compacts it by keeping roughly the most recently used half of the glyphs and repacking them. Compaction is allowed at most once per timestamp.
+3. Re-syncs the GPU texture and retries the same glyph.
+
+`measure_text` for dynamic fonts runs the same iterator, so measuring text can also rasterise glyphs and trigger a flush.
+
+`destroy_font` (`:5043`) destroys the atlas texture for a static font. For a dynamic font it removes the font's glyphs from the cache map and frees the TTF copy.
+
+---
+
+## 5. Recording draws
+
+Only four procs emit vertices. Everything else is a wrapper.
+
+| Proc | Vertices | Texture | Wrappers that reach it |
+|---|---|---|---|
+| `draw_rect` (`:1108`) | 6 | shape drawing texture | `draw_rect_vec`, `draw_rect_ex`, `draw_rect_outline`, `draw_line`, `draw_circle_outline` |
+| `draw_circle` (`:1222`) | 3 × segments | shape drawing texture | |
+| `draw_triangle` (`:1266`) | 3 | shape drawing texture | |
+| `draw_texture_fit` (`:1356`) | 6 | the given texture | `draw_texture`, `draw_texture_rect`, `draw_texture_ex`, `draw_text` |
+
+Each one calls `_prepare_draw(texture, n)` once and then `batch_vertex(pos, uv, color)` n times. Geometry is always a non-indexed triangle list. Rotation and origin are applied on the CPU, so vertices are already in world space; the only transform left for the GPU is the view-projection matrix.
+
+### `_prepare_draw` (`:7333`): owner of the `Draw_Call`
+
+1. If `n + 1` vertices do not fit in the remaining buffer, flush. The extra vertex covers alignment padding.
+2. `changed := s.draw_call_changes`, plus `.Textures` if the texture differs from `s.current_texture`.
+3. If nothing changed, add `n` to `s.current_draw_call.vertex_count` and return. This is how consecutive draws merge.
+4. Otherwise start a new draw call:
+   - Append the current one to `s.batch_draw_calls` if it has vertices.
+   - Round the write position up to a multiple of the shader's `vertex_size`.
+   - If `.Constants` changed, clone `shader.constants_data` into the batch arena and write `s.view_projection` at the built-in location. Otherwise reuse the previous draw call's slice.
+   - If `.Textures` changed, clone `shader.texture_bindpoints` into the batch arena and put the draw's texture in the default slot. Otherwise reuse the previous slice.
+   - Fill in `s.current_draw_call` from the `s.current_*` settings and store `changed` in it.
+   - Clear `s.draw_call_changes`.
+
+The cloning matters: a draw call carries a **snapshot** of the constants and texture bindings as they were when it was created, so later calls to `set_shader_constant` do not affect draws already recorded.
+
+### `batch_vertex` (`:7422`): owner of the vertex bytes
+
+Writes one vertex at `s.vertex_buffer_cpu_used` using the current shader's layout: zero the vertex, write position (and `s.z` after it when depth testing is on), UV and colour at their offsets if the shader has them, copy in any input overrides, advance by `vertex_size`.
+
+### Settings that mark changes
+
+| Proc | Bits set |
+|---|---|
+| `set_shader` | `.Shader`, `.Constants`, `.Textures` |
+| `set_shader_constant` | `.Constants` |
+| `set_shader_texture` | `.Textures` |
+| `set_camera` (via `_update_projection_matrix`) | `.Constants` |
+| `set_render_texture` | `.Render_Target`, `.Scissor`, `.Constants` |
+| `set_blend_mode` | `.Blend_Mode` |
+| `set_scissor_rect` | `.Scissor` |
+| drawing with a different texture | `.Textures` (detected in `_prepare_draw`) |
+| `set_z`, `override_shader_input` | none; per-vertex data |
+
+### Coordinates
+
+`_update_projection_matrix` (`:7613`) builds an orthographic matrix over the window or the 
+current render target, with Y down by default and Y up when the camera has `flip_y`. The Z 
+mapping uses `rb.get_depth_clip_range()` so that the user's depth range maps to the backend's 
+clip range (0 to 1 for D3D11). The result, `s.view_projection = proj * view`, is the one built-in 
+shader constant.
+
+---
+
+## 6. Flushing a batch
+
+`draw_current_batch` (`:814`):
+
+```odin
+if s.current_draw_call.vertex_count > 0 { append(&s.batch_draw_calls, s.current_draw_call) }
+
+if len(s.batch_draw_calls) > 0 {
+    _update_font_atlas()                                   // upload dirty glyph pixels first
+    rb.draw(s.rb_state, s.vertex_buffer_cpu[:s.vertex_buffer_cpu_used], s.batch_draw_calls[:])
+    clear(&s.batch_draw_calls)
+}
+
+s.current_draw_call = {}
+s.draw_call_changes = DRAW_CALL_CHANGE_ALL                 // next batch re-sends all state
+s.vertex_buffer_cpu_used = 0
+free_all(s.batch_allocator)                                // drop the constants/texture snapshots
+```
+
+What triggers it:
+
+| Trigger                                                                | Why                                          |
+|   ---                                                                  | ---                                          |
+| `present`                                                              | end of frame                                 |
+| `clear`                                                                | pending draws must land before the clear     |
+| vertex buffer full                                                     | make room                                    |
+| `Event_Screen_Resize`, `Event_Window_Scale_Changed`, `set_screen_size` | pending draws were for the old swapchain     |
+| `destroy_texture`, `update_texture`,                                   | only if the batch uses that texture          |
+| `set_texture_filter*`, `destroy_font` (static)                          
+| `destroy_shader`, `destroy_render_texture`                             | only if the batch uses that shader or target |
+| dynamic font atlas full                                                | glyph positions are about to change          |
+
+`present` (`:420`) is `draw_current_batch()`, `pf.before_present()` (a no-op on Windows), `rb.present()`.
+
+---
+
+## 7. Inside the D3D11 backend: resources
+
+### 7.1 State
+
+`D3D11_State` (`render_backend_d3d11.odin:1469`) embeds `Render_Backend_State` as its first field, which 
+is what makes the pointer cast from the interface's generic state pointer valid. It holds:
+
+- `device`, `device_context`, `dxgi_adapter`, `swapchain`, `framebuffer` + `framebuffer_view`
+- `vertex_buffer_gpu`: the single dynamic vertex buffer
+- `rasterizer_state`, three blend states, and optionally `depth_stencil_state`, `depth_buffer`, `depth_buffer_view`
+- Three handle maps: `textures`, `render_targets`, `shaders`
+- `info_queue` for debug-layer messages
+
+### 7.2 `d3d11_init` (`:41`)
+
+1. Creates a hardware device requesting feature level 11.1 then 11.0, with `.BGRA_SUPPORT`. In debug builds it adds `.DEBUG`, falls back to a non-debug device if the SDK layers are missing (error `0x887a002d`), and otherwise grabs the `IInfoQueue`.
+2. Creates the swapchain (`d3d11_create_swapchain`, `:1505`): `B8G8R8A8_UNORM`, two buffers, `SwapEffect = .DISCARD`, `Scaling = .STRETCH`, 4× MSAA if `anti_alias` is set and supported. It takes buffer 0 as `s.framebuffer`, creates a render target view, disables Alt+Enter, and creates a `D24_UNORM_S8_UINT` depth buffer when depth testing is on.
+3. Rasterizer state: solid fill, **no culling**, **scissor always enabled**, multisampling per the option. No culling is why `draw_triangle` accepts either winding. Scissor always on is why "no scissor" has to be expressed as a full-size rect.
+4. Depth-stencil state (only with `depth_test`): depth write on, `GREATER_EQUAL`, so higher Z is in front and equal Z falls back to draw order.
+5. The vertex buffer: `ByteWidth = VERTEX_BUFFER_MAX`, `Usage = .DYNAMIC`, CPU write access. Same size as the CPU buffer.
+6. Three blend states, created once and selected per draw call:
+
+| `Blend_Mode` | Colour: src, dest | Alpha: src, dest |
+|---|---|---|
+| `.Alpha` | `SRC_ALPHA`, `INV_SRC_ALPHA` | `SRC_ALPHA`, `INV_SRC_ALPHA` |
+| `.Premultiplied_Alpha` | `ONE`, `INV_SRC_ALPHA` | `ONE`, `INV_SRC_ALPHA` |
+| `.Additive` | `SRC_ALPHA`, `ONE` | `SRC_ALPHA`, `ONE` |
+
+### 7.3 Textures
+
+```odin
+D3D11_Texture :: struct {
+    handle:  Texture_Handle,
+    tex:     ^d3d11.ITexture2D,
+    view:    ^d3d11.IShaderResourceView,
+    format:  Pixel_Format,
+    sampler: ^d3d11.ISamplerState,   // one per texture
+}
+```
+
+`d3d11_load_texture` and `d3d11_create_texture` both call `_d3d11_create_texture` (`:592`):
+
+1. `CreateTexture2D` with one mip level, `Usage = .DEFAULT`, `BindFlags = {.SHADER_RESOURCE}`, 
+   and the DXGI format from `dxgi_format_from_pixel_format` (`:1598`). If pixel data is supplied 
+   it goes in as initial data with `SysMemPitch = width * pixel_format_size(format)`.
+2. `CreateShaderResourceView`.
+3. `d3d11_create_sampler(.MIN_MAG_MIP_POINT)`: point filtering and clamp addressing by default.
+4. `hm.add(&s.textures, tex)` returns the `Texture_Handle` that goes back to the core.
+
+**Samplers belong to textures, not shaders.** This is deliberate, to match GL, where filtering is 
+a texture property. The comment on the struct notes that D3D11 returns the same sampler object for 
+identical descriptions, so per-texture samplers are cheap. `d3d11_set_texture_filter` (`:883`) maps 
+the three `Texture_Filter` values to a `d3d11.FILTER`, releases the old sampler and creates a new one.
+
+`d3d11_update_texture` (`:833`) builds a `d3d11.BOX` from the rect and calls `UpdateSubresource`, with
+ a row pitch of either the given `pitch` or `rect.w * pixel size`.
+
+`d3d11_destroy_texture` (`:866`) releases the texture, view and sampler and removes the entry from the
+ map. After that, `hm.get` with the old handle returns `nil`, which every use site checks for.
+
+`d3d11_texture_needs_vertical_flip` always returns `false`. It exists for GL, where render textures come
+ out upside down.
+
+### 7.4 Render targets
+
+`d3d11_create_render_texture` (`:672`) creates:
+
+- A texture in `R32G32B32A32_FLOAT` with `BindFlags = {.SHADER_RESOURCE, .RENDER_TARGET}`, sample count 1 (render textures are not multisampled, regardless of `anti_alias`).
+- A shader resource view and a render target view on it.
+- With depth testing, its own `D24_UNORM_S8_UINT` depth buffer and view.
+
+It registers a `D3D11_Texture` in `s.textures` and a `D3D11_Render_Target {render_target_view, width, height, depth_buffer, depth_buffer_view}` in `s.render_targets`, and returns both handles. Every failure path releases what was created so far.
+
+The texture and render target are destroyed separately: the core calls `rb.destroy_texture` and then `rb.destroy_render_target`.
+
+### 7.5 Shaders
+
+```odin
+D3D11_Shader :: struct {
+    handle:           Shader_Handle,
+    vertex_shader:    ^d3d11.IVertexShader,
+    pixel_shader:     ^d3d11.IPixelShader,
+    input_layout:     ^d3d11.IInputLayout,
+    constant_buffers: []D3D11_Shader_Constant_Buffer,  // gpu_data, size, bound_shaders, bind_point
+    constants:        []D3D11_Shader_Constant,         // buffer_idx, offset
+    texture_bindings: []D3D11_Texture_Binding,         // bind_point, sampler_bind_point
+}
+```
+
+`d3d11_load_shader` (`:944`):
+
+1. **Compile the vertex shader** from source at runtime with `d3d_compiler.Compile`, entry point `vs_main`, target `vs_5_0`. Compile errors are logged from the error blob. Then `CreateVertexShader`.
+2. **Reflect the vertex shader** (`d3d_compiler.Reflect`). For each input parameter it reads the semantic name and component mask and derives a `Shader_Input_Type` (mask 1, 3, 7, 15 gives F32, Vec2, Vec3, Vec4). Only float inputs are supported; integer inputs and semantic indices above 0 log an error. The format comes from `layout_formats` or `get_shader_input_format`.
+3. **Reflect resources** with `d3d11_reflect_shader_constants` (`:1277`), described below.
+4. **Create the input layout** from the inputs: one element per input, all in slot 0, per-vertex, offset 0 for the first and `APPEND_ALIGNED_ELEMENT` for the rest, with the DXGI format matching the CPU format. This is where the CPU vertex layout from section 4.5 and the GPU layout are tied together. Note that the HLSL declares `float3 position` and `float4 color` while the layout supplies `R32G32_FLOAT` (without depth testing) and `R8G8B8A8_UNORM`; D3D fills missing components with defaults and expands normalised bytes to floats.
+5. **Compile the pixel shader** the same way, entry point `ps_main`, target `ps_5_0`, and reflect its resources into the same arrays.
+6. Assemble the `D3D11_Shader`, `hm.add` it, and return the handle and `Shader_Desc`.
+
+So a D3D11 shader file must define `vs_main` and `ps_main`. The default shader does both in one file, which is why the vertex and fragment "sources" are the same bytes.
+
+`d3d11_reflect_shader_constants` walks the bound resources of one shader stage:
+
+- **Samplers**: the bind point is remembered.
+- **Textures**: appended to `texture_bindings` and to the description's `texture_bindpoints`.
+- **Constant buffers**: if a buffer with the same bind point was already found (from the other stage) it is reused and the stage is added to `bound_shaders`; otherwise a dynamic, CPU-writable `ID3D11Buffer` of the reflected size is created. Then every variable in the buffer is appended to the description's `constants` (name, size) and to `d3d_constants` (buffer index, offset in the buffer).
+
+The key invariant is that **constant *i* in the description is constant *i* in `D3D11_Shader.constants`**. The core's `Shader.constants[i]` gives the CPU offset; the backend's `constants[i]` gives the GPU buffer and offset. Nothing else links them.
+
+After the loop it enforces a rule: each texture at register `tN` must have a sampler at register `sN`. If not, it logs an error. This is what makes per-texture samplers work: when binding texture `tN`, the backend also binds that texture's sampler to `sN`.
+
+For the default shader the outcome is:
+
+| | |
+|---|---|
+| Inputs | `position` (Vec3), `texcoord` (Vec2), `color` (Vec4) |
+| Constants | `view_projection`, 64 bytes, in cbuffer `b0`, vertex stage only |
+| Textures | `tex` at `t0` with sampler `smp` at `s0` |
+
+`d3d11_destroy_shader` (`:1416`) releases the layout, both shaders and the constant buffers, frees the three slices, and removes the map entry.
+
+---
+
+## 8. Inside the D3D11 backend: `d3d11_draw`
+
+`d3d11_draw(s, vertex_buffer, draw_calls)` (`:367`) is the only place geometry reaches the GPU.
+
+### 8.1 Once per batch
+
+1. Return if either slice is empty.
+2. **Upload vertices**: `Map(s.vertex_buffer_gpu, WRITE_DISCARD)`, copy the used part of the CPU buffer, `Unmap`. One upload serves every draw call in the batch. `WRITE_DISCARD` gives the driver a fresh buffer, so there is no stall waiting for the previous batch.
+3. `IASetPrimitiveTopology(.TRIANGLELIST)` and `RSSetState(s.rasterizer_state)`.
+4. With depth testing, `OMSetDepthStencilState`.
+
+### 8.2 Per draw call
+
+```
+changed := call.changed + missed
+```
+
+`missed` accumulates the change bits of draw calls that had to be skipped, which fulfils the duty described in section 3. The only skip condition is a shader handle that no longer resolves.
+
+Then each change bit maps to a block of device context calls:
+
+| Bit | D3D11 calls | Data used |
+|---|---|---|
+| `.Shader` | `IASetInputLayout`; `IASetVertexBuffers(slot 0, stride = call.vertex_size, offset = 0)`; `VSSetShader`; `PSSetShader` | `D3D11_Shader` |
+| `.Constants` | `d3d11_set_constants` (below) | `call.constants`, `call.constants_data` |
+| `.Textures` | for each slot: `PSSetShaderResources(bind_point, view)`, `PSSetSamplers(sampler_bind_point, sampler)` | `call.textures[i]` resolved in `s.textures` |
+| `.Render_Target` | `OMSetRenderTargets` with the target's view (or the framebuffer view) and its depth view; `RSSetViewports` to the target's size (or window size) | `call.render_target` resolved in `s.render_targets` |
+| `.Scissor` | `RSSetScissorRects` with the user rect, or the full target size when there is none | `call.scissor` |
+| `.Blend_Mode` | `OMSetBlendState` with one of the three prebuilt states | `call.blend_mode` |
+
+And finally:
+
+```odin
+dc->Draw(u32(call.vertex_count), u32(call.vertex_offset / call.vertex_size))
+```
+
+This line explains two things on the CPU side. The vertex buffer is bound once with byte offset 0, and each draw selects its range with a **start vertex index**. That only works if `vertex_offset` is an exact multiple of `vertex_size`, which is why `_prepare_draw` pads the write position when a draw call starts. It is also why the stride is re-bound under `.Shader`: the same buffer is reinterpreted with a different vertex size when the shader changes.
+
+Other details:
+
+- The texture loop only runs if `len(call.textures)` equals the shader's binding count. A texture handle that does not resolve is skipped, leaving whatever was bound before.
+- The render target lookup is done only when `.Render_Target` or `.Scissor` is set, keeping it out of the common "only the texture changed" path.
+
+### 8.3 `d3d11_set_constants` (`:515`)
+
+For each constant *i*:
+
+- `cpu_loc := constants[i]` (offset and size in the snapshot) and `gpu_loc := d3d_shd.constants[i]` (buffer index and offset in that buffer).
+- Map the target constant buffer with `WRITE_DISCARD` the first time it is touched; a small `maps` array (frame allocator) remembers the mapped pointer so each buffer is mapped once.
+- Copy `constants_data[cpu_loc.offset:][:cpu_loc.size]` to the mapped buffer at `gpu_loc.offset`.
+
+Then for each constant buffer: bind it to the vertex and/or pixel stage per `bound_shaders`, and unmap it.
+
+Every constant is rewritten each time, which is required since `WRITE_DISCARD` invalidates the old contents. The matrix is copied byte for byte; Odin matrices are stored column-major and HLSL cbuffers default to column-major packing, so `mul(view_projection, float4(position, 1))` in the shader works without a transpose.
+
+### 8.4 After the loop
+
+```odin
+dc->OMSetRenderTargets(0, nil, nil)
+d3d11_log_messages(s)
+```
+
+Unbinding all render targets at the end of each batch has two effects. A render texture that was just drawn into can be sampled in the next batch without D3D11 complaining that it is still bound as an output, and the swapchain's buffers are free to be released on resize. It is safe because the next batch always starts with `DRAW_CALL_CHANGE_ALL`, so the target is re-bound by the first draw call.
+
+`d3d11_log_messages` drains the debug-layer info queue to the log (debug builds only).
+
+### 8.5 Clear, present, resize
+
+- `d3d11_clear` (`:344`): `ClearRenderTargetView` on the given render target, or the framebuffer if the handle does not resolve. With depth testing it clears depth to **0**, matching the `GREATER_EQUAL` test. It does not need a bound target, which is why it works straight after the unbind above.
+- `d3d11_present` (`:362`): `swapchain->Present(1, {})`, a sync interval of 1, so vsync is always on.
+- `d3d11_resize_swapchain` (`:568`): releases the framebuffer, its view, the depth buffer and the **whole swapchain**, then calls `d3d11_create_swapchain` again rather than using `ResizeBuffers`. The core flushes the batch first.
+
+---
+
+## 9. End-to-end trace of one textured quad
+
+A frame that loads nothing new and draws one sprite, with the default shader, no camera, depth testing off:
+
+```odin
+k2.clear(k2.BLACK)
+k2.draw_texture(player_tex, {100, 50})
+k2.present()
+```
+
+**`clear`**
+
+1. `draw_current_batch()`: nothing recorded, so it only resets state. `draw_call_changes` is `DRAW_CALL_CHANGE_ALL`.
+2. `rb.clear` → `d3d11_clear` → `ClearRenderTargetView(s.framebuffer_view, black)`.
+
+**`draw_texture`** → `draw_texture_fit(player_tex, full source rect, dest rect at (100, 50))`
+
+3. `_prepare_draw(player_tex.handle, 6)`:
+   - Buffer has room.
+   - `changed` is all bits.
+   - New `Draw_Call`: `vertex_offset = 0`, `vertex_count = 6`, `vertex_size = 20`, default shader handle.
+   - `constants_data` = 64-byte clone of the shader's constants with `s.view_projection` written at offset 0.
+   - `textures` = one-element clone with `player_tex.handle` in slot 0.
+   - `render_target` = none, `scissor` = nil, `blend_mode` = `.Alpha`, `changed` = all.
+4. Six `batch_vertex` calls write 6 × 20 = 120 bytes: position (8), UV (8), colour (4) each. `vertex_buffer_cpu_used = 120`.
+
+**`present`**
+
+5. `draw_current_batch()`:
+   - Appends the draw call; the list has one entry.
+   - `_update_font_atlas()`: nothing dirty.
+   - `rb.draw(state, buffer[:120], calls[:1])`.
+6. `d3d11_draw`:
+   - `Map` / copy 120 bytes / `Unmap`.
+   - Topology, rasterizer state.
+   - Draw call 0, all bits set:
+     - `.Shader`: input layout, vertex buffer with stride 20, VS, PS.
+     - `.Constants`: map cbuffer `b0`, copy 64 bytes, bind to VS, unmap.
+     - `.Textures`: resolve the handle in `s.textures`; bind its view to `t0` and its sampler to `s0`.
+     - `.Render_Target`: handle does not resolve, so bind `framebuffer_view`; viewport = window size.
+     - `.Scissor`: full window rect.
+     - `.Blend_Mode`: `blend_state_alpha`.
+     - `Draw(6, 0)`.
+   - `OMSetRenderTargets(0, nil, nil)`.
+7. Back in `draw_current_batch`: clear the list, zero the current draw call, reset the write position, free the batch arena.
+8. `rb.present` → `Present(1, {})`.
+
+If a second sprite from the **same texture** had been drawn before `present`, step 3 would have found `changed == {}` and simply bumped `vertex_count` to 12: still one draw call and one `Draw(12, 0)`. A sprite from a **different texture** would have created a second `Draw_Call` with `changed = {.Textures}` and `vertex_offset = 120`, and the backend would have done only the two texture binds followed by `Draw(6, 6)`.
+
+---
+
+## 10. Things worth checking
+
+These came up while tracing. None were confirmed by running the code.
+
+**Likely bug: `pixel_format_size(.RGBA_32_Float)` returns 32** (`karl2d.odin:5420`). Four 32-bit floats are 16 bytes, and the neighbouring cases (12, 8, 4) follow that arithmetic. Consequences under D3D11:
+
+- A custom shader with a `float4` input that is not named `color` gets `.RGBA_32_Float`. The core then counts 32 bytes for it in `vertex_size`, `default_input_offsets` and the override offsets in `batch_vertex`, while the D3D input layout advances 16 bytes for `R32G32B32A32_FLOAT`. Any input declared after it would be read from the wrong offset. If it is the last input, only the stride is too large and it probably goes unnoticed.
+- `_d3d11_create_texture` and `d3d11_update_texture` would compute a doubled row pitch for `.RGBA_32_Float` data.
+- The default shader is unaffected, because `color` maps to `.RGBA_8_Norm`.
+
+**A cbuffer used by both stages is reflected twice.** `d3d11_reflect_shader_constants` shares the GPU buffer by bind point but appends the variables again for the pixel stage. The core therefore allocates two CPU copies of each such constant, and `constant_lookup` and the built-in location end up pointing at the second copy. It still works, because `d3d11_set_constants` copies in order and the second copy overwrites the first in the same GPU location. It is order-dependent rather than designed, and worth knowing if you write a shader that reads `view_projection` in the pixel stage.
+
+**Textures are bound to the pixel stage only.** Reflection collects texture bindings from both stages, but `d3d11_draw` only calls `PSSetShaderResources` and `PSSetSamplers`. A texture sampled in the vertex shader would not be bound.
+
+**`load_texture_from_file` / `_from_bytes` do not validate bit depth or channel count**, whereas `load_image_from_bytes` checks for 8-bit, 4-channel data before using the pixels. If `core:image` returns something else for a given file (16-bit PNGs, and possibly greyscale ones), the buffer would be uploaded as RGBA8 anyway.
+
+**Mip filtering currently has no effect.** Textures are created with `MipLevels = 1`, so the `mip_filter` argument only changes the sampler description. A TODO next to `set_texture_filter_ex` acknowledges that mip generation is not there yet.
+
+**Alpha written to render textures.** The `.Alpha` blend state uses `SRC_ALPHA` as the source factor for the alpha channel too, so the alpha stored in a render target is `src.a² + dst.a·(1 − src.a)`. That is invisible on the window but can matter when a render texture with translucent content is later drawn onto something else.
+
+**Transient load memory lives until the next `update`.** File bytes and decoded pixels go to the frame allocator. Loading many large textures in one go (for example before the first `update`) keeps all of that memory alive until `reset_frame_allocator` runs.
+
+**Minor items**
+
+- `D3D11_State.all_samplers` is declared but never used.
+- `d3d11_set_texture_filter` has a duplicated Linear/Linear/Linear branch, and its error path calls `log.error` with a format string where `log.errorf` was presumably intended.
+- The doc comments on the texture loaders list "PNG, BMP, TGA and baseline PNG"; the JPEG loader is imported, so "baseline JPEG" is probably what is meant.
+- `set_shader_constant` sets `.Constants` even when the shader is not the current one, which can split a draw call unnecessarily.
+
+---
+
+## 11. Where to find things
+
+### `karl2d.odin`
+
+| Topic | Symbol | Line |
+|---|---|---|
+| Start-up | `init` | 60 |
+| Frame | `update`, `clear`, `present` | 313, 374, 420 |
+| Resize handling | `Event_Screen_Resize` case in `process_events` | 633 |
+| Flush | `draw_current_batch` | 814 |
+| Primitives | `draw_rect`, `draw_circle`, `draw_triangle`, `draw_texture_fit` | 1108, 1222, 1266, 1356 |
+| Text | `measure_text`, `draw_text` | 1508, 1642 |
+| Textures | `create_texture`, `load_texture_from_file`, `_from_bytes`, `_from_bytes_raw`, `_from_image` | 1908, 1941, 1978, 2007, 2045 |
+| | `update_texture`, `destroy_texture`, `set_texture_filter_ex` | 2159, 2166, 2183 |
+| Images | `load_image_from_bytes` | 2103 |
+| Render textures | `create_render_texture`, `destroy_render_texture`, `set_render_texture` | 4355, 4378, 4396 |
+| Fonts | `load_static_font_from_bytes`, `load_dynamic_font_from_bytes`, `destroy_font` | 4698, 4991, 5043 |
+| Shaders | `load_shader_from_file`, `load_shader_from_bytes`, `destroy_shader` | 5143, 5178, 5268 |
+| | `set_shader`, `set_shader_constant`, `set_shader_texture`, `override_shader_input` | 5312, 5334, 5368, 5396 |
+| Formats | `pixel_format_size`, `get_shader_input_format` | 5416, 7555 |
+| Settings | `set_camera`, `set_blend_mode`, `set_scissor_rect`, `set_z` | 5441, 5651, 5662, 5671 |
+| Types | `Texture`, `Shader`, `Font_Data`, handle types | 5881, 6019, 6132, 6148 |
+| State | `State` | 6471 |
+| Batching | `_prepare_draw`, `batch_vertex`, `_flush_if_batch_uses_texture` | 7333, 7422, 7467 |
+| Projection | `_update_projection_matrix` | 7613 |
+| Font atlas sync | `_sync_font_atlas_texture`, `_update_font_atlas` | 7663, 7684 |
+
+### `render_backend_d3d11.odin`
+
+| Topic | Symbol | Line |
+|---|---|---|
+| Interface table | `RENDER_BACKEND_D3D11` | 16 |
+| Lifetime | `d3d11_init`, `d3d11_shutdown` | 41, 247 |
+| Frame | `d3d11_clear`, `d3d11_present`, `d3d11_draw` | 344, 362, 367 |
+| Constants upload | `d3d11_set_constants` | 515 |
+| Swapchain | `d3d11_resize_swapchain`, `d3d11_create_swapchain` | 568, 1505 |
+| Textures | `_d3d11_create_texture`, `d3d11_update_texture`, `d3d11_destroy_texture` | 592, 833, 866 |
+| Samplers | `d3d11_set_texture_filter`, `d3d11_create_sampler` | 883, 929 |
+| Render targets | `d3d11_create_render_texture`, `d3d11_destroy_render_target` | 672, 810 |
+| Shaders | `d3d11_load_shader`, `d3d11_reflect_shader_constants`, `d3d11_destroy_shader` | 944, 1277, 1416 |
+| Types | `D3D11_Shader`, `D3D11_State`, `D3D11_Texture`, `D3D11_Render_Target` | 1459, 1469, 1571, 1587 |
+| Formats | `dxgi_format_from_pixel_format` | 1598 |
+| Errors | `d3d11_check`, `d3d11_log_messages` | 1617, 1627 |
+
+### Other files
+
+| File | Contents |
+|---|---|
+| `render_backend_interface.odin` | `Render_Backend_Interface`, `Draw_Call`, `Draw_Call_Change`, `Shader_Desc` |
+| `render_backend_chooser.odin` | compile-time backend selection |
+| `default_shaders/default_shader_d3d11.hlsl` | the default shader |
+| `font_cache/font_cache.odin` | dynamic font atlas, glyph cache, skyline packer |
+| `file_system_default.odin` | `read_entire_file` |
+| `platform_windows.odin` | window creation; the `HWND` handed to D3D11 |

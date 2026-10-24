@@ -1,0 +1,72 @@
+# K2 Abstract Graphics pipeline (IE Before API specific implementations)
+
+batch_vertex is the only thing that writes vertices, and _prepare_draw is the only thing that creates or extends a Draw_Call. 
+The public draw procs call _prepare_draw once, then batch_vertex N times.
+
+# Who writes vertex_buffer_cpu
+
+s.vertex_buffer_cpu is a raw []u8 of VERTEX_BUFFER_MAX (1,000,000) bytes, allocated in init (karl2d.odin:146), with s.vertex_buffer_cpu_used as the write cursor. It is untyped because the vertex layout comes from whichever shader is current.
+
+batch_vertex(v, uv, color) (karl2d.odin:7362) is the sole writer. For each vertex it:
+
+Zeroes shd.vertex_size bytes at the cursor, where shd is s.current_shader.
+Writes position, UV and color at shd.default_input_offsets[.Position/.UV/.Color], skipping any the shader lacks (offset -1). If depth testing is on, s.z is written right after the position.
+Copies in any values set via override_shader_input, walking shd.inputs.
+Advances the cursor by shd.vertex_size.
+
+Only four procs call it; all emit plain triangle lists, with no index buffer:
+
+Proc			  Line	   	Vertices		Texture passed to _prepare_draw
+draw_rect 		 (1068)	 		6 		s.shape_drawing_texture (a white box)
+draw_circle  	 (1182)	 		3  		× segments	s.shape_drawing_texture
+draw_triangle 	 (1226)	 		3		s.shape_drawing_texture
+draw_texture_fit (1316)	 		6		texture.handle
+
+Everything else funnels into those. draw_rect_vec, draw_rect_ex, draw_rect_outline and draw_line go through draw_rect. draw_texture, draw_texture_rect, draw_texture_section, draw_texture_ex and draw_text (one quad per glyph from the font atlas) go through draw_texture_fit.
+
+Who populates the Draw_Call
+
+batch_vertex never touches a Draw_Call. _prepare_draw(texture, vertices_needed) (karl2d.odin:7273) does, and each of the four procs calls it before emitting vertices:
+
+Capacity check. If vertices_needed + 1 vertices won't fit, it calls draw_current_batch() to flush. The extra vertex covers the alignment padding in step 4.
+Change detection. It takes s.draw_call_changes and adds .Textures if texture != s.current_texture.
+Nothing changed. It does s.current_draw_call.vertex_count += vertices_needed and returns. This is how consecutive draws merge; the count is bumped before the vertices are written.
+Something changed. It starts a new draw call:
+It appends the existing s.current_draw_call to s.batch_draw_calls if it has vertices.
+It pads the cursor up to a multiple of the current shader's vertex_size, so backends can treat the offset as a vertex index even when shaders with different vertex sizes share the buffer.
+If .Constants changed, it clones shader.constants_data into the batch arena and writes s.view_projection into the builtin slot. Otherwise it reuses the previous draw call's slice.
+If .Textures changed, it clones shader.texture_bindpoints and puts texture in the shader's default texture slot. Otherwise it reuses the previous slice.
+It builds the new s.current_draw_call: vertex_offset (the byte cursor), vertex_count, shader handle, vertex_size, constants, textures, render target, scissor, blend mode and the changed bit set.
+It sets s.current_texture = texture and clears s.draw_call_changes.
+Where the changes come from
+
+The state setters don't flush or create draw calls. They update s.current_* and set bits in s.draw_call_changes, which the next _prepare_draw picks up:
+
+set_shader: .Shader, .Constants, .Textures
+set_shader_constant: .Constants
+set_shader_texture: .Textures
+set_blend_mode: .Blend_Mode
+set_scissor_rect: .Scissor
+set_render_texture: .Render_Target, .Scissor, plus .Constants via _update_projection_matrix
+set_camera: .Constants, via _update_projection_matrix
+
+override_shader_input sets no bit, because its values are baked into each vertex by batch_vertex.
+
+Hand-off to the graphics interface
+
+draw_current_batch (karl2d.odin:778) appends the in-progress s.current_draw_call to s.batch_draw_calls, then makes the one call across the interface:
+
+odin
+rb.draw(s.vertex_buffer_cpu[:s.vertex_buffer_cpu_used], s.batch_draw_calls[:])
+
+That matches draw: proc(vertex_buffer: []u8, draw_calls: []Draw_Call) in render_backend_interface.odin, where Draw_Call and Draw_Call_Change are defined. Each draw call is a byte range in that buffer plus the state it needs, and changed tells the backend which state to re-apply.
+
+It then resets everything: the draw call list, current_draw_call, the cursor and the batch arena. It also sets draw_call_changes = DRAW_CALL_CHANGE_ALL, so the first draw of the next batch always starts a new draw call with all state flagged.
+
+Flushes happen from:
+
+present and clear
+the buffer-full check in _prepare_draw
+swapchain resizes
+destroying or updating a texture, shader or render texture that the pending batch uses
+the font atlas running out of room during text drawing

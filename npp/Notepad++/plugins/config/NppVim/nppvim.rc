@@ -1,0 +1,8 @@
+" NppVim Configuration
+set relativenumber
+set hlsearch
+
+nnoremap H ^
+nnoremap L $
+
+inoremap jj <Esc>
